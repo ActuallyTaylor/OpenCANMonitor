@@ -16,8 +16,10 @@ class CanChannelMonitor: ObservableObject {
     }
     
     @Published var messages: [CANMessage] = []
+    @Published var transmittingMessages: [CANTransmitMessage] = []
     @Published var receivedError: PCANError? = nil
     @Published var initialized: Bool = false
+    @Published var initializedViews: [NavigableView] = [.connections]
     
     var runningCounter: Int = 0
     var timer: Timer?
@@ -59,6 +61,7 @@ class CanChannelMonitor: ObservableObject {
         LOG("Connected to Bus: \(bus) at baud rate \(baudRate)", level: .success)
         
         initialized = true
+        initializedViews = [.connections, .receiving, .transmitting]
         initTimer()
     }
     
@@ -80,6 +83,7 @@ class CanChannelMonitor: ObservableObject {
         LOG("Connected to Bus: \(bus) at baud rate \(baudRate)", level: .success)
 
         initialized = false
+        initializedViews = [.connections]
         self.bus = .none
         self.baudRate = .none
     }
@@ -130,6 +134,7 @@ extension CanChannelMonitor {
         
         let decoder = JSONDecoder()
         self.messages = try decoder.decode([CANMessage].self, from: data)
+        initializedViews = [.connections, .receiving]
     }
     
     func save() throws {

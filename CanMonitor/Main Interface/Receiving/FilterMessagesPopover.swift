@@ -16,7 +16,7 @@ struct FilterMessagesPopover: View {
         VStack(alignment: .leading) {
             VStack {
                 VStack(alignment: .leading) {
-                    AKTextField(placeholder: "Hex Data Filter", text: $hexDataFilter, formatter: HexFormatter(byteLimit: 8))
+                    AKTextField(placeholder: "Hex Data Filter", text: $hexDataFilter, formatter: HexFormatter(characterLimit: 8))
                         .frame(idealWidth: 250)
                     Text("All messages **must** contain the specified **hex** data")
                         .font(.caption)

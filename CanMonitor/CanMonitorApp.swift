@@ -12,9 +12,11 @@ struct CanMonitorApp: App {
     var body: some Scene {
         WindowGroup {
             ControllerView()
+                .rounded()
         }
         Settings {
             SettingsView()
+                .rounded()
         }
     }
 }

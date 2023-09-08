@@ -11,15 +11,25 @@ struct ControllerView: View {
     @StateObject var channelMonitor: CanChannelMonitor = .init()
     @State var visibility: NavigationSplitViewVisibility = .doubleColumn
     
-    @State var selectedView: NavigableView = .CANMessages
+    @State var selectedView: NavigableView = .transmitting
 
     var body: some View {
         NavigationSplitView(columnVisibility: $visibility) {
             List(NavigableView.allCases, selection: $selectedView) { view in
-                NavigationLink(view.displayName, value: view)
+                NavigationLink(value: view) {
+                    Label(view.displayName, symbol: view.image)
+                }
+                .disabled(!channelMonitor.initializedViews.contains(view))
             }
         } detail: {
-            CANTableView()
+            switch selectedView {
+            case .connections:
+                ConnectionsView()
+            case .receiving:
+                ReceivingTableView()
+            case .transmitting:
+                TransmitView()
+            }
         }
         .environmentObject(channelMonitor)
 

@@ -14,14 +14,14 @@ struct SendMessagePopover: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                AKTextField(placeholder: "ID (Hex)", text: $id, formatter: HexFormatter(byteLimit: 8))
+                AKTextField(placeholder: "ID (Hex)", text: $id, formatter: HexFormatter(characterLimit: 16))
                     .frame(idealWidth: 250)
                 Text("Maximum 29 bits (3.625 Bytes)")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
             VStack(alignment: .leading) {
-                AKTextField(placeholder: "Data (Hex)", text: $message, formatter: HexFormatter(byteLimit: 8))
+                AKTextField(placeholder: "Data (Hex)", text: $message, formatter: HexFormatter(characterLimit: 16))
                     .frame(idealWidth: 250)
                 Text("Max 8 Bytes")
                     .font(.caption)

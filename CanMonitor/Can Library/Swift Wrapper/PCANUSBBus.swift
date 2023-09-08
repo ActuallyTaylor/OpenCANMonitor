@@ -13,7 +13,6 @@ enum PCANUSBBus: CaseIterable, Identifiable {
         rawValue
     }
     
-    case none
     case bus1
     case bus2
     case bus3
@@ -22,7 +21,8 @@ enum PCANUSBBus: CaseIterable, Identifiable {
     case bus6
     case bus7
     case bus8
-    
+    case none
+
     var displayName: String {
         switch self {
         case .none:

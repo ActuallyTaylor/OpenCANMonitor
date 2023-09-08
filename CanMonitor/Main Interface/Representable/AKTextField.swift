@@ -10,6 +10,7 @@ import AppKit
 
 struct AKTextField: NSViewRepresentable {
     var placeholder: String = ""
+    var bezelStyle: NSTextField.BezelStyle = .roundedBezel
     @Binding var text: String
     var isEditable: Bool = true
     var formatter: Formatter? = nil
@@ -23,7 +24,8 @@ struct AKTextField: NSViewRepresentable {
         textField.formatter = formatter
         textField.stringValue = text
         textField.placeholderString = placeholder
-        textField.bezelStyle = .roundedBezel
+        textField.bezelStyle = bezelStyle
+        textField.delegate = context.coordinator
         
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.autoresizingMask = [.width, .height]
@@ -37,18 +39,18 @@ struct AKTextField: NSViewRepresentable {
         }
     }
     
-    class Coordinator: NSObject, NSTextViewDelegate {
+    class Coordinator: NSObject, NSTextFieldDelegate, NSControlTextEditingDelegate {
         let parent: AKTextField
         
         init(_ textField: AKTextField) {
             self.parent = textField
         }
 
-        func textDidChange(_ notification: Notification) {
-            guard let textView = notification.object as? NSTextField else { return }
+        func controlTextDidChange(_ obj: Notification) {
+            guard let textView = obj.object as? NSTextField else { return }
             self.parent.text = textView.stringValue
+            print(self.parent.text)
         }
-
+        
     }
-
 }
