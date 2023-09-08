@@ -1,0 +1,821 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB366F8A2AA7A3CA00329014 /* CanChannelMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */; };
+		DB366F8C2AA7CA5200329014 /* PCANUSBBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8B2AA7CA5200329014 /* PCANUSBBus.swift */; };
+		DB366F8E2AA7CD4400329014 /* PCANError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8D2AA7CD4400329014 /* PCANError.swift */; };
+		DB366F902AA7D4CF00329014 /* PCANBaudRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8F2AA7D4CF00329014 /* PCANBaudRate.swift */; };
+		DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */ = {isa = PBXBuildFile; productRef = DB4569692AA7DF6D0006ADEC /* HydrogenReporter */; };
+		DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */; };
+		DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */; };
+		DB82FDAF2AA7F08200AA9933 /* PCANMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */; };
+		DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC0FD2AAA862900422427 /* SettingsView.swift */; };
+		DB8FC1002AAA866B00422427 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */; };
+		DB8FC1022AAA867400422427 /* AdvancedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC1012AAA867400422427 /* AdvancedSettingsView.swift */; };
+		DB9A2BE32AA8120D00F543B4 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A2BE22AA8120D00F543B4 /* FilterType.swift */; };
+		DBD727C72AAADAFA009150B2 /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD727C62AAADAFA009150B2 /* ControllerView.swift */; };
+		DBD727C92AAAE437009150B2 /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD727C82AAAE437009150B2 /* MessageDetail.swift */; };
+		DBD727CC2AAAEC4D009150B2 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD727CB2AAAEC4D009150B2 /* SplitView.swift */; };
+		DBE4F9742AA654670000F98B /* CanMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9732AA654670000F98B /* CanMonitorApp.swift */; };
+		DBE4F9762AA654670000F98B /* CANTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9752AA654670000F98B /* CANTableView.swift */; };
+		DBE4F9782AA654680000F98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE4F9772AA654680000F98B /* Assets.xcassets */; };
+		DBE4F97B2AA654680000F98B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE4F97A2AA654680000F98B /* Preview Assets.xcassets */; };
+		DBE4F9862AA654680000F98B /* CanMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9852AA654680000F98B /* CanMonitorTests.swift */; };
+		DBE4F9902AA654680000F98B /* CanMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F98F2AA654680000F98B /* CanMonitorUITests.swift */; };
+		DBE4F9922AA654680000F98B /* CanMonitorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9912AA654680000F98B /* CanMonitorUITestsLaunchTests.swift */; };
+		DBE6E4C32AA78C410064FF15 /* PCBUSB.c in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4C22AA78C410064FF15 /* PCBUSB.c */; };
+		DBE6E4C52AA78D660064FF15 /* CANMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4C42AA78D660064FF15 /* CANMessage.swift */; };
+		DBE6E4C82AA7910A0064FF15 /* SFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = DBE6E4C72AA7910A0064FF15 /* SFSymbols */; };
+		DBE6E4CF2AA794320064FF15 /* NavigableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4CE2AA794320064FF15 /* NavigableView.swift */; };
+		DBE6E4D42AA795750064FF15 /* SendMessagePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D32AA795750064FF15 /* SendMessagePopover.swift */; };
+		DBE6E4D62AA796710064FF15 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D52AA796710064FF15 /* HexFormatter.swift */; };
+		DBE6E4D92AA799E90064FF15 /* AKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D82AA799E90064FF15 /* AKTextField.swift */; };
+		DBE6E4DB2AA79FBC0064FF15 /* FilterMessagesPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4DA2AA79FBC0064FF15 /* FilterMessagesPopover.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBE4F9822AA654680000F98B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBE4F9682AA654670000F98B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBE4F96F2AA654670000F98B;
+			remoteInfo = CanMonitor;
+		};
+		DBE4F98C2AA654680000F98B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBE4F9682AA654670000F98B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBE4F96F2AA654670000F98B;
+			remoteInfo = CanMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB1BB1162AA6594300256CD3 /* libPCBUSB.0.12.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPCBUSB.0.12.1.dylib; path = Resources/PCBUSB/libPCBUSB.0.12.1.dylib; sourceTree = "<group>"; };
+		DB1BB11C2AA6594E00256CD3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libPCBUSB.dylib; sourceTree = "<group>"; };
+		DB1BB1342AA6594E00256CD3 /* COPYRIGHT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYRIGHT; sourceTree = "<group>"; };
+		DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanChannelMonitor.swift; sourceTree = "<group>"; };
+		DB366F8B2AA7CA5200329014 /* PCANUSBBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANUSBBus.swift; sourceTree = "<group>"; };
+		DB366F8D2AA7CD4400329014 /* PCANError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANError.swift; sourceTree = "<group>"; };
+		DB366F8F2AA7D4CF00329014 /* PCANBaudRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANBaudRate.swift; sourceTree = "<group>"; };
+		DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSheet.swift; sourceTree = "<group>"; };
+		DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANMessageType.swift; sourceTree = "<group>"; };
+		DB8FC0FD2AAA862900422427 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		DB8FC1012AAA867400422427 /* AdvancedSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingsView.swift; sourceTree = "<group>"; };
+		DB9A2BE22AA8120D00F543B4 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
+		DBD727C62AAADAFA009150B2 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
+		DBD727C82AAAE437009150B2 /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
+		DBD727CB2AAAEC4D009150B2 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
+		DBE4F9702AA654670000F98B /* CanMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE4F9732AA654670000F98B /* CanMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorApp.swift; sourceTree = "<group>"; };
+		DBE4F9752AA654670000F98B /* CANTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANTableView.swift; sourceTree = "<group>"; };
+		DBE4F9772AA654680000F98B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DBE4F97A2AA654680000F98B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DBE4F97C2AA654680000F98B /* CanMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CanMonitor.entitlements; sourceTree = "<group>"; };
+		DBE4F9812AA654680000F98B /* CanMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE4F9852AA654680000F98B /* CanMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorTests.swift; sourceTree = "<group>"; };
+		DBE4F98B2AA654680000F98B /* CanMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE4F98F2AA654680000F98B /* CanMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorUITests.swift; sourceTree = "<group>"; };
+		DBE4F9912AA654680000F98B /* CanMonitorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DBE6E4BF2AA78C220064FF15 /* CanMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CanMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
+		DBE6E4C12AA78C410064FF15 /* PCBUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBUSB.h; sourceTree = "<group>"; };
+		DBE6E4C22AA78C410064FF15 /* PCBUSB.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PCBUSB.c; sourceTree = "<group>"; };
+		DBE6E4C42AA78D660064FF15 /* CANMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANMessage.swift; sourceTree = "<group>"; };
+		DBE6E4CE2AA794320064FF15 /* NavigableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigableView.swift; sourceTree = "<group>"; };
+		DBE6E4D32AA795750064FF15 /* SendMessagePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessagePopover.swift; sourceTree = "<group>"; };
+		DBE6E4D52AA796710064FF15 /* HexFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
+		DBE6E4D82AA799E90064FF15 /* AKTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTextField.swift; sourceTree = "<group>"; };
+		DBE6E4DA2AA79FBC0064FF15 /* FilterMessagesPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMessagesPopover.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBE4F96D2AA654670000F98B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */,
+				DBE6E4C82AA7910A0064FF15 /* SFSymbols in Frameworks */,
+				DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE4F97E2AA654680000F98B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE4F9882AA654680000F98B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB1BB1192AA6594E00256CD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BB11A2AA6594E00256CD3 /* PCBUSB */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DB1BB11A2AA6594E00256CD3 /* PCBUSB */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BB11C2AA6594E00256CD3 /* LICENSE */,
+				DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */,
+				DB1BB1342AA6594E00256CD3 /* COPYRIGHT */,
+			);
+			path = PCBUSB;
+			sourceTree = "<group>";
+		};
+		DB1BB1492AA6595B00256CD3 /* Can Library */ = {
+			isa = PBXGroup;
+			children = (
+				DBE6E4BA2AA78B310064FF15 /* C Wrapper */,
+				DBE6E4B92AA78B290064FF15 /* Swift Wrapper */,
+			);
+			path = "Can Library";
+			sourceTree = "<group>";
+		};
+		DB8FC0FA2AAA860E00422427 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DB8FC0FD2AAA862900422427 /* SettingsView.swift */,
+				DB8FC1012AAA867400422427 /* AdvancedSettingsView.swift */,
+				DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DBD727CA2AAAEC3E009150B2 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				DBD727CB2AAAEC4D009150B2 /* SplitView.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		DBE4F9672AA654670000F98B = {
+			isa = PBXGroup;
+			children = (
+				DB1BB1192AA6594E00256CD3 /* Resources */,
+				DBE4F9722AA654670000F98B /* CanMonitor */,
+				DBE4F9842AA654680000F98B /* CanMonitorTests */,
+				DBE4F98E2AA654680000F98B /* CanMonitorUITests */,
+				DBE4F9712AA654670000F98B /* Products */,
+				DBE4F99E2AA654750000F98B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DBE4F9712AA654670000F98B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBE4F9702AA654670000F98B /* CanMonitor.app */,
+				DBE4F9812AA654680000F98B /* CanMonitorTests.xctest */,
+				DBE4F98B2AA654680000F98B /* CanMonitorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBE4F9722AA654670000F98B /* CanMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				DBE4F9732AA654670000F98B /* CanMonitorApp.swift */,
+				DB1BB1492AA6595B00256CD3 /* Can Library */,
+				DBE6E4CD2AA7941C0064FF15 /* Main Interface */,
+				DB8FC0FA2AAA860E00422427 /* Settings */,
+				DBE4F9772AA654680000F98B /* Assets.xcassets */,
+				DBE4F97C2AA654680000F98B /* CanMonitor.entitlements */,
+				DBE4F9792AA654680000F98B /* Preview Content */,
+			);
+			path = CanMonitor;
+			sourceTree = "<group>";
+		};
+		DBE4F9792AA654680000F98B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DBE4F97A2AA654680000F98B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DBE4F9842AA654680000F98B /* CanMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				DBE4F9852AA654680000F98B /* CanMonitorTests.swift */,
+			);
+			path = CanMonitorTests;
+			sourceTree = "<group>";
+		};
+		DBE4F98E2AA654680000F98B /* CanMonitorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DBE4F98F2AA654680000F98B /* CanMonitorUITests.swift */,
+				DBE4F9912AA654680000F98B /* CanMonitorUITestsLaunchTests.swift */,
+			);
+			path = CanMonitorUITests;
+			sourceTree = "<group>";
+		};
+		DBE4F99E2AA654750000F98B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB1BB1162AA6594300256CD3 /* libPCBUSB.0.12.1.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBE6E4B92AA78B290064FF15 /* Swift Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				DBE6E4C42AA78D660064FF15 /* CANMessage.swift */,
+				DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */,
+				DB366F8B2AA7CA5200329014 /* PCANUSBBus.swift */,
+				DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */,
+				DB366F8F2AA7D4CF00329014 /* PCANBaudRate.swift */,
+				DB366F8D2AA7CD4400329014 /* PCANError.swift */,
+			);
+			path = "Swift Wrapper";
+			sourceTree = "<group>";
+		};
+		DBE6E4BA2AA78B310064FF15 /* C Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				DBE6E4C22AA78C410064FF15 /* PCBUSB.c */,
+				DBE6E4C12AA78C410064FF15 /* PCBUSB.h */,
+				DBE6E4BF2AA78C220064FF15 /* CanMonitor-Bridging-Header.h */,
+			);
+			path = "C Wrapper";
+			sourceTree = "<group>";
+		};
+		DBE6E4CD2AA7941C0064FF15 /* Main Interface */ = {
+			isa = PBXGroup;
+			children = (
+				DBD727CA2AAAEC3E009150B2 /* Layout */,
+				DBE6E4D72AA799DC0064FF15 /* Representable */,
+				DBE6E4D02AA794390064FF15 /* Models */,
+				DBE4F9752AA654670000F98B /* CANTableView.swift */,
+				DBD727C62AAADAFA009150B2 /* ControllerView.swift */,
+				DBD727C82AAAE437009150B2 /* MessageDetail.swift */,
+				DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */,
+				DBE6E4D32AA795750064FF15 /* SendMessagePopover.swift */,
+				DBE6E4DA2AA79FBC0064FF15 /* FilterMessagesPopover.swift */,
+			);
+			path = "Main Interface";
+			sourceTree = "<group>";
+		};
+		DBE6E4D02AA794390064FF15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBE6E4CE2AA794320064FF15 /* NavigableView.swift */,
+				DBE6E4D52AA796710064FF15 /* HexFormatter.swift */,
+				DB9A2BE22AA8120D00F543B4 /* FilterType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DBE6E4D72AA799DC0064FF15 /* Representable */ = {
+			isa = PBXGroup;
+			children = (
+				DBE6E4D82AA799E90064FF15 /* AKTextField.swift */,
+			);
+			path = Representable;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DBE4F96F2AA654670000F98B /* CanMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBE4F9952AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitor" */;
+			buildPhases = (
+				DBE4F96C2AA654670000F98B /* Sources */,
+				DBE4F96D2AA654670000F98B /* Frameworks */,
+				DBE4F96E2AA654670000F98B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CanMonitor;
+			packageProductDependencies = (
+				DBE6E4C72AA7910A0064FF15 /* SFSymbols */,
+				DB4569692AA7DF6D0006ADEC /* HydrogenReporter */,
+			);
+			productName = CanMonitor;
+			productReference = DBE4F9702AA654670000F98B /* CanMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DBE4F9802AA654680000F98B /* CanMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBE4F9982AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorTests" */;
+			buildPhases = (
+				DBE4F97D2AA654680000F98B /* Sources */,
+				DBE4F97E2AA654680000F98B /* Frameworks */,
+				DBE4F97F2AA654680000F98B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBE4F9832AA654680000F98B /* PBXTargetDependency */,
+			);
+			name = CanMonitorTests;
+			productName = CanMonitorTests;
+			productReference = DBE4F9812AA654680000F98B /* CanMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DBE4F98A2AA654680000F98B /* CanMonitorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBE4F99B2AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorUITests" */;
+			buildPhases = (
+				DBE4F9872AA654680000F98B /* Sources */,
+				DBE4F9882AA654680000F98B /* Frameworks */,
+				DBE4F9892AA654680000F98B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBE4F98D2AA654680000F98B /* PBXTargetDependency */,
+			);
+			name = CanMonitorUITests;
+			productName = CanMonitorUITests;
+			productReference = DBE4F98B2AA654680000F98B /* CanMonitorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBE4F9682AA654670000F98B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					DBE4F96F2AA654670000F98B = {
+						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
+					};
+					DBE4F9802AA654680000F98B = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = DBE4F96F2AA654670000F98B;
+					};
+					DBE4F98A2AA654680000F98B = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = DBE4F96F2AA654670000F98B;
+					};
+				};
+			};
+			buildConfigurationList = DBE4F96B2AA654670000F98B /* Build configuration list for PBXProject "CanMonitor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DBE4F9672AA654670000F98B;
+			packageReferences = (
+				DBE6E4C62AA7910A0064FF15 /* XCRemoteSwiftPackageReference "SFSymbols" */,
+				DB4569682AA7DF6D0006ADEC /* XCRemoteSwiftPackageReference "HydrogenReporter" */,
+			);
+			productRefGroup = DBE4F9712AA654670000F98B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBE4F96F2AA654670000F98B /* CanMonitor */,
+				DBE4F9802AA654680000F98B /* CanMonitorTests */,
+				DBE4F98A2AA654680000F98B /* CanMonitorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBE4F96E2AA654670000F98B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE4F9782AA654680000F98B /* Assets.xcassets in Resources */,
+				DBE4F97B2AA654680000F98B /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE4F97F2AA654680000F98B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE4F9892AA654680000F98B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBE4F96C2AA654670000F98B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE4F9762AA654670000F98B /* CANTableView.swift in Sources */,
+				DB9A2BE32AA8120D00F543B4 /* FilterType.swift in Sources */,
+				DB366F8A2AA7A3CA00329014 /* CanChannelMonitor.swift in Sources */,
+				DBD727CC2AAAEC4D009150B2 /* SplitView.swift in Sources */,
+				DB8FC1022AAA867400422427 /* AdvancedSettingsView.swift in Sources */,
+				DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */,
+				DBE4F9742AA654670000F98B /* CanMonitorApp.swift in Sources */,
+				DB366F902AA7D4CF00329014 /* PCANBaudRate.swift in Sources */,
+				DBE6E4CF2AA794320064FF15 /* NavigableView.swift in Sources */,
+				DB366F8C2AA7CA5200329014 /* PCANUSBBus.swift in Sources */,
+				DBE6E4D92AA799E90064FF15 /* AKTextField.swift in Sources */,
+				DB366F8E2AA7CD4400329014 /* PCANError.swift in Sources */,
+				DB8FC1002AAA866B00422427 /* GeneralSettingsView.swift in Sources */,
+				DB82FDAF2AA7F08200AA9933 /* PCANMessageType.swift in Sources */,
+				DBD727C92AAAE437009150B2 /* MessageDetail.swift in Sources */,
+				DBE6E4C52AA78D660064FF15 /* CANMessage.swift in Sources */,
+				DBD727C72AAADAFA009150B2 /* ControllerView.swift in Sources */,
+				DBE6E4C32AA78C410064FF15 /* PCBUSB.c in Sources */,
+				DBE6E4D62AA796710064FF15 /* HexFormatter.swift in Sources */,
+				DBE6E4DB2AA79FBC0064FF15 /* FilterMessagesPopover.swift in Sources */,
+				DBE6E4D42AA795750064FF15 /* SendMessagePopover.swift in Sources */,
+				DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE4F97D2AA654680000F98B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE4F9862AA654680000F98B /* CanMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE4F9872AA654680000F98B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE4F9922AA654680000F98B /* CanMonitorUITestsLaunchTests.swift in Sources */,
+				DBE4F9902AA654680000F98B /* CanMonitorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBE4F9832AA654680000F98B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBE4F96F2AA654670000F98B /* CanMonitor */;
+			targetProxy = DBE4F9822AA654680000F98B /* PBXContainerItemProxy */;
+		};
+		DBE4F98D2AA654680000F98B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBE4F96F2AA654670000F98B /* CanMonitor */;
+			targetProxy = DBE4F98C2AA654680000F98B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DBE4F9932AA654680000F98B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DBE4F9942AA654680000F98B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		DBE4F9962AA654680000F98B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CanMonitor/CanMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CanMonitor/Preview Content\"";
+				DEVELOPMENT_TEAM = 825FPALDZ5;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Resources/PCBUSB",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CanMonitor/Can Library/C Wrapper/CanMonitor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DBE4F9972AA654680000F98B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CanMonitor/CanMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CanMonitor/Preview Content\"";
+				DEVELOPMENT_TEAM = 825FPALDZ5;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Resources/PCBUSB",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CanMonitor/Can Library/C Wrapper/CanMonitor-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DBE4F9992AA654680000F98B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 825FPALDZ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanMonitor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CanMonitor";
+			};
+			name = Debug;
+		};
+		DBE4F99A2AA654680000F98B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 825FPALDZ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanMonitor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CanMonitor";
+			};
+			name = Release;
+		};
+		DBE4F99C2AA654680000F98B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 825FPALDZ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CanMonitor;
+			};
+			name = Debug;
+		};
+		DBE4F99D2AA654680000F98B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 825FPALDZ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CanMonitor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBE4F96B2AA654670000F98B /* Build configuration list for PBXProject "CanMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBE4F9932AA654680000F98B /* Debug */,
+				DBE4F9942AA654680000F98B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBE4F9952AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBE4F9962AA654680000F98B /* Debug */,
+				DBE4F9972AA654680000F98B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBE4F9982AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBE4F9992AA654680000F98B /* Debug */,
+				DBE4F99A2AA654680000F98B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBE4F99B2AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBE4F99C2AA654680000F98B /* Debug */,
+				DBE4F99D2AA654680000F98B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB4569682AA7DF6D0006ADEC /* XCRemoteSwiftPackageReference "HydrogenReporter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ActuallyTaylor/HydrogenReporter";
+			requirement = {
+				branch = "pull-out-ui";
+				kind = branch;
+			};
+		};
+		DBE6E4C62AA7910A0064FF15 /* XCRemoteSwiftPackageReference "SFSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ActuallyTaylor/SFSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB4569692AA7DF6D0006ADEC /* HydrogenReporter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB4569682AA7DF6D0006ADEC /* XCRemoteSwiftPackageReference "HydrogenReporter" */;
+			productName = HydrogenReporter;
+		};
+		DBE6E4C72AA7910A0064FF15 /* SFSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBE6E4C62AA7910A0064FF15 /* XCRemoteSwiftPackageReference "SFSymbols" */;
+			productName = SFSymbols;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DBE4F9682AA654670000F98B /* Project object */;
+}

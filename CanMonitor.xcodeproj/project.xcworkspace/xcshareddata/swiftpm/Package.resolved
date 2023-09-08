@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "hydrogenreporter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ActuallyTaylor/HydrogenReporter",
+      "state" : {
+        "branch" : "pull-out-ui",
+        "revision" : "5f9b126e720061c45e7f56a3163fd01bb550719c"
+      }
+    },
+    {
+      "identity" : "sfsymbols",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ActuallyTaylor/SFSymbols",
+      "state" : {
+        "revision" : "c41d0df8ab288074c0e2c10513ec714e9044a61e",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
