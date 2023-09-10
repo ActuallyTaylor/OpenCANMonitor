@@ -47,6 +47,10 @@ struct CANMessage: Identifiable, Equatable, Hashable, Codable {
             self.byte7 = data.7
         }
         
+        var tuple: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8) {
+            (byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
+        }
+        
         var description: String {
             return String(format:"%02X %02X %02X %02X %02X %02X %02X %02X", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
         }

@@ -18,11 +18,6 @@ struct SettingsView: View {
                     Label("General", systemImage: "gear")
                 }
                 .tag(Tabs.general)
-            AdvancedSettingsView()
-                .tabItem {
-                    Label("Advanced", systemImage: "star")
-                }
-                .tag(Tabs.advanced)
         }
         .padding(20)
         .frame(width: 375, height: 150)

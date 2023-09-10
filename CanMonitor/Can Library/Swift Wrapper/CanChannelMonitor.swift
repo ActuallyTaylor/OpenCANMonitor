@@ -22,7 +22,9 @@ class CanChannelMonitor: ObservableObject {
     @Published var initializedViews: [NavigableView] = [.connections]
     
     var runningCounter: Int = 0
-    var timer: Timer?
+    var receivingTimer: Timer?
+    var transmittingTimer: Timer?
+
     var bus: PCANUSBBus
     var baudRate: PCANBaudRate
     
@@ -30,12 +32,14 @@ class CanChannelMonitor: ObservableObject {
         self.bus = .none
         self.baudRate = .none
         initialized = false
+        
+        try? loadSavedTransmittingMessages()
     }
     
     deinit {
-        timer?.invalidate()
+        invalidateTimers()
     }
-
+    
     func initialize(bus: PCANUSBBus, baudRate: PCANBaudRate) throws {
         if self.bus != .none || self.baudRate != .none {
             try? self.uninitialize()
@@ -61,8 +65,8 @@ class CanChannelMonitor: ObservableObject {
         LOG("Connected to Bus: \(bus) at baud rate \(baudRate)", level: .success)
         
         initialized = true
-        initializedViews = [.connections, .receiving, .transmitting]
-        initTimer()
+        initializedViews = NavigableView.allCases
+        initTimers()
     }
     
     func uninitialize() throws {
@@ -88,15 +92,21 @@ class CanChannelMonitor: ObservableObject {
         self.baudRate = .none
     }
     
+    func invalidateTimers() {
+        receivingTimer?.invalidate()
+        transmittingTimer?.invalidate()
+    }
+    
+    private func initTimers() {
+        receivingTimer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { self.receiveTimerTick($0) })
+        transmittingTimer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: {  self.transmitTimerTick($0) })
+    }
+
     func clearMessages() {
         self.runningCounter = 0
         self.messages.removeAll()
     }
         
-    private func initTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { self.receiveTimerTick($0) })
-    }
-    
     private func receiveTimerTick(_ timer: Timer) {
         var message: TPCANMsg = .init()
         var timestamp: TPCANTimestamp = .init()
@@ -112,8 +122,8 @@ class CanChannelMonitor: ObservableObject {
             }
 
             guard status == .ok else {
-//                LOG("PCAN Status Code: \(status)", level: .error)
-//                receivedError = status
+                LOG("PCAN Status Code: \(status)", level: .error)
+                receivedError = status
                 continue
             }
 
@@ -123,8 +133,23 @@ class CanChannelMonitor: ObservableObject {
             runningCounter += 1
         }
     }
+        
+    private func transmitTimerTick(_ timer: Timer) {
+        for index in 0..<transmittingMessages.count {
+            do {
+                try transmittingMessages[index].transmit(bus: bus)
+            } catch {
+                LOG("Transmitting Error", error, level: .error)
+                if let error = error as? PCANError {
+                    receivedError = error
+                }
+                continue
+            }
+        }
+    }
 }
 
+// MARK: User facing save functions
 extension CanChannelMonitor {
     func load() throws {
         guard let url = showOpenPanel() else {
@@ -173,4 +198,49 @@ extension CanChannelMonitor {
         return response == .OK ? openPanel.url : nil
     }
 
+}
+
+extension CanChannelMonitor {
+    subscript(transmitID: CANTransmitMessage.ID?) -> CANTransmitMessage {
+        get {
+            if let id = transmitID {
+                return transmittingMessages.first(where: { $0.id == id })!
+            }
+            return CANTransmitMessage()
+        }
+
+        set(newValue) {
+            if let index = transmittingMessages.firstIndex(where: { $0.id == newValue.id }) {
+                transmittingMessages[index] = newValue
+            }
+        }
+    }
+}
+
+extension CanChannelMonitor {
+    private func loadSavedTransmittingMessages() throws {
+        guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+        url.append(path: "transmitMessages.json")
+        
+        let data = try Data(contentsOf: url)
+        
+        let decoder = JSONDecoder()
+        self.transmittingMessages = try decoder.decode([CANTransmitMessage].self, from: data)
+    }
+    
+    func saveTransmittingMessages() throws {
+        guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+        url.append(path: "transmitMessages.json")
+
+        let encoder = JSONEncoder()
+        let jsonData = try encoder.encode(transmittingMessages)
+        guard let jsonString = String(data: jsonData, encoding: .utf8) else {
+            throw CanChannelMonitorError.invalidJSON
+        }
+        try jsonString.write(to: url, atomically: true, encoding: .utf8)
+    }
 }

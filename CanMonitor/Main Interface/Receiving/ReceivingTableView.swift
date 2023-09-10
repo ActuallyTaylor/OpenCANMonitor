@@ -56,23 +56,25 @@ struct ReceivingTableView: View {
                 }
             }
             
-            Divider()
-                .frame(width: 5)
-                .onHover { hovering in
-                    if hovering {
-                        NSCursor.resizeLeftRight.push()
-                    } else {
-                        NSCursor.pop()
+            if !inspectorCollapsed {
+                Divider()
+                    .frame(width: 5)
+                    .onHover { hovering in
+                        if hovering {
+                            NSCursor.resizeLeftRight.push()
+                        } else {
+                            NSCursor.pop()
+                        }
                     }
-                }
-                .gesture(
-                    DragGesture(minimumDistance: 1)
-                    .onChanged { value in
-                        guard !detectDragLoop(value: value) else { return }
-                        inspectorWidth = (inspectorWidth - value.translation.width).clamped(to: (0...maxInspectorWidth))
-                    }
-                )
-                .opacity(inspectorCollapsed ? 0 : 1)
+                    .gesture(
+                        DragGesture(minimumDistance: 1)
+                        .onChanged { value in
+                            guard !detectDragLoop(value: value) else { return }
+                            inspectorWidth = (inspectorWidth - value.translation.width).clamped(to: (0...maxInspectorWidth))
+                        }
+                    )
+            }
+            
             VStack {
                 if let selectedMessage = channelMonitor.messages.first(where: { message in
                     return message.id == selectedMessages.first

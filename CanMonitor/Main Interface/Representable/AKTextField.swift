@@ -49,7 +49,6 @@ struct AKTextField: NSViewRepresentable {
         func controlTextDidChange(_ obj: Notification) {
             guard let textView = obj.object as? NSTextField else { return }
             self.parent.text = textView.stringValue
-            print(self.parent.text)
         }
         
     }
