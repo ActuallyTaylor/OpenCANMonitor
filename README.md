@@ -1,14 +1,17 @@
 ![CAN Monitor Banner](assets/banner.png)
 
 # OpenCANMonitor
-This application is a frontend implementation of the [PCBUSB Library](https://www.mac-can.com/). It was created as an upgrade / alternative to the demo app Mac CAN Monitor.
+The easiest way to monitor a CAN Network. 
+
+With Open Can Monitor you can view and send messages to all CAN Buses supported by the [PCBUSB Library](https://www.mac-can.com/).
 
 ## Features
-- Transmit CAN Messages on a timer
 - Receive CAN Messagees
+- Transmit CAN Messages on a timer
 - Display CAN Message data in Hex, Decimal, and ASCII
 - Connect to devices on any USB Bus
 - Connect with all available CAN Baud Rates
+- Set default bus and default baud rate for new connections.
 
 ## Download
 To download you can use the Homebrew package manager, or download the `.dmg` from the [Latest Release](https://github.com/ActuallyTaylor/OpenCANMonitor/releases/latest/download/OpenCANMonitor.dmg)
