@@ -90,7 +90,7 @@ struct ReceivingTableView: View {
             }
             .frame(width: inspectorCollapsed ? 0 : inspectorWidth)
         }
-        .navigationTitle("CAN Messages")
+        .navigationTitle("Receiving Messages")
         .toolbar(id: "options") {
             ToolbarItem(id: "clear") {
                 Button {

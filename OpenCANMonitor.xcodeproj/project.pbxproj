@@ -33,9 +33,6 @@
 		DBE4F9762AA654670000F98B /* ReceivingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9752AA654670000F98B /* ReceivingTableView.swift */; };
 		DBE4F9782AA654680000F98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE4F9772AA654680000F98B /* Assets.xcassets */; };
 		DBE4F97B2AA654680000F98B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE4F97A2AA654680000F98B /* Preview Assets.xcassets */; };
-		DBE4F9862AA654680000F98B /* CanMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9852AA654680000F98B /* CanMonitorTests.swift */; };
-		DBE4F9902AA654680000F98B /* CanMonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F98F2AA654680000F98B /* CanMonitorUITests.swift */; };
-		DBE4F9922AA654680000F98B /* CanMonitorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9912AA654680000F98B /* CanMonitorUITestsLaunchTests.swift */; };
 		DBE6E4C32AA78C410064FF15 /* PCBUSB.c in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4C22AA78C410064FF15 /* PCBUSB.c */; };
 		DBE6E4C52AA78D660064FF15 /* CANMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4C42AA78D660064FF15 /* CANMessage.swift */; };
 		DBE6E4C82AA7910A0064FF15 /* SFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = DBE6E4C72AA7910A0064FF15 /* SFSymbols */; };
@@ -45,23 +42,6 @@
 		DBE6E4D92AA799E90064FF15 /* AKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D82AA799E90064FF15 /* AKTextField.swift */; };
 		DBE6E4DB2AA79FBC0064FF15 /* FilterMessagesPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4DA2AA79FBC0064FF15 /* FilterMessagesPopover.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DBE4F9822AA654680000F98B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBE4F9682AA654670000F98B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DBE4F96F2AA654670000F98B;
-			remoteInfo = CanMonitor;
-		};
-		DBE4F98C2AA654680000F98B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DBE4F9682AA654670000F98B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DBE4F96F2AA654670000F98B;
-			remoteInfo = CanMonitor;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DB1BB1162AA6594300256CD3 /* libPCBUSB.0.12.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPCBUSB.0.12.1.dylib; path = Resources/PCBUSB/libPCBUSB.0.12.1.dylib; sourceTree = "<group>"; };
@@ -88,18 +68,13 @@
 		DBD727C62AAADAFA009150B2 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
 		DBD727C82AAAE437009150B2 /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
 		DBD727CB2AAAEC4D009150B2 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
-		DBE4F9702AA654670000F98B /* CanMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE4F9702AA654670000F98B /* OpenCANMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCANMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE4F9732AA654670000F98B /* CanMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorApp.swift; sourceTree = "<group>"; };
 		DBE4F9752AA654670000F98B /* ReceivingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingTableView.swift; sourceTree = "<group>"; };
 		DBE4F9772AA654680000F98B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBE4F97A2AA654680000F98B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DBE4F97C2AA654680000F98B /* CanMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CanMonitor.entitlements; sourceTree = "<group>"; };
-		DBE4F9812AA654680000F98B /* CanMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBE4F9852AA654680000F98B /* CanMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorTests.swift; sourceTree = "<group>"; };
-		DBE4F98B2AA654680000F98B /* CanMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBE4F98F2AA654680000F98B /* CanMonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorUITests.swift; sourceTree = "<group>"; };
-		DBE4F9912AA654680000F98B /* CanMonitorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DBE6E4BF2AA78C220064FF15 /* CanMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CanMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
+		DBE4F97C2AA654680000F98B /* OpenCANMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenCANMonitor.entitlements; sourceTree = "<group>"; };
+		DBE6E4BF2AA78C220064FF15 /* OpenCANMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCANMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBE6E4C12AA78C410064FF15 /* PCBUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBUSB.h; sourceTree = "<group>"; };
 		DBE6E4C22AA78C410064FF15 /* PCBUSB.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PCBUSB.c; sourceTree = "<group>"; };
 		DBE6E4C42AA78D660064FF15 /* CANMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANMessage.swift; sourceTree = "<group>"; };
@@ -118,20 +93,6 @@
 				DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */,
 				DBE6E4C82AA7910A0064FF15 /* SFSymbols in Frameworks */,
 				DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBE4F97E2AA654680000F98B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBE4F9882AA654680000F98B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,9 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1BB1192AA6594E00256CD3 /* Resources */,
-				DBE4F9722AA654670000F98B /* CanMonitor */,
-				DBE4F9842AA654680000F98B /* CanMonitorTests */,
-				DBE4F98E2AA654680000F98B /* CanMonitorUITests */,
+				DBE4F9722AA654670000F98B /* OpenCANMonitor */,
 				DBE4F9712AA654670000F98B /* Products */,
 				DBE4F99E2AA654750000F98B /* Frameworks */,
 			);
@@ -237,14 +196,12 @@
 		DBE4F9712AA654670000F98B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DBE4F9702AA654670000F98B /* CanMonitor.app */,
-				DBE4F9812AA654680000F98B /* CanMonitorTests.xctest */,
-				DBE4F98B2AA654680000F98B /* CanMonitorUITests.xctest */,
+				DBE4F9702AA654670000F98B /* OpenCANMonitor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DBE4F9722AA654670000F98B /* CanMonitor */ = {
+		DBE4F9722AA654670000F98B /* OpenCANMonitor */ = {
 			isa = PBXGroup;
 			children = (
 				DBE4F9732AA654670000F98B /* CanMonitorApp.swift */,
@@ -254,10 +211,10 @@
 				DB8FC0FA2AAA860E00422427 /* Settings */,
 				DB5E46562AAB78C600825F21 /* Extensions */,
 				DBE4F9772AA654680000F98B /* Assets.xcassets */,
-				DBE4F97C2AA654680000F98B /* CanMonitor.entitlements */,
+				DBE4F97C2AA654680000F98B /* OpenCANMonitor.entitlements */,
 				DBE4F9792AA654680000F98B /* Preview Content */,
 			);
-			path = CanMonitor;
+			path = OpenCANMonitor;
 			sourceTree = "<group>";
 		};
 		DBE4F9792AA654680000F98B /* Preview Content */ = {
@@ -266,23 +223,6 @@
 				DBE4F97A2AA654680000F98B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		DBE4F9842AA654680000F98B /* CanMonitorTests */ = {
-			isa = PBXGroup;
-			children = (
-				DBE4F9852AA654680000F98B /* CanMonitorTests.swift */,
-			);
-			path = CanMonitorTests;
-			sourceTree = "<group>";
-		};
-		DBE4F98E2AA654680000F98B /* CanMonitorUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DBE4F98F2AA654680000F98B /* CanMonitorUITests.swift */,
-				DBE4F9912AA654680000F98B /* CanMonitorUITestsLaunchTests.swift */,
-			);
-			path = CanMonitorUITests;
 			sourceTree = "<group>";
 		};
 		DBE4F99E2AA654750000F98B /* Frameworks */ = {
@@ -312,7 +252,7 @@
 			children = (
 				DBE6E4C22AA78C410064FF15 /* PCBUSB.c */,
 				DBE6E4C12AA78C410064FF15 /* PCBUSB.h */,
-				DBE6E4BF2AA78C220064FF15 /* CanMonitor-Bridging-Header.h */,
+				DBE6E4BF2AA78C220064FF15 /* OpenCANMonitor-Bridging-Header.h */,
 			);
 			path = "C Wrapper";
 			sourceTree = "<group>";
@@ -351,9 +291,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DBE4F96F2AA654670000F98B /* CanMonitor */ = {
+		DBE4F96F2AA654670000F98B /* OpenCANMonitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DBE4F9952AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitor" */;
+			buildConfigurationList = DBE4F9952AA654680000F98B /* Build configuration list for PBXNativeTarget "OpenCANMonitor" */;
 			buildPhases = (
 				DBE4F96C2AA654670000F98B /* Sources */,
 				DBE4F96D2AA654670000F98B /* Frameworks */,
@@ -363,50 +303,14 @@
 			);
 			dependencies = (
 			);
-			name = CanMonitor;
+			name = OpenCANMonitor;
 			packageProductDependencies = (
 				DBE6E4C72AA7910A0064FF15 /* SFSymbols */,
 				DB4569692AA7DF6D0006ADEC /* HydrogenReporter */,
 			);
 			productName = CanMonitor;
-			productReference = DBE4F9702AA654670000F98B /* CanMonitor.app */;
+			productReference = DBE4F9702AA654670000F98B /* OpenCANMonitor.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DBE4F9802AA654680000F98B /* CanMonitorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DBE4F9982AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorTests" */;
-			buildPhases = (
-				DBE4F97D2AA654680000F98B /* Sources */,
-				DBE4F97E2AA654680000F98B /* Frameworks */,
-				DBE4F97F2AA654680000F98B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DBE4F9832AA654680000F98B /* PBXTargetDependency */,
-			);
-			name = CanMonitorTests;
-			productName = CanMonitorTests;
-			productReference = DBE4F9812AA654680000F98B /* CanMonitorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		DBE4F98A2AA654680000F98B /* CanMonitorUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DBE4F99B2AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorUITests" */;
-			buildPhases = (
-				DBE4F9872AA654680000F98B /* Sources */,
-				DBE4F9882AA654680000F98B /* Frameworks */,
-				DBE4F9892AA654680000F98B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DBE4F98D2AA654680000F98B /* PBXTargetDependency */,
-			);
-			name = CanMonitorUITests;
-			productName = CanMonitorUITests;
-			productReference = DBE4F98B2AA654680000F98B /* CanMonitorUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -422,17 +326,9 @@
 						CreatedOnToolsVersion = 14.3;
 						LastSwiftMigration = 1430;
 					};
-					DBE4F9802AA654680000F98B = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = DBE4F96F2AA654670000F98B;
-					};
-					DBE4F98A2AA654680000F98B = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = DBE4F96F2AA654670000F98B;
-					};
 				};
 			};
-			buildConfigurationList = DBE4F96B2AA654670000F98B /* Build configuration list for PBXProject "CanMonitor" */;
+			buildConfigurationList = DBE4F96B2AA654670000F98B /* Build configuration list for PBXProject "OpenCANMonitor" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -449,9 +345,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DBE4F96F2AA654670000F98B /* CanMonitor */,
-				DBE4F9802AA654680000F98B /* CanMonitorTests */,
-				DBE4F98A2AA654680000F98B /* CanMonitorUITests */,
+				DBE4F96F2AA654670000F98B /* OpenCANMonitor */,
 			);
 		};
 /* End PBXProject section */
@@ -463,20 +357,6 @@
 			files = (
 				DBE4F9782AA654680000F98B /* Assets.xcassets in Resources */,
 				DBE4F97B2AA654680000F98B /* Preview Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBE4F97F2AA654680000F98B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBE4F9892AA654680000F98B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,37 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DBE4F97D2AA654680000F98B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DBE4F9862AA654680000F98B /* CanMonitorTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBE4F9872AA654680000F98B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DBE4F9922AA654680000F98B /* CanMonitorUITestsLaunchTests.swift in Sources */,
-				DBE4F9902AA654680000F98B /* CanMonitorUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DBE4F9832AA654680000F98B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DBE4F96F2AA654670000F98B /* CanMonitor */;
-			targetProxy = DBE4F9822AA654680000F98B /* PBXContainerItemProxy */;
-		};
-		DBE4F98D2AA654680000F98B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DBE4F96F2AA654670000F98B /* CanMonitor */;
-			targetProxy = DBE4F98C2AA654680000F98B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DBE4F9932AA654680000F98B /* Debug */ = {
@@ -671,15 +521,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CanMonitor/CanMonitor.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OpenCANMonitor/OpenCANMonitor.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CanMonitor/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 825FPALDZ5;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "CAN Monitor";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -690,10 +542,10 @@
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CanMonitor/Can Library/C Wrapper/CanMonitor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/Can Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -705,15 +557,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CanMonitor/CanMonitor.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OpenCANMonitor/OpenCANMonitor.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CanMonitor/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 825FPALDZ5;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "CAN Monitor";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -724,90 +578,18 @@
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CanMonitor/Can Library/C Wrapper/CanMonitor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/Can Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		DBE4F9992AA654680000F98B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 825FPALDZ5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanMonitor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CanMonitor";
-			};
-			name = Debug;
-		};
-		DBE4F99A2AA654680000F98B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 825FPALDZ5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanMonitor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CanMonitor";
-			};
-			name = Release;
-		};
-		DBE4F99C2AA654680000F98B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 825FPALDZ5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = CanMonitor;
-			};
-			name = Debug;
-		};
-		DBE4F99D2AA654680000F98B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 825FPALDZ5;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.CanMonitorUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = CanMonitor;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DBE4F96B2AA654670000F98B /* Build configuration list for PBXProject "CanMonitor" */ = {
+		DBE4F96B2AA654670000F98B /* Build configuration list for PBXProject "OpenCANMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DBE4F9932AA654680000F98B /* Debug */,
@@ -816,29 +598,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DBE4F9952AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitor" */ = {
+		DBE4F9952AA654680000F98B /* Build configuration list for PBXNativeTarget "OpenCANMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DBE4F9962AA654680000F98B /* Debug */,
 				DBE4F9972AA654680000F98B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DBE4F9982AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DBE4F9992AA654680000F98B /* Debug */,
-				DBE4F99A2AA654680000F98B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DBE4F99B2AA654680000F98B /* Build configuration list for PBXNativeTarget "CanMonitorUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DBE4F99C2AA654680000F98B /* Debug */,
-				DBE4F99D2AA654680000F98B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

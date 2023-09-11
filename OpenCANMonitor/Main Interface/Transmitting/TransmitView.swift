@@ -51,6 +51,7 @@ struct TransmitView: View {
                 .tableStyle(.inset)
             }
         }
+        .navigationTitle("Transmiting Messages")
         .toolbar {
             ToolbarItem(id: "addItem") {
                 Button {

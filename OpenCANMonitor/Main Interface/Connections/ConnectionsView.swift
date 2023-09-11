@@ -83,6 +83,7 @@ struct ConnectionsView: View {
                 }
             }
         }
+        .navigationTitle("Connections")
     }
 }
 
