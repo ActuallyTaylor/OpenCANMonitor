@@ -1,6 +1,5 @@
-![CAN Monitor Banner](assets/banner.png)
+<h1><img src="assets/icon.png" align="center" alt="icon" width=55> Open Can Monitor</h1>
 
-# OpenCANMonitor
 The easiest way to monitor a CAN Network. 
 
 With Open Can Monitor you can view and send messages to all CAN Buses supported by the [PCBUSB Library](https://www.mac-can.com/).
