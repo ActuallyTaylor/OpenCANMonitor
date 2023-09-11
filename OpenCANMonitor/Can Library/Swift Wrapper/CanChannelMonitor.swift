@@ -121,6 +121,10 @@ class CanChannelMonitor: ObservableObject {
                 return
             }
 
+            guard status != .qrcvempty else {
+                return
+            }
+            
             guard status == .ok else {
                 LOG("PCAN Status Code: \(status)", level: .error)
                 receivedError = status
