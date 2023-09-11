@@ -29,7 +29,7 @@ struct ConnectionsView: View {
             Image(.magnifyingglass)
                 .resizable()
                 .frame(width: 50, height: 50)
-                .bold()
+                .compatibleBold()
                 .offset(magnifyingGlassOffset)
                 .animation(.spring(), value: magnifyingGlassOffset)
                 .onReceive(timer) { input in

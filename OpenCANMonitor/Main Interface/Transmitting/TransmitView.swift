@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SFSymbols
 
 struct TransmitView: View {
     @EnvironmentObject var channelMonitor: CanChannelMonitor
     @State var selectedMessages: Set<CANTransmitMessage.ID> = .init()
     
     @State var presentCreateMessageView: Bool = false
+    @State var editMessage: CANTransmitMessage? = nil
 
     var body: some View {
         HStack(spacing: 0) {
@@ -36,6 +38,12 @@ struct TransmitView: View {
                     ForEach(channelMonitor.transmittingMessages) { message in
                         TableRow(message)
                             .contextMenu {
+                                Button {
+                                    editMessage = message
+                                } label: {
+                                    Label("Edit", symbol: .wrench_and_screwdriver)
+                                }
+
                                 Button(role: .destructive) {
                                     channelMonitor.transmittingMessages.removeAll { msg in
                                         return msg.id == message.id
@@ -66,6 +74,14 @@ struct TransmitView: View {
                 let transmitMessage = CANTransmitMessage(deviceID: deviceID, type: .standard, data: data, length: dataLength, cycleTime: cycleTime, currentlyTransmitting: true)
                 channelMonitor.transmittingMessages.append(transmitMessage)
                 presentCreateMessageView = false
+                try? channelMonitor.saveTransmittingMessages()
+            }
+        }
+        .sheet(item: $editMessage) { message in
+            CreateMessageView(bytes: message.data.array.map({$0.hex(length: 2)}), dataLength: message.length, deviceID: message.deviceID.hex(length: 3)) { data, dataLength, deviceID, cycleTime in
+                let transmitMessage = CANTransmitMessage(id: message.id,deviceID: deviceID, type: .standard, data: data, length: dataLength, cycleTime: cycleTime, currentlyTransmitting: true)
+                channelMonitor[message.id] = transmitMessage
+                editMessage = nil
                 try? channelMonitor.saveTransmittingMessages()
             }
         }

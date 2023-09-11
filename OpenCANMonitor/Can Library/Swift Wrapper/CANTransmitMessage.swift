@@ -18,7 +18,8 @@ struct CANTransmitMessage: Identifiable, Equatable, Hashable, Codable {
     var lastTransmitted: TimeInterval = 0
     var currentlyTransmitting: Bool
     
-    init(deviceID: UInt32, type: PCANMessageType, data: CANMessage.MessageData, length: Int, cycleTime: Int, currentlyTransmitting: Bool) {
+    init(id: UUID = UUID(), deviceID: UInt32, type: PCANMessageType, data: CANMessage.MessageData, length: Int, cycleTime: Int, currentlyTransmitting: Bool) {
+        self.id = id
         self.deviceID = deviceID
         self.type = type
         self.data = data

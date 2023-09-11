@@ -212,6 +212,8 @@ extension CanChannelMonitor {
         set(newValue) {
             if let index = transmittingMessages.firstIndex(where: { $0.id == newValue.id }) {
                 transmittingMessages[index] = newValue
+            } else {
+                print("Unable to get index \(newValue)")
             }
         }
     }

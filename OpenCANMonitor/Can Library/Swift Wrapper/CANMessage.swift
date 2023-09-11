@@ -14,6 +14,14 @@ extension UInt32 {
     }
 }
 
+extension UInt8 {
+    func hex(length: Int = 3) -> String {
+        let format = "%0\(length.description)x"
+        return String(format: format, self)
+    }
+}
+
+
 struct CANMessage: Identifiable, Equatable, Hashable, Codable {
     struct MessageData: Codable, CustomStringConvertible, Equatable {
         let byte0: UInt8
@@ -50,6 +58,12 @@ struct CANMessage: Identifiable, Equatable, Hashable, Codable {
         var tuple: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8) {
             (byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
         }
+        
+        var array: [UInt8] {
+            [byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7]
+        }
+        
+
         
         var description: String {
             return String(format:"%02X %02X %02X %02X %02X %02X %02X %02X", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)

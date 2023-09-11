@@ -17,7 +17,7 @@
 		DB5E46582AAB78D200825F21 /* Clamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46572AAB78D200825F21 /* Clamped.swift */; };
 		DB5E465B2AAB846E00825F21 /* ConnectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465A2AAB846E00825F21 /* ConnectionsView.swift */; };
 		DB5E465E2AAB8FC700825F21 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465D2AAB8FC700825F21 /* ErrorWrapper.swift */; };
-		DB5E46602AAB93E700825F21 /* RoundedFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465F2AAB93E700825F21 /* RoundedFont.swift */; };
+		DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */; };
 		DB5E46632AAB956700825F21 /* TransmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46622AAB956700825F21 /* TransmitView.swift */; };
 		DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */; };
 		DB82FDAF2AA7F08200AA9933 /* PCANMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */; };
@@ -57,7 +57,7 @@
 		DB5E46572AAB78D200825F21 /* Clamped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamped.swift; sourceTree = "<group>"; };
 		DB5E465A2AAB846E00825F21 /* ConnectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsView.swift; sourceTree = "<group>"; };
 		DB5E465D2AAB8FC700825F21 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
-		DB5E465F2AAB93E700825F21 /* RoundedFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedFont.swift; sourceTree = "<group>"; };
+		DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityWrappers.swift; sourceTree = "<group>"; };
 		DB5E46622AAB956700825F21 /* TransmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmitView.swift; sourceTree = "<group>"; };
 		DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANMessageType.swift; sourceTree = "<group>"; };
 		DB8FC0FD2AAA862900422427 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			children = (
 				DB5E46572AAB78D200825F21 /* Clamped.swift */,
 				DB5E465D2AAB8FC700825F21 /* ErrorWrapper.swift */,
-				DB5E465F2AAB93E700825F21 /* RoundedFont.swift */,
+				DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */,
 				DB273F732AAE7139000A2FDE /* BoolComparator.swift */,
 			);
 			path = Extensions;
@@ -374,7 +374,7 @@
 				DBABF41A2AABB4B200003E76 /* CANTransmitMessage.swift in Sources */,
 				DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */,
 				DBABF41E2AABB64900003E76 /* CreateMessageView.swift in Sources */,
-				DB5E46602AAB93E700825F21 /* RoundedFont.swift in Sources */,
+				DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */,
 				DB273F742AAE7139000A2FDE /* BoolComparator.swift in Sources */,
 				DB5E465B2AAB846E00825F21 /* ConnectionsView.swift in Sources */,
 				DBE4F9742AA654670000F98B /* CanMonitorApp.swift in Sources */,
@@ -452,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -506,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -528,7 +528,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 825FPALDZ5;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CAN Monitor";
@@ -541,6 +541,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -564,7 +565,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 825FPALDZ5;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CAN Monitor";
@@ -577,6 +578,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,7 +11,7 @@ struct ControllerView: View {
     @StateObject var channelMonitor: CanChannelMonitor = .init()
     @State var visibility: NavigationSplitViewVisibility = .doubleColumn
     
-    @State var selectedView: NavigableView = .connections
+    @State var selectedView: NavigableView = .transmitting
 
     var body: some View {
         NavigationSplitView(columnVisibility: $visibility) {
