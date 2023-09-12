@@ -32,7 +32,6 @@ struct ControllerView: View {
             }
         }
         .environmentObject(channelMonitor)
-
     }
 }
 

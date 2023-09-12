@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias CAN_DATA = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
+
 extension UInt32 {
     func hex(length: Int = 3) -> String {
         let format = "%0\(length.description)x"
@@ -44,7 +46,7 @@ struct CANMessage: Identifiable, Equatable, Hashable, Codable {
             self.byte7 = byte7
         }
         
-        init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)) {
+        init(data: CAN_DATA) {
             self.byte0 = data.0
             self.byte1 = data.1
             self.byte2 = data.2
@@ -55,7 +57,7 @@ struct CANMessage: Identifiable, Equatable, Hashable, Codable {
             self.byte7 = data.7
         }
         
-        var tuple: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8) {
+        var tuple: CAN_DATA {
             (byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
         }
         
@@ -63,18 +65,16 @@ struct CANMessage: Identifiable, Equatable, Hashable, Codable {
             [byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7]
         }
         
-
-        
         var description: String {
-            return String(format:"%02X %02X %02X %02X %02X %02X %02X %02X", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
+            return String(format: "%02X %02X %02X %02X %02X %02X %02X %02X", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
         }
         
         var ascii: String {
-            return String(format:"%c %c %c %c %c %c %c %c", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
+            return String(format: "%c %c %c %c %c %c %c %c", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
         }
         
         var decimal: String {
-            return String(format:"%d %d %d %d %d %d %d %d", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
+            return String(format: "%d %d %d %d %d %d %d %d", byte0, byte1, byte2, byte3, byte4, byte5, byte6, byte7)
         }
 
         func containsHex(_ hexString: String) -> Bool {
@@ -118,7 +118,7 @@ struct CANMessage: Identifiable, Equatable, Hashable, Codable {
     init(id: Int, message: TPCANMsg, timestamp: TPCANTimestamp) {
         self.id = id
         self.deviceID = message.ID
-        self.data = MessageData(data: message.DATA)
+        self.data = MessageData(data: message.DATA)//MessageData(data: swapByteOrder(message.DATA))
         self.timestamp = "\(timestamp.millis):\(timestamp.micros)"
         self.type = PCANMessageType(rawValue: UInt32(message.MSGTYPE)) ?? .errFrame
     }
@@ -136,3 +136,6 @@ struct CANMessage: Identifiable, Equatable, Hashable, Codable {
     }
 }
 
+//fileprivate func swapByteOrder(_ data: CAN_DATA) -> CAN_DATA {
+//    return (data.1, data.0, data.3, data.2, data.5, data.4, data.7, data.6)
+//}
