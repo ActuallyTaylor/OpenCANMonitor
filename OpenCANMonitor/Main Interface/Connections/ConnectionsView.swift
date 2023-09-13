@@ -13,7 +13,7 @@ struct ConnectionsView: View {
     
     @State var presentConnectSheet: Bool = false
 
-    @State var connectionError: PCANError? = nil
+    @State var connectionError: CANStatus? = nil
     @State var presentConnectionError: Bool = false
     
     @State var loadingError: ErrorWrapper? = nil
@@ -72,7 +72,7 @@ struct ConnectionsView: View {
                             presentConnectSheet = false
                         }
                     } catch {
-                        guard let error = error as? PCANError else {
+                        guard let error = error as? CANStatus else {
                             LOG("Invalid Error Type. Error: ", error, level: .error)
                             return
                         }

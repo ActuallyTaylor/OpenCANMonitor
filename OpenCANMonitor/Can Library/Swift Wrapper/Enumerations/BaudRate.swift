@@ -1,5 +1,5 @@
 //
-//  PCANBaudRate.swift
+//  BaudRate.swift
 //  CanMonitor
 //
 //  Created by Taylor Lineman on 9/5/23.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// Baud Rates recognized by PCBUSB
-enum PCANBaudRate: CaseIterable, Identifiable {
+enum BaudRate: CaseIterable, Identifiable {
     var id: UInt32 {
         rawValue
     }
@@ -41,9 +41,10 @@ enum PCANBaudRate: CaseIterable, Identifiable {
     case baud10K
     /// 5 kBit/s
     case baud5K
-    
+    /// There is no baudRate
     case none
     
+    /// The name for the Baud Rate that should be displayed to the user.
     var displayName: String {
         switch self {
         case .baud1M:
@@ -80,9 +81,11 @@ enum PCANBaudRate: CaseIterable, Identifiable {
     }
 }
 
-extension PCANBaudRate: RawRepresentable {
+extension BaudRate: RawRepresentable {
     typealias RawValue = UInt32
     
+    /// An optional RawRepresentable initializer that initializes a baud rate from its ``RawValue-swift.typealias``
+    /// - Parameter rawValue: The rawValue to initialize with. Should be the UInt32 value that is found in the `PCBUSB.h` definitions.
     init?(rawValue: UInt32) {
         for element in Self.allCases {
             if element.rawValue == rawValue {
@@ -93,6 +96,7 @@ extension PCANBaudRate: RawRepresentable {
         return nil
     }
     
+    /// The RawValue of the baud rate. These values link back to the original C values found in `PCBUSB.h`
     var rawValue: UInt32 {
         switch self {
         case .baud1M:

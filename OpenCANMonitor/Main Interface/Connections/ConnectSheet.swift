@@ -11,10 +11,10 @@ struct ConnectSheet: View {
     @Environment(\.dismiss) var dismiss
     @State var setDefaults: Bool = false
     
-    @State var usbBus: PCANUSBBus = .bus1
-    @State var baudRate: PCANBaudRate = .baud1M
+    @State var usbBus: USBBus = .bus1
+    @State var baudRate: BaudRate = .baud1M
     
-    var connect: (PCANUSBBus, PCANBaudRate) -> ()
+    var connect: (USBBus, BaudRate) -> ()
     
     var body: some View {
         VStack {
@@ -22,13 +22,13 @@ struct ConnectSheet: View {
                 .font(.headline)
             Picker("Interface", selection: $usbBus) {
                 // Loop over all the interfaces, but drop the last because it is the none interface.
-                ForEach(PCANUSBBus.allCases.dropLast()) { interface in
+                ForEach(USBBus.allCases.dropLast()) { interface in
                     Text(interface.displayName)
                         .tag(interface)
                 }
             }
             Picker("Baud Rate", selection: $baudRate) {
-                ForEach(PCANBaudRate.allCases) { rate in
+                ForEach(BaudRate.allCases) { rate in
                     Text(rate.displayName)
                         .tag(rate)
                 }
@@ -49,8 +49,8 @@ struct ConnectSheet: View {
             let defaultBusIndex = UserDefaults.standard.integer(forKey: "defaultBus")
             let defaultBaudIndex = UserDefaults.standard.integer(forKey: "defaultBaud")
             
-            usbBus = PCANUSBBus.allCases[defaultBusIndex]
-            baudRate = PCANBaudRate.allCases[defaultBaudIndex]
+            usbBus = USBBus.allCases[defaultBusIndex]
+            baudRate = BaudRate.allCases[defaultBaudIndex]
         }
     }
 }

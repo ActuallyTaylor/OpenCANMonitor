@@ -10,14 +10,26 @@ import AppKit
 import HydrogenReporter
 
 class CanChannelMonitor: ObservableObject {
-    enum CanChannelMonitorError: Error {
+    enum MonitorError: LocalizedError {
         case invalidError
         case invalidJSON
+        case invalidURL
+        
+        var errorDescription: String? {
+            switch self {
+            case .invalidError:
+                return "PCANUSB returned an invalid error code."
+            case .invalidJSON:
+                return "JSON encoding failed."
+            case .invalidURL:
+                return "The provided URL is not valid."
+            }
+        }
     }
     
     @Published var messages: [CANMessage] = []
     @Published var transmittingMessages: [CANTransmitMessage] = []
-    @Published var receivedError: PCANError? = nil
+    @Published var receivedError: CANStatus? = nil
     @Published var initialized: Bool = false
     @Published var initializedViews: [NavigableView] = [.connections]
     
@@ -25,8 +37,12 @@ class CanChannelMonitor: ObservableObject {
     var receivingTimer: Timer?
     var transmittingTimer: Timer?
 
-    var bus: PCANUSBBus
-    var baudRate: PCANBaudRate
+    var bus: USBBus
+    var baudRate: BaudRate
+    
+    var lastBus: USBBus = .none
+    var lastBaud: BaudRate = .none
+    var hasInitializedOnce: Bool = false
     
     init() {
         self.bus = .none
@@ -40,71 +56,108 @@ class CanChannelMonitor: ObservableObject {
         invalidateTimers()
     }
     
-    func initialize(bus: PCANUSBBus, baudRate: PCANBaudRate) throws {
+    func initialize(bus: USBBus, baudRate: BaudRate) throws {
+        LOG("Initializing the CAN connection...", level: .working)
         if self.bus != .none || self.baudRate != .none {
+            LOG("A previous connection was not uninitialized, uninitializing it now...", level: .working)
             try? self.uninitialize()
         }
         
         self.bus = bus
         self.baudRate = baudRate
         
-        // MARK: Connect to the CAN Bus
         let rawStatus = CAN_Initialize(UInt16(bus.rawValue), UInt16(baudRate.rawValue), 0, 0, 0)
 
-        // Convert to an error code and make sure it is okay
-        guard let status = PCANError(rawValue: rawStatus) else {
+        // Convert to an status code
+        guard let status = CANStatus(rawValue: rawStatus) else {
             LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
-            throw CanChannelMonitorError.invalidError
+            throw MonitorError.invalidError
         }
+        // Make sure we got an OK status code
         guard status == .ok else {
             LOG("PCAN Status Code: \(status)", level: .error)
             throw status
         }
+                
+        initialized = true
+        hasInitializedOnce = true
+        initializedViews = NavigableView.allCases
+        initTimers()
         
         LOG("Initialized CAN State: \(status)", level: .success)
         LOG("Connected to Bus: \(bus) at baud rate \(baudRate)", level: .success)
+    }
+    
+    func reInitialize() throws {
+        // We want to silently (almost) fail if we are already initialized or we have yet to initialize.
+        guard hasInitializedOnce else {
+            LOG("Has not initialized once, not reinitializing.")
+            return
+        }
+        guard !initialized else {
+            LOG("Already Initialized, not resetting-up connection to CAN.")
+            return
+        }
         
-        initialized = true
-        initializedViews = NavigableView.allCases
-        initTimers()
+        // If either last bus or last baud are .none, we should not reinitialize.
+        guard self.lastBus != .none && self.lastBaud != .none else {
+            LOG("Not reinitializing because lastBaud or lastBus haven one value.")
+            return
+        }
+        
+        try initialize(bus: self.lastBus, baudRate: self.lastBaud)
     }
     
     func uninitialize() throws {
-        // MARK: Connect to the CAN Bus
+        LOG("Unitializing the CAN connection...", level: .working)
         let rawStatus = CAN_Uninitialize(UInt16(bus.rawValue))
 
-        // Convert to an error code and make sure it is okay
-        guard let status = PCANError(rawValue: rawStatus) else {
+        // Convert to a swift status code
+        guard let status = CANStatus(rawValue: rawStatus) else {
             LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
-            throw CanChannelMonitorError.invalidError
+            throw MonitorError.invalidError
         }
+        // Make sure we got an OK status code
         guard status == .ok else {
             LOG("PCAN Status Code: \(status)", level: .error)
             throw status
         }
         
-        LOG("Initialized CAN State: \(status)", level: .success)
-        LOG("Connected to Bus: \(bus) at baud rate \(baudRate)", level: .success)
-
         initialized = false
         initializedViews = [.connections]
+        
+        self.lastBus = bus
+        self.lastBaud = baudRate
+        
         self.bus = .none
         self.baudRate = .none
+        
+        // We do not set bus and baud rate to none because we may end up reInitializing
+        LOG("Initialized CAN State: \(status)", level: .success)
+        LOG("Connected to Bus: \(bus) at baud rate \(baudRate)", level: .success)
     }
     
     func invalidateTimers() {
+        LOG("Invalidating Timers...", level: .working)
         receivingTimer?.invalidate()
         transmittingTimer?.invalidate()
+        LOG("Timers Invalidated", level: .success)
     }
     
-    private func initTimers() {
+    func initTimers() {
+        guard initialized else { return }
+        LOG("Initializing Timers...", level: .working)
+        invalidateTimers()
         receivingTimer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { self.receiveTimerTick($0) })
         transmittingTimer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: {  self.transmitTimerTick($0) })
+        LOG("Timers Initialized", level: .success)
     }
 
     func clearMessages() {
+        LOG("Clearing Messages...", level: .working)
         self.runningCounter = 0
         self.messages.removeAll()
+        LOG("Messages Cleared", level: .success)
     }
         
     private func receiveTimerTick(_ timer: Timer) {
@@ -116,7 +169,7 @@ class CanChannelMonitor: ObservableObject {
         while (startingPoint.timeIntervalSinceNow > -0.01) {
             let rawStatus = CAN_Read(UInt16(bus.rawValue), &message, &timestamp)
             // Convert to an error code and make sure it is okay
-            guard let status = PCANError(rawValue: rawStatus) else {
+            guard let status = CANStatus(rawValue: rawStatus) else {
                 LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
                 return
             }
@@ -144,7 +197,7 @@ class CanChannelMonitor: ObservableObject {
                 try transmittingMessages[index].transmit(bus: bus)
             } catch {
                 LOG("Transmitting Error", error, level: .error)
-                if let error = error as? PCANError {
+                if let error = error as? CANStatus {
                     receivedError = error
                 }
                 continue
@@ -156,17 +209,20 @@ class CanChannelMonitor: ObservableObject {
 // MARK: User facing save functions
 extension CanChannelMonitor {
     func load() throws {
+        LOG("Loading CAN Dump from URL...", level: .working)
         guard let url = showOpenPanel() else {
-            return
+            throw MonitorError.invalidURL
         }
         let data = try Data(contentsOf: url)
         
         let decoder = JSONDecoder()
         self.messages = try decoder.decode([CANMessage].self, from: data)
         initializedViews = [.connections, .receiving]
+        LOG("Loaded CAN Dump from URL \(url)", level: .success)
     }
     
     func save() throws {
+        LOG("Saving CAN Dump to file...", level: .working)
         guard let url = showSavePanel() else {
             return
         }
@@ -174,9 +230,10 @@ extension CanChannelMonitor {
         encoder.outputFormatting = .prettyPrinted
         let jsonData = try encoder.encode(messages)
         guard let jsonString = String(data: jsonData, encoding: .utf8) else {
-            throw CanChannelMonitorError.invalidJSON
+            throw MonitorError.invalidJSON
         }
         try jsonString.write(to: url, atomically: true, encoding: .utf8)
+        LOG("Saved CAN Dump to file \(url)...", level: .working)
     }
     
     func showSavePanel() -> URL? {
@@ -225,6 +282,7 @@ extension CanChannelMonitor {
 
 extension CanChannelMonitor {
     private func loadSavedTransmittingMessages() throws {
+        LOG("Loading Saved Transmit Messages...", level: .working)
         guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return
         }
@@ -234,9 +292,11 @@ extension CanChannelMonitor {
         
         let decoder = JSONDecoder()
         self.transmittingMessages = try decoder.decode([CANTransmitMessage].self, from: data)
+        LOG("Loaded Saved Transmit Messages", level: .success)
     }
     
     func saveTransmittingMessages() throws {
+        LOG("Saving transmit messages...", level: .working)
         guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return
         }
@@ -245,8 +305,9 @@ extension CanChannelMonitor {
         let encoder = JSONEncoder()
         let jsonData = try encoder.encode(transmittingMessages)
         guard let jsonString = String(data: jsonData, encoding: .utf8) else {
-            throw CanChannelMonitorError.invalidJSON
+            throw MonitorError.invalidJSON
         }
         try jsonString.write(to: url, atomically: true, encoding: .utf8)
+        LOG("Loaded transmit messages...", level: .success)
     }
 }

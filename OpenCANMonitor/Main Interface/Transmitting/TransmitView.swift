@@ -43,7 +43,6 @@ struct TransmitView: View {
                                 } label: {
                                     Label("Edit", symbol: .wrench_and_screwdriver)
                                 }
-
                                 Button(role: .destructive) {
                                     channelMonitor.transmittingMessages.removeAll { msg in
                                         return msg.id == message.id
@@ -59,7 +58,7 @@ struct TransmitView: View {
                 .tableStyle(.inset)
             }
         }
-        .navigationTitle("Transmiting Messages")
+        .navigationTitle("Transmitting Messages")
         .toolbar {
             ToolbarItem(id: "addItem") {
                 Button {
