@@ -9,21 +9,6 @@ import Foundation
 
 typealias CAN_DATA = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
 
-extension UInt32 {
-    func hex(length: Int = 3) -> String {
-        let format = "%0\(length.description)x"
-        return String(format: format, self)
-    }
-}
-
-extension UInt8 {
-    func hex(length: Int = 3) -> String {
-        let format = "%0\(length.description)x"
-        return String(format: format, self)
-    }
-}
-
-
 struct CANMessage: Identifiable, Equatable, Hashable, Codable {
     struct MessageData: Codable, CustomStringConvertible, Equatable {
         let byte0: UInt8

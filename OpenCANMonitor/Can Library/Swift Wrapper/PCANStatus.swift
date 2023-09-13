@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PCANError: CaseIterable, LocalizedError {
+enum PCANStatus: CaseIterable, LocalizedError {
     case ok
     case xmtfull
     case overrun
@@ -102,7 +102,7 @@ enum PCANError: CaseIterable, LocalizedError {
     }
 }
 
-extension PCANError: RawRepresentable {
+extension PCANStatus: RawRepresentable {
     typealias RawValue = UInt32
     
     init?(rawValue: UInt32) {

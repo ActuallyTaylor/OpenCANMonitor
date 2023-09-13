@@ -47,9 +47,9 @@ struct CANTransmitMessage: Identifiable, Equatable, Hashable, Codable {
         var message: TPCANMsg = .init(ID: deviceID, MSGTYPE: UInt8(type.rawValue), LEN: UInt8(length), DATA: data.tuple)
         
         let rawStatus = CAN_Write(UInt16(bus.rawValue), &message)
-        guard let status = PCANError(rawValue: rawStatus) else {
+        guard let status = PCANStatus(rawValue: rawStatus) else {
             LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
-            throw CanChannelMonitor.CanChannelMonitorError.invalidError
+            throw CanChannelMonitor.MonitorError.invalidError
         }
 
         guard status == .ok else {
