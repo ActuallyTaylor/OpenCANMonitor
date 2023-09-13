@@ -1,5 +1,5 @@
 //
-//  PCANUSBBus.swift
+//  USBBus.swift
 //  CanMonitor
 //
 //  Created by Taylor Lineman on 9/5/23.
@@ -7,22 +7,32 @@
 
 import Foundation
 
-// The eight supported USB buses available to PCAN
-enum PCANUSBBus: CaseIterable, Identifiable {
+/// The eight supported USB buses available to PCAN
+enum USBBus: CaseIterable, Identifiable {
     var id: UInt32 {
         rawValue
     }
     
+    /// PCAN-USB interface, channel 1
     case bus1
+    /// PCAN-USB interface, channel 2
     case bus2
+    /// PCAN-USB interface, channel 3
     case bus3
+    /// PCAN-USB interface, channel 4
     case bus4
+    /// PCAN-USB interface, channel 5
     case bus5
+    /// PCAN-USB interface, channel 6
     case bus6
+    /// PCAN-USB interface, channel 7
     case bus7
+    /// PCAN-USB interface, channel 8
     case bus8
+    /// Undefined/default value for a PCAN bus
     case none
-
+    
+    /// The user facing display name for a USB Bus
     var displayName: String {
         switch self {
         case .none:
@@ -47,9 +57,11 @@ enum PCANUSBBus: CaseIterable, Identifiable {
     }
 }
 
-extension PCANUSBBus: RawRepresentable {
+extension USBBus: RawRepresentable {
     typealias RawValue = UInt32
     
+    /// An optional RawRepresentable initializer that initializes a bus from its ``RawValue-swift.typealias``
+    /// - Parameter rawValue: The rawValue to initialize with. Should be the UInt32 value that is found in the `PCBUSB.h` definitions.
     init?(rawValue: UInt32) {
         for element in Self.allCases {
             if element.rawValue == rawValue {
@@ -60,6 +72,7 @@ extension PCANUSBBus: RawRepresentable {
         return nil
     }
     
+    /// The RawValue of the status. These values link back to the original C values found in `PCBUSB.h`
     var rawValue: UInt32 {
         switch self {
         case .none:

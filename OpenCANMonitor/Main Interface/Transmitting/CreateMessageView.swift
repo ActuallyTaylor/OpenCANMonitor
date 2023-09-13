@@ -16,7 +16,7 @@ struct CreateMessageView: View {
     @State var cycleTime: Int = 1000
     @State var presentValidationError: Bool = false
 
-    var create: (CANMessage.MessageData, Int, UInt32, Int) -> ()
+    var create: (MessageData, Int, UInt32, Int) -> ()
 
     var body: some View {
         VStack {

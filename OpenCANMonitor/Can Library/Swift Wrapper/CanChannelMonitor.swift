@@ -10,15 +10,26 @@ import AppKit
 import HydrogenReporter
 
 class CanChannelMonitor: ObservableObject {
-    enum MonitorError: Error {
+    enum MonitorError: LocalizedError {
         case invalidError
         case invalidJSON
         case invalidURL
+        
+        var errorDescription: String? {
+            switch self {
+            case .invalidError:
+                return "PCANUSB returned an invalid error code."
+            case .invalidJSON:
+                return "JSON encoding failed."
+            case .invalidURL:
+                return "The provided URL is not valid."
+            }
+        }
     }
     
     @Published var messages: [CANMessage] = []
     @Published var transmittingMessages: [CANTransmitMessage] = []
-    @Published var receivedError: PCANStatus? = nil
+    @Published var receivedError: CANStatus? = nil
     @Published var initialized: Bool = false
     @Published var initializedViews: [NavigableView] = [.connections]
     
@@ -26,11 +37,11 @@ class CanChannelMonitor: ObservableObject {
     var receivingTimer: Timer?
     var transmittingTimer: Timer?
 
-    var bus: PCANUSBBus
-    var baudRate: PCANBaudRate
+    var bus: USBBus
+    var baudRate: BaudRate
     
-    var lastBus: PCANUSBBus = .none
-    var lastBaud: PCANBaudRate = .none
+    var lastBus: USBBus = .none
+    var lastBaud: BaudRate = .none
     var hasInitializedOnce: Bool = false
     
     init() {
@@ -45,7 +56,7 @@ class CanChannelMonitor: ObservableObject {
         invalidateTimers()
     }
     
-    func initialize(bus: PCANUSBBus, baudRate: PCANBaudRate) throws {
+    func initialize(bus: USBBus, baudRate: BaudRate) throws {
         LOG("Initializing the CAN connection...", level: .working)
         if self.bus != .none || self.baudRate != .none {
             LOG("A previous connection was not uninitialized, uninitializing it now...", level: .working)
@@ -58,7 +69,7 @@ class CanChannelMonitor: ObservableObject {
         let rawStatus = CAN_Initialize(UInt16(bus.rawValue), UInt16(baudRate.rawValue), 0, 0, 0)
 
         // Convert to an status code
-        guard let status = PCANStatus(rawValue: rawStatus) else {
+        guard let status = CANStatus(rawValue: rawStatus) else {
             LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
             throw MonitorError.invalidError
         }
@@ -102,7 +113,7 @@ class CanChannelMonitor: ObservableObject {
         let rawStatus = CAN_Uninitialize(UInt16(bus.rawValue))
 
         // Convert to a swift status code
-        guard let status = PCANStatus(rawValue: rawStatus) else {
+        guard let status = CANStatus(rawValue: rawStatus) else {
             LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
             throw MonitorError.invalidError
         }
@@ -158,7 +169,7 @@ class CanChannelMonitor: ObservableObject {
         while (startingPoint.timeIntervalSinceNow > -0.01) {
             let rawStatus = CAN_Read(UInt16(bus.rawValue), &message, &timestamp)
             // Convert to an error code and make sure it is okay
-            guard let status = PCANStatus(rawValue: rawStatus) else {
+            guard let status = CANStatus(rawValue: rawStatus) else {
                 LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
                 return
             }
@@ -186,7 +197,7 @@ class CanChannelMonitor: ObservableObject {
                 try transmittingMessages[index].transmit(bus: bus)
             } catch {
                 LOG("Transmitting Error", error, level: .error)
-                if let error = error as? PCANStatus {
+                if let error = error as? CANStatus {
                     receivedError = error
                 }
                 continue

@@ -1,5 +1,5 @@
 //
-//  PCANMessageType.swift
+//  CANMessageType.swift
 //  CanMonitor
 //
 //  Created by Taylor Lineman on 9/5/23.
@@ -7,21 +7,33 @@
 
 import Foundation
 
-enum PCANMessageType: CaseIterable, Identifiable, Codable {
+/// The 9 types of CAN messages.
+enum CANMessageType: CaseIterable, Identifiable, Codable {
+    /// The ID of the ``CANMessageType`` used for easily looping in `SwiftUI`
     var id: UInt32 {
         rawValue
     }
     
+    /// The PCAN message is a CAN Standard Frame (11-bit identifier)
     case standard
+    /// The PCAN message is a CAN Remote-Transfer-Request Frame
     case rtr
+    /// The PCAN message is a CAN Extended Frame (29-bit identifier)
     case extended
+    /// The PCAN message represents a FD frame in terms of CiA Specs
     case fd
+    /// The PCAN message represents a FD bit rate switch (CAN data at a higher bit rate)
     case brs
+    /// The PCAN message represents a FD error state indicator (CAN FD transmitter was error active)
     case esi
+    /// The PCAN message represents an echo CAN Frame
     case echo
+    /// The PCAN message represents an error frame
     case errFrame
+    /// The PCAN message represents a PCAN status message
     case status
     
+    /// The user facing display name for the type of CAN Message.
     var displayName: String {
         switch self {
         case .standard:
@@ -46,9 +58,11 @@ enum PCANMessageType: CaseIterable, Identifiable, Codable {
     }
 }
 
-extension PCANMessageType: RawRepresentable {
+extension CANMessageType: RawRepresentable {
     typealias RawValue = UInt32
     
+    /// An optional RawRepresentable initializer that initializes a status from its ``RawValue-swift.typealias``
+    /// - Parameter rawValue: The rawValue to initialize with. Should be the UInt32 value that is found in the `PCBUSB.h` definitions.
     init?(rawValue: UInt32) {
         for element in Self.allCases {
             if element.rawValue == rawValue {
@@ -59,6 +73,7 @@ extension PCANMessageType: RawRepresentable {
         return nil
     }
     
+    /// The RawValue of the message type. These values link back to the original C values found in `PCBUSB.h`
     var rawValue: UInt32 {
         switch self {
         case .standard:

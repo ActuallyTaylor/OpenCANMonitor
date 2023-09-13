@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DB366F8A2AA7A3CA00329014 /* CanChannelMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */; };
-		DB366F8C2AA7CA5200329014 /* PCANUSBBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8B2AA7CA5200329014 /* PCANUSBBus.swift */; };
-		DB366F8E2AA7CD4400329014 /* PCANStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8D2AA7CD4400329014 /* PCANStatus.swift */; };
-		DB366F902AA7D4CF00329014 /* PCANBaudRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8F2AA7D4CF00329014 /* PCANBaudRate.swift */; };
+		DB366F8C2AA7CA5200329014 /* USBBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8B2AA7CA5200329014 /* USBBus.swift */; };
+		DB366F8E2AA7CD4400329014 /* CANStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8D2AA7CD4400329014 /* CANStatus.swift */; };
+		DB366F902AA7D4CF00329014 /* BaudRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8F2AA7D4CF00329014 /* BaudRate.swift */; };
 		DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */ = {isa = PBXBuildFile; productRef = DB4569692AA7DF6D0006ADEC /* HydrogenReporter */; };
 		DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */; };
 		DB5E46582AAB78D200825F21 /* Clamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46572AAB78D200825F21 /* Clamped.swift */; };
@@ -19,8 +19,9 @@
 		DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */; };
 		DB5E46632AAB956700825F21 /* TransmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46622AAB956700825F21 /* TransmitView.swift */; };
 		DB81A4612AB25EDB008F83C2 /* UInt+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4602AB25EDB008F83C2 /* UInt+Hex.swift */; };
+		DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4622AB262D9008F83C2 /* MessageData.swift */; };
 		DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */; };
-		DB82FDAF2AA7F08200AA9933 /* PCANMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */; };
+		DB82FDAF2AA7F08200AA9933 /* CANMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82FDAE2AA7F08200AA9933 /* CANMessageType.swift */; };
 		DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC0FD2AAA862900422427 /* SettingsView.swift */; };
 		DB8FC1002AAA866B00422427 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */; };
 		DB9A2BE32AA8120D00F543B4 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A2BE22AA8120D00F543B4 /* FilterType.swift */; };
@@ -49,9 +50,9 @@
 		DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libPCBUSB.dylib; sourceTree = "<group>"; };
 		DB1BB1342AA6594E00256CD3 /* COPYRIGHT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYRIGHT; sourceTree = "<group>"; };
 		DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanChannelMonitor.swift; sourceTree = "<group>"; };
-		DB366F8B2AA7CA5200329014 /* PCANUSBBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANUSBBus.swift; sourceTree = "<group>"; };
-		DB366F8D2AA7CD4400329014 /* PCANStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANStatus.swift; sourceTree = "<group>"; };
-		DB366F8F2AA7D4CF00329014 /* PCANBaudRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANBaudRate.swift; sourceTree = "<group>"; };
+		DB366F8B2AA7CA5200329014 /* USBBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBBus.swift; sourceTree = "<group>"; };
+		DB366F8D2AA7CD4400329014 /* CANStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANStatus.swift; sourceTree = "<group>"; };
+		DB366F8F2AA7D4CF00329014 /* BaudRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudRate.swift; sourceTree = "<group>"; };
 		DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSheet.swift; sourceTree = "<group>"; };
 		DB5E46572AAB78D200825F21 /* Clamped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamped.swift; sourceTree = "<group>"; };
 		DB5E465A2AAB846E00825F21 /* ConnectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsView.swift; sourceTree = "<group>"; };
@@ -59,7 +60,8 @@
 		DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityWrappers.swift; sourceTree = "<group>"; };
 		DB5E46622AAB956700825F21 /* TransmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmitView.swift; sourceTree = "<group>"; };
 		DB81A4602AB25EDB008F83C2 /* UInt+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+Hex.swift"; sourceTree = "<group>"; };
-		DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCANMessageType.swift; sourceTree = "<group>"; };
+		DB81A4622AB262D9008F83C2 /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
+		DB82FDAE2AA7F08200AA9933 /* CANMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANMessageType.swift; sourceTree = "<group>"; };
 		DB8FC0FD2AAA862900422427 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		DB9A2BE22AA8120D00F543B4 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
@@ -166,6 +168,27 @@
 			path = Transmitting;
 			sourceTree = "<group>";
 		};
+		DB81A4642AB262FE008F83C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBE6E4C42AA78D660064FF15 /* CANMessage.swift */,
+				DB81A4622AB262D9008F83C2 /* MessageData.swift */,
+				DBABF4192AABB4B200003E76 /* CANTransmitMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB81A4652AB26307008F83C2 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				DB366F8B2AA7CA5200329014 /* USBBus.swift */,
+				DB82FDAE2AA7F08200AA9933 /* CANMessageType.swift */,
+				DB366F8F2AA7D4CF00329014 /* BaudRate.swift */,
+				DB366F8D2AA7CD4400329014 /* CANStatus.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
 		DB8FC0FA2AAA860E00422427 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,12 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */,
-				DBE6E4C42AA78D660064FF15 /* CANMessage.swift */,
-				DB366F8B2AA7CA5200329014 /* PCANUSBBus.swift */,
-				DB82FDAE2AA7F08200AA9933 /* PCANMessageType.swift */,
-				DB366F8F2AA7D4CF00329014 /* PCANBaudRate.swift */,
-				DB366F8D2AA7CD4400329014 /* PCANStatus.swift */,
-				DBABF4192AABB4B200003E76 /* CANTransmitMessage.swift */,
+				DB81A4652AB26307008F83C2 /* Enumerations */,
+				DB81A4642AB262FE008F83C2 /* Models */,
 			);
 			path = "Swift Wrapper";
 			sourceTree = "<group>";
@@ -377,21 +396,22 @@
 				DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */,
 				DB5E465B2AAB846E00825F21 /* ConnectionsView.swift in Sources */,
 				DBE4F9742AA654670000F98B /* CanMonitorApp.swift in Sources */,
-				DB366F902AA7D4CF00329014 /* PCANBaudRate.swift in Sources */,
+				DB366F902AA7D4CF00329014 /* BaudRate.swift in Sources */,
 				DBE6E4CF2AA794320064FF15 /* NavigableView.swift in Sources */,
-				DB366F8C2AA7CA5200329014 /* PCANUSBBus.swift in Sources */,
+				DB366F8C2AA7CA5200329014 /* USBBus.swift in Sources */,
 				DBE6E4D92AA799E90064FF15 /* AKTextField.swift in Sources */,
 				DB5E46582AAB78D200825F21 /* Clamped.swift in Sources */,
 				DB5E465E2AAB8FC700825F21 /* ErrorWrapper.swift in Sources */,
-				DB366F8E2AA7CD4400329014 /* PCANStatus.swift in Sources */,
+				DB366F8E2AA7CD4400329014 /* CANStatus.swift in Sources */,
 				DB8FC1002AAA866B00422427 /* GeneralSettingsView.swift in Sources */,
 				DB5E46632AAB956700825F21 /* TransmitView.swift in Sources */,
-				DB82FDAF2AA7F08200AA9933 /* PCANMessageType.swift in Sources */,
+				DB82FDAF2AA7F08200AA9933 /* CANMessageType.swift in Sources */,
 				DBD727C92AAAE437009150B2 /* MessageDetail.swift in Sources */,
 				DBE6E4C52AA78D660064FF15 /* CANMessage.swift in Sources */,
 				DBD727C72AAADAFA009150B2 /* ControllerView.swift in Sources */,
 				DBE6E4C32AA78C410064FF15 /* PCBUSB.c in Sources */,
 				DBE6E4D62AA796710064FF15 /* HexFormatter.swift in Sources */,
+				DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */,
 				DBE6E4DB2AA79FBC0064FF15 /* FilterMessagesPopover.swift in Sources */,
 				DBE6E4D42AA795750064FF15 /* SendMessagePopover.swift in Sources */,
 				DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */,

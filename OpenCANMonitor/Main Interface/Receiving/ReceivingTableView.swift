@@ -16,7 +16,7 @@ struct ReceivingTableView: View {
     @State var presentFilter: Bool = false
     @State var presentError: Bool = false
     
-    @State var canError: PCANStatus? = nil
+    @State var canError: CANStatus? = nil
     
     @State var hexDataFilter: String = ""
     @State var asciiDataFilter: String = ""
