@@ -26,7 +26,7 @@ struct ControllerView: View {
         } detail: {
             switch selectedView {
             case .connections:
-                ConnectionsView()
+                ConnectionsView(selectedView: $selectedView)
             case .receiving:
                 ReceivingTableView()
             case .transmitting:

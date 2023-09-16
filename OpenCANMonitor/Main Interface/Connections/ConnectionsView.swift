@@ -11,6 +11,8 @@ import HydrogenReporter
 struct ConnectionsView: View {    
     @EnvironmentObject var channelMonitor: CanChannelMonitor
     
+    @Binding var selectedView: NavigableView
+
     @State var presentConnectSheet: Bool = false
 
     @State var connectionError: CANStatus? = nil
@@ -70,6 +72,7 @@ struct ConnectionsView: View {
                         
                         withAnimation {
                             presentConnectSheet = false
+                            selectedView = .receiving
                         }
                     } catch {
                         guard let error = error as? CANStatus else {
@@ -89,6 +92,6 @@ struct ConnectionsView: View {
 
 struct ConnectionsView_Previews: PreviewProvider {
     static var previews: some View {
-        ConnectionsView()
+        ConnectionsView(selectedView: .constant(.connections))
     }
 }

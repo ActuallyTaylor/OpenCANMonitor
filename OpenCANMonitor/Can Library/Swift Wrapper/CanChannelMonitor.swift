@@ -68,16 +68,7 @@ class CanChannelMonitor: ObservableObject {
         
         let rawStatus = CAN_Initialize(UInt16(bus.rawValue), UInt16(baudRate.rawValue), 0, 0, 0)
 
-        // Convert to an status code
-        guard let status = CANStatus(rawValue: rawStatus) else {
-            LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
-            throw MonitorError.invalidError
-        }
-        // Make sure we got an OK status code
-        guard status == .ok else {
-            LOG("PCAN Status Code: \(status)", level: .error)
-            throw status
-        }
+        let status = try validateCANStatus(rawStatus: rawStatus)
                 
         initialized = true
         hasInitializedOnce = true
@@ -112,16 +103,7 @@ class CanChannelMonitor: ObservableObject {
         LOG("Unitializing the CAN connection...", level: .working)
         let rawStatus = CAN_Uninitialize(UInt16(bus.rawValue))
 
-        // Convert to a swift status code
-        guard let status = CANStatus(rawValue: rawStatus) else {
-            LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
-            throw MonitorError.invalidError
-        }
-        // Make sure we got an OK status code
-        guard status == .ok else {
-            LOG("PCAN Status Code: \(status)", level: .error)
-            throw status
-        }
+        let status = try validateCANStatus(rawStatus: rawStatus)
         
         initialized = false
         initializedViews = [.connections]
@@ -203,6 +185,22 @@ class CanChannelMonitor: ObservableObject {
                 continue
             }
         }
+    }
+    
+    @discardableResult
+    private func validateCANStatus(rawStatus: UInt32) throws -> CANStatus {
+        // Convert to a swift status code
+        guard let status = CANStatus(rawValue: rawStatus) else {
+            LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
+            throw MonitorError.invalidError
+        }
+        // Make sure we got an OK status code
+        guard status == .ok else {
+            LOG("PCAN Status Code: \(status)", level: .error)
+            throw status
+        }
+        
+        return status
     }
 }
 
