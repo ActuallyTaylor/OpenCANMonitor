@@ -18,9 +18,10 @@
 		DB5E465E2AAB8FC700825F21 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465D2AAB8FC700825F21 /* ErrorWrapper.swift */; };
 		DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */; };
 		DB5E46632AAB956700825F21 /* TransmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46622AAB956700825F21 /* TransmitView.swift */; };
+		DB685D1D2ACF934A002F6131 /* libPCBUSB.0.12.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = DB1BB11D2AA6594E00256CD3 /* libPCBUSB.0.12.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DB81A4612AB25EDB008F83C2 /* UInt+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4602AB25EDB008F83C2 /* UInt+Hex.swift */; };
 		DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4622AB262D9008F83C2 /* MessageData.swift */; };
-		DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */; };
+		DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.0.12.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1BB11D2AA6594E00256CD3 /* libPCBUSB.0.12.1.dylib */; };
 		DB82FDAF2AA7F08200AA9933 /* CANMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82FDAE2AA7F08200AA9933 /* CANMessageType.swift */; };
 		DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC0FD2AAA862900422427 /* SettingsView.swift */; };
 		DB8FC1002AAA866B00422427 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */; };
@@ -44,10 +45,24 @@
 		DBE6E4DB2AA79FBC0064FF15 /* FilterMessagesPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4DA2AA79FBC0064FF15 /* FilterMessagesPopover.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DB685D1E2ACF934A002F6131 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DB685D1D2ACF934A002F6131 /* libPCBUSB.0.12.1.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		DB1BB1162AA6594300256CD3 /* libPCBUSB.0.12.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPCBUSB.0.12.1.dylib; path = Resources/PCBUSB/libPCBUSB.0.12.1.dylib; sourceTree = "<group>"; };
 		DB1BB11C2AA6594E00256CD3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libPCBUSB.dylib; sourceTree = "<group>"; };
+		DB1BB11D2AA6594E00256CD3 /* libPCBUSB.0.12.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libPCBUSB.0.12.1.dylib; sourceTree = "<group>"; };
 		DB1BB1342AA6594E00256CD3 /* COPYRIGHT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYRIGHT; sourceTree = "<group>"; };
 		DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanChannelMonitor.swift; sourceTree = "<group>"; };
 		DB366F8B2AA7CA5200329014 /* USBBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBBus.swift; sourceTree = "<group>"; };
@@ -94,7 +109,7 @@
 			files = (
 				DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */,
 				DBE6E4C82AA7910A0064FF15 /* SFSymbols in Frameworks */,
-				DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.dylib in Frameworks */,
+				DB82FDAD2AA7EBC700AA9933 /* libPCBUSB.0.12.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1BB11C2AA6594E00256CD3 /* LICENSE */,
-				DB1BB11D2AA6594E00256CD3 /* libPCBUSB.dylib */,
+				DB1BB11D2AA6594E00256CD3 /* libPCBUSB.0.12.1.dylib */,
 				DB1BB1342AA6594E00256CD3 /* COPYRIGHT */,
 			);
 			path = PCBUSB;
@@ -317,6 +332,7 @@
 				DBE4F96C2AA654670000F98B /* Sources */,
 				DBE4F96D2AA654670000F98B /* Frameworks */,
 				DBE4F96E2AA654670000F98B /* Resources */,
+				DB685D1E2ACF934A002F6131 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -563,7 +579,7 @@
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -601,7 +617,7 @@
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
