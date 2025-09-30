@@ -1,18 +1,17 @@
 //
-//  ConnectionsView.swift
-//  CanMonitor
+//  Connections.swift
+//  OpenCANMonitor
 //
-//  Created by Taylor Lineman on 9/8/23.
+//  Created by Taylor Lineman on 9/29/25.
 //
 
 import SwiftUI
-import HydrogenReporter
 
-struct ConnectionsView: View {    
-    @EnvironmentObject var channelMonitor: CanChannelMonitor
+class CANDriverController {
     
-    @Binding var selectedView: NavigableView
+}
 
+struct Connections: View {
     @State var presentConnectSheet: Bool = false
 
     @State var connectionError: CANStatus? = nil
@@ -44,18 +43,7 @@ struct ConnectionsView: View {
                     Label("Connect Over USB", symbol: .desktopcomputer)
                 }
                 Button {
-                    do {
-                        try channelMonitor.load()
-                        selectedView = .receiving
-                    } catch let error as CanChannelMonitor.MonitorError {
-                        guard error != .canceled else { return }
-                        
-                        loadingError = .init(internalError: error)
-                        presentLoadingError = true
-                    } catch {
-                        loadingError = .init(internalError: error)
-                        presentLoadingError = true
-                    }
+
                 } label: {
                     Label("Load a CAN Dump", symbol: .arrow_down_doc)
                 }
@@ -74,30 +62,30 @@ struct ConnectionsView: View {
             .sheet(isPresented: $presentConnectSheet) {
                 ConnectSheet { interface, baudRate in
                     do {
-                        try channelMonitor.initialize(bus: interface, baudRate: baudRate)
+                        let bus = try Canbus(bus: interface, baudRate: baudRate)
                         
-                        withAnimation {
-                            presentConnectSheet = false
-                            selectedView = .receiving
-                        }
                     } catch {
-                        guard let error = error as? CANStatus else {
-                            LOG("Invalid Error Type. Error: ", error, level: .error)
-                            return
-                        }
-                        LOG("Received CAN Error: ", error, level: .error)
-                        connectionError = error
-                        presentConnectionError = true
+                        
                     }
+//                    do {
+//                        try channelMonitor.initialize(bus: interface, baudRate: baudRate)
+//                        
+//                        withAnimation {
+//                            presentConnectSheet = false
+//                            selectedView = .receiving
+//                        }
+//                    } catch {
+//                        guard let error = error as? CANStatus else {
+//                            LOG("Invalid Error Type. Error: ", error, level: .error)
+//                            return
+//                        }
+//                        LOG("Received CAN Error: ", error, level: .error)
+//                        connectionError = error
+//                        presentConnectionError = true
+//                    }
                 }
             }
         }
         .navigationTitle("Connections")
-    }
-}
-
-struct ConnectionsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConnectionsView(selectedView: .constant(.connections))
     }
 }

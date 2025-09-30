@@ -48,7 +48,6 @@ struct ReceivingTableView: View {
                     TableColumn("Hex Data", value: \.data.description)
                     TableColumn("ASCII Data", value: \.data.ascii)
                     TableColumn("Decimal Data", value: \.data.decimal)
-                    
                 }
                 .tableStyle(.inset)
                 .onChange(of: channelMonitor.messages) { newValue in
@@ -121,7 +120,7 @@ struct ReceivingTableView: View {
                     }
 
                 } label: {
-                    Label("File Operations", symbol: .arrow_up_arrow_down)
+                    Label("File Operations", symbol:  .custom("floppy.disk"))
                 }
 
             }

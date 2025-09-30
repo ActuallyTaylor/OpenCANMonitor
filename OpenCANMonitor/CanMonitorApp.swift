@@ -10,6 +10,10 @@ import SwiftUI
 @main
 struct OpenCANMonitorApp: App {
     var body: some Scene {
+//        WindowGroup {
+//            Connections()
+//                .rounded()
+//        }
         WindowGroup {
             ControllerView()
                 .rounded()
