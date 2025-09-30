@@ -13,8 +13,19 @@ struct CANDocumentJSON: FileDocument {
     static var readableContentTypes: [UTType] = [.json]
     var messages: [CANMessage]
     
+    /// Store information about the interface that should be connected to when the document is opened.
+    var openInterface: USBBus? = nil
+    /// Store information about the baud rate that should be used when the document is opened.
+    var openBaudRate: BaudRate? = nil
+    
     init() {
         self.messages = []
+    }
+    
+    init(interface: USBBus, baudRate: BaudRate) {
+        self.init()
+        self.openInterface = interface
+        self.openBaudRate = baudRate
     }
 
     init(configuration: ReadConfiguration) throws {

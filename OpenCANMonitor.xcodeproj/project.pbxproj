@@ -13,6 +13,7 @@
 		DB366F902AA7D4CF00329014 /* BaudRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8F2AA7D4CF00329014 /* BaudRate.swift */; };
 		DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */ = {isa = PBXBuildFile; productRef = DB4569692AA7DF6D0006ADEC /* HydrogenReporter */; };
 		DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */; };
+		DB5B758C2E8C75120099199D /* StartupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B758B2E8C75120099199D /* StartupButton.swift */; };
 		DB5E46582AAB78D200825F21 /* Clamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46572AAB78D200825F21 /* Clamped.swift */; };
 		DB5E465B2AAB846E00825F21 /* ConnectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465A2AAB846E00825F21 /* ConnectionsView.swift */; };
 		DB5E465E2AAB8FC700825F21 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465D2AAB8FC700825F21 /* ErrorWrapper.swift */; };
@@ -28,7 +29,7 @@
 		DB8FC1002AAA866B00422427 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */; };
 		DB9A2BE32AA8120D00F543B4 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A2BE22AA8120D00F543B4 /* FilterType.swift */; };
 		DBA387432E8B3B0F0006B7AF /* OpenCanMonitor.icon in Resources */ = {isa = PBXBuildFile; fileRef = DBA387422E8B3B0F0006B7AF /* OpenCanMonitor.icon */; };
-		DBA387452E8B3BC60006B7AF /* ConnectionsVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA387442E8B3BC10006B7AF /* ConnectionsVw.swift */; };
+		DBA387452E8B3BC60006B7AF /* StartupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA387442E8B3BC10006B7AF /* StartupView.swift */; };
 		DBA387472E8B48100006B7AF /* CANDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA387462E8B48080006B7AF /* CANDocument.swift */; };
 		DBA387862E8B59F50006B7AF /* PCBUSB.c in Sources */ = {isa = PBXBuildFile; fileRef = DBA387852E8B59F50006B7AF /* PCBUSB.c */; };
 		DBA387872E8B5BCF0006B7AF /* libPCBUSB.0.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3877D2E8B59CB0006B7AF /* libPCBUSB.0.13.dylib */; };
@@ -72,6 +73,7 @@
 		DB366F8F2AA7D4CF00329014 /* BaudRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudRate.swift; sourceTree = "<group>"; };
 		DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSheet.swift; sourceTree = "<group>"; };
 		DB5B75872E8C53370099199D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DB5B758B2E8C75120099199D /* StartupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupButton.swift; sourceTree = "<group>"; };
 		DB5E46572AAB78D200825F21 /* Clamped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamped.swift; sourceTree = "<group>"; };
 		DB5E465A2AAB846E00825F21 /* ConnectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsView.swift; sourceTree = "<group>"; };
 		DB5E465D2AAB8FC700825F21 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
@@ -87,7 +89,7 @@
 		DB8FC0FF2AAA866B00422427 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		DB9A2BE22AA8120D00F543B4 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
 		DBA387422E8B3B0F0006B7AF /* OpenCanMonitor.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = OpenCanMonitor.icon; sourceTree = "<group>"; };
-		DBA387442E8B3BC10006B7AF /* ConnectionsVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVw.swift; sourceTree = "<group>"; };
+		DBA387442E8B3BC10006B7AF /* StartupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupView.swift; sourceTree = "<group>"; };
 		DBA387462E8B48080006B7AF /* CANDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANDocument.swift; sourceTree = "<group>"; };
 		DBA3877C2E8B59CB0006B7AF /* COPYRIGHT */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYRIGHT; sourceTree = "<group>"; };
 		DBA3877D2E8B59CB0006B7AF /* libPCBUSB.0.13.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libPCBUSB.0.13.dylib; sourceTree = "<group>"; };
@@ -159,10 +161,19 @@
 			isa = PBXGroup;
 			children = (
 				DB77D7582E8C2E670001FDED /* Controller.swift */,
-				DBA387442E8B3BC10006B7AF /* ConnectionsVw.swift */,
+				DB5B758A2E8C750D0099199D /* Startup */,
 				DB77D7562E8B6F620001FDED /* DocumentView.swift */,
 			);
 			path = "New Interface";
+			sourceTree = "<group>";
+		};
+		DB5B758A2E8C750D0099199D /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				DBA387442E8B3BC10006B7AF /* StartupView.swift */,
+				DB5B758B2E8C75120099199D /* StartupButton.swift */,
+			);
+			path = Startup;
 			sourceTree = "<group>";
 		};
 		DB5E46562AAB78C600825F21 /* Extensions */ = {
@@ -434,7 +445,8 @@
 				DB366F8A2AA7A3CA00329014 /* CanChannelMonitor.swift in Sources */,
 				DBD727CC2AAAEC4D009150B2 /* SplitView.swift in Sources */,
 				DBABF41A2AABB4B200003E76 /* CANTransmitMessage.swift in Sources */,
-				DBA387452E8B3BC60006B7AF /* ConnectionsVw.swift in Sources */,
+				DB5B758C2E8C75120099199D /* StartupButton.swift in Sources */,
+				DBA387452E8B3BC60006B7AF /* StartupView.swift in Sources */,
 				DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */,
 				DBABF41E2AABB64900003E76 /* CreateMessageView.swift in Sources */,
 				DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */,
@@ -618,8 +630,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.1.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
@@ -670,8 +682,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Resources/PCBUSB",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.1.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;

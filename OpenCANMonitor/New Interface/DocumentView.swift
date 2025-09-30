@@ -9,6 +9,7 @@ import HydrogenReporter
 import SwiftUI
 
 struct DocumentView: View {
+    var documentURL: URL?
     @State var document: CANDocumentJSON
     
     @State var controller: DocumentController = DocumentController()
@@ -87,6 +88,24 @@ struct DocumentView: View {
                     }
                 }
                 .frame(width: inspectorCollapsed ? 0 : inspectorWidth)
+            }
+        }
+        .onAppear {
+            if let documentURL {
+                RecentController.addRecent(url: documentURL)
+            }
+    
+            if let interface = document.openInterface, let baudRate = document.openBaudRate {
+                do {
+                    try self.controller.connect(to: interface, baudRate: baudRate)
+                    document.openInterface = nil
+                    document.openBaudRate = nil
+                } catch let error as CANStatus {
+                    canError = error
+                    showCanError = true
+                } catch {
+                    LOG("An Unexpected Error Occurred: \(error)", level: .error)
+                }
             }
         }
         .animation(.default, value: inspectorCollapsed)

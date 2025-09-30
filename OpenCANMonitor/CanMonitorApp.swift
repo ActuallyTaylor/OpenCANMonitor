@@ -11,13 +11,23 @@ import SwiftUI
 struct OpenCANMonitorApp: App {
     var body: some Scene {
         WindowGroup("Startup") {
-            Connections()
+            StartupView()
                 .rounded()
+        }
+        .windowIdealSize(.fitToContent)
+        .windowStyle(.hiddenTitleBar)
+        .windowResizability(.contentSize)
+        .windowIdealPlacement  { content, context in
+            return WindowPlacement(.center)
+        }
+        .defaultWindowPlacement { _, _ in
+            return WindowPlacement(.center)
         }
         .defaultLaunchBehavior(.presented)
         
         DocumentGroup(newDocument: CANDocumentJSON()) { configuration in
-            DocumentView(document: configuration.document)
+            DocumentView(documentURL: configuration.fileURL, document: configuration.document)
+                .rounded()
         }
 //        WindowGroup {
 //            ControllerView()

@@ -20,27 +20,33 @@ struct ConnectSheet: View {
         VStack {
             Text("Setup Connection")
                 .font(.headline)
-            Picker("Interface", selection: $usbBus) {
-                // Loop over all the interfaces, but drop the last because it is the none interface.
-                ForEach(USBBus.allCases.dropLast()) { interface in
-                    Text(interface.displayName)
-                        .tag(interface)
+            
+            Form {
+                Picker("Interface", selection: $usbBus) {
+                    // Loop over all the interfaces, but drop the last because it is the none interface.
+                    ForEach(USBBus.allCases.dropLast()) { interface in
+                        Text(interface.displayName)
+                            .tag(interface)
+                    }
+                }
+                Picker("Baud Rate", selection: $baudRate) {
+                    ForEach(BaudRate.allCases) { rate in
+                        Text(rate.displayName)
+                            .tag(rate)
+                    }
                 }
             }
-            Picker("Baud Rate", selection: $baudRate) {
-                ForEach(BaudRate.allCases) { rate in
-                    Text(rate.displayName)
-                        .tag(rate)
-                }
-            }
+            
             HStack {
                 Button("Cancel", role: .cancel) {
                     dismiss()
                 }
+                .tint(.red)
                 Button("Connect") {
                     connect(usbBus, baudRate)
                 }
             }
+            .padding(.horizontal)
         }
         .padding()
         .onAppear {
