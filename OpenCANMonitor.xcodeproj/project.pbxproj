@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				DBE6E4BA2AA78B310064FF15 /* C Wrapper */,
-				DBE6E4B92AA78B290064FF15 /* Swift Wrapper */,
+				DBE6E4B92AA78B290064FF15 /* Swift */,
 			);
 			path = "CAN Library";
 			sourceTree = "<group>";
@@ -308,14 +308,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DBE6E4B92AA78B290064FF15 /* Swift Wrapper */ = {
+		DBE6E4B92AA78B290064FF15 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
 				DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */,
 				DB81A4652AB26307008F83C2 /* Enumerations */,
 				DB81A4642AB262FE008F83C2 /* Models */,
 			);
-			path = "Swift Wrapper";
+			path = Swift;
 			sourceTree = "<group>";
 		};
 		DBE6E4BA2AA78B310064FF15 /* C Wrapper */ = {
@@ -641,7 +641,7 @@
 				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
 				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/Can Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/CAN Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -693,7 +693,7 @@
 				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
 				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/Can Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/CAN Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
