@@ -5,7 +5,6 @@
 //  Created by Taylor Lineman on 9/5/23.
 //
 
-
 import Foundation
 import AppKit
 import HydrogenReporter
