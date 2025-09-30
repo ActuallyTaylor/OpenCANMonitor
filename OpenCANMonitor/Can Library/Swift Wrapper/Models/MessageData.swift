@@ -108,41 +108,41 @@ struct MessageData: Codable, CustomStringConvertible, Equatable {
         lhs.byte7 == rhs.byte7
     }
 
-    init(from decoder: any Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        let data = try container.decode(UInt64.self)
-        
-        byte7 = UInt8((data & 0xFF00000000000000) >> 56)
-        byte6 = UInt8((data & 0x00FF000000000000) >> 48)
-        byte5 = UInt8((data & 0x0000FF0000000000) >> 40)
-        byte4 = UInt8((data & 0x000000FF00000000) >> 32)
-        byte3 = UInt8((data & 0x00000000FF000000) >> 24)
-        byte2 = UInt8((data & 0x0000000000FF0000) >> 16)
-        byte1 = UInt8((data & 0x000000000000FF00) >> 8)
-        byte0 = UInt8((data & 0x00000000000000FF))
-    }
-        
-    func encode(to encoder: any Encoder) throws {
-        var container = encoder.singleValueContainer()
-        
-        var data: UInt64 = 0
-        data |= UInt64(byte7)
-        data <<= 8
-        data |= UInt64(byte6)
-        data <<= 8
-        data |= UInt64(byte5)
-        data <<= 8
-        data |= UInt64(byte4)
-        data <<= 8
-        data |= UInt64(byte3)
-        data <<= 8
-        data |= UInt64(byte2)
-        data <<= 8
-        data |= UInt64(byte1)
-        data <<= 8
-        data |= UInt64(byte0)
-        
-        try container.encode(data)
-    }
+//    init(from decoder: any Decoder) throws {
+//        let container = try decoder.singleValueContainer()
+//        let data = try container.decode(UInt64.self)
+//        
+//        byte7 = UInt8((data & 0xFF00000000000000) >> 56)
+//        byte6 = UInt8((data & 0x00FF000000000000) >> 48)
+//        byte5 = UInt8((data & 0x0000FF0000000000) >> 40)
+//        byte4 = UInt8((data & 0x000000FF00000000) >> 32)
+//        byte3 = UInt8((data & 0x00000000FF000000) >> 24)
+//        byte2 = UInt8((data & 0x0000000000FF0000) >> 16)
+//        byte1 = UInt8((data & 0x000000000000FF00) >> 8)
+//        byte0 = UInt8((data & 0x00000000000000FF))
+//    }
+//        
+//    func encode(to encoder: any Encoder) throws {
+//        var container = encoder.singleValueContainer()
+//        
+//        var data: UInt64 = 0
+//        data |= UInt64(byte7)
+//        data <<= 8
+//        data |= UInt64(byte6)
+//        data <<= 8
+//        data |= UInt64(byte5)
+//        data <<= 8
+//        data |= UInt64(byte4)
+//        data <<= 8
+//        data |= UInt64(byte3)
+//        data <<= 8
+//        data |= UInt64(byte2)
+//        data <<= 8
+//        data |= UInt64(byte1)
+//        data <<= 8
+//        data |= UInt64(byte0)
+//        
+//        try container.encode(data)
+//    }
 }
 

@@ -13,8 +13,12 @@ struct CANDocumentJSON: FileDocument {
     static var readableContentTypes: [UTType] = [.json]
     var messages: [CANMessage]
     
+    init() {
+        self.messages = []
+    }
+
     init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents, let string = String(data: data, encoding: .utf8) else {
+        guard let data = configuration.file.regularFileContents else {
             throw CocoaError(.fileReadCorruptFile)
         }
                 

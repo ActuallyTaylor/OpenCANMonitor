@@ -10,14 +10,19 @@ import SwiftUI
 @main
 struct OpenCANMonitorApp: App {
     var body: some Scene {
-//        WindowGroup {
-//            Connections()
-//                .rounded()
-//        }
-        WindowGroup {
-            ControllerView()
+        WindowGroup("Startup") {
+            Connections()
                 .rounded()
         }
+        .defaultLaunchBehavior(.presented)
+        
+        DocumentGroup(newDocument: CANDocumentJSON()) { configuration in
+            DocumentView(document: configuration.document)
+        }
+//        WindowGroup {
+//            ControllerView()
+//                .rounded()
+//        }
         Settings {
             SettingsView()
                 .rounded()
