@@ -9,7 +9,7 @@ import SwiftUI
 import SFSymbols
 
 struct TransmitView: View {
-    @EnvironmentObject var channelMonitor: CanChannelMonitor
+    @State var channelMonitor: CanChannelMonitor = .init()
     @State var selectedMessages: Set<CANTransmitMessage.ID> = .init()
     
     @State var presentCreateMessageView: Bool = false

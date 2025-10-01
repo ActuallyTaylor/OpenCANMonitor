@@ -11,6 +11,7 @@
 		DB366F8C2AA7CA5200329014 /* USBBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8B2AA7CA5200329014 /* USBBus.swift */; };
 		DB366F8E2AA7CD4400329014 /* CANStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8D2AA7CD4400329014 /* CANStatus.swift */; };
 		DB366F902AA7D4CF00329014 /* BaudRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8F2AA7D4CF00329014 /* BaudRate.swift */; };
+		DB3F33AB2E8D78370036C2B9 /* TransmitView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F33AA2E8D78350036C2B9 /* TransmitView2.swift */; };
 		DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */ = {isa = PBXBuildFile; productRef = DB4569692AA7DF6D0006ADEC /* HydrogenReporter */; };
 		DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */; };
 		DB5B758C2E8C75120099199D /* StartupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B758B2E8C75120099199D /* StartupButton.swift */; };
@@ -20,7 +21,7 @@
 		DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */; };
 		DB5E46632AAB956700825F21 /* TransmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46622AAB956700825F21 /* TransmitView.swift */; };
 		DB77D7532E8B61150001FDED /* CANBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7522E8B61150001FDED /* CANBus.swift */; };
-		DB77D7572E8B6F690001FDED /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7562E8B6F620001FDED /* DocumentView.swift */; };
+		DB77D7572E8B6F690001FDED /* DocumentControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7562E8B6F620001FDED /* DocumentControllerView.swift */; };
 		DB77D7592E8C2E670001FDED /* BusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7582E8C2E670001FDED /* BusController.swift */; };
 		DB81A4612AB25EDB008F83C2 /* UInt+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4602AB25EDB008F83C2 /* UInt+Hex.swift */; };
 		DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4622AB262D9008F83C2 /* MessageData.swift */; };
@@ -50,6 +51,8 @@
 		DBE6E4D62AA796710064FF15 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D52AA796710064FF15 /* HexFormatter.swift */; };
 		DBE6E4D92AA799E90064FF15 /* AKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D82AA799E90064FF15 /* AKTextField.swift */; };
 		DBE6E4DB2AA79FBC0064FF15 /* FilterMessagesPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4DA2AA79FBC0064FF15 /* FilterMessagesPopover.swift */; };
+		DBEC027A2E8D809C0060AB17 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC02792E8D80950060AB17 /* BusView.swift */; };
+		DBEC027C2E8D81530060AB17 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC027B2E8D81510060AB17 /* Tools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +74,7 @@
 		DB366F8B2AA7CA5200329014 /* USBBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBBus.swift; sourceTree = "<group>"; };
 		DB366F8D2AA7CD4400329014 /* CANStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANStatus.swift; sourceTree = "<group>"; };
 		DB366F8F2AA7D4CF00329014 /* BaudRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudRate.swift; sourceTree = "<group>"; };
+		DB3F33AA2E8D78350036C2B9 /* TransmitView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmitView2.swift; sourceTree = "<group>"; };
 		DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSheet.swift; sourceTree = "<group>"; };
 		DB5B75872E8C53370099199D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DB5B758B2E8C75120099199D /* StartupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupButton.swift; sourceTree = "<group>"; };
@@ -80,7 +84,7 @@
 		DB5E465F2AAB93E700825F21 /* CompatibilityWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityWrappers.swift; sourceTree = "<group>"; };
 		DB5E46622AAB956700825F21 /* TransmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmitView.swift; sourceTree = "<group>"; };
 		DB77D7522E8B61150001FDED /* CANBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANBus.swift; sourceTree = "<group>"; };
-		DB77D7562E8B6F620001FDED /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
+		DB77D7562E8B6F620001FDED /* DocumentControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentControllerView.swift; sourceTree = "<group>"; };
 		DB77D7582E8C2E670001FDED /* BusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusController.swift; sourceTree = "<group>"; };
 		DB81A4602AB25EDB008F83C2 /* UInt+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+Hex.swift"; sourceTree = "<group>"; };
 		DB81A4622AB262D9008F83C2 /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 		DBE6E4D52AA796710064FF15 /* HexFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
 		DBE6E4D82AA799E90064FF15 /* AKTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKTextField.swift; sourceTree = "<group>"; };
 		DBE6E4DA2AA79FBC0064FF15 /* FilterMessagesPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMessagesPopover.swift; sourceTree = "<group>"; };
+		DBEC02792E8D80950060AB17 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
+		DBEC027B2E8D81510060AB17 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,9 +166,19 @@
 		DB3F33A82E8CB4290036C2B9 /* CAN Document Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB77D7562E8B6F620001FDED /* DocumentView.swift */,
+				DBEC027B2E8D81510060AB17 /* Tools.swift */,
+				DB77D7562E8B6F620001FDED /* DocumentControllerView.swift */,
+				DBEC02792E8D80950060AB17 /* BusView.swift */,
 			);
 			path = "CAN Document Views";
+			sourceTree = "<group>";
+		};
+		DB3F33A92E8D782C0036C2B9 /* Transmit */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F33AA2E8D78350036C2B9 /* TransmitView2.swift */,
+			);
+			path = Transmit;
 			sourceTree = "<group>";
 		};
 		DB5B75862E8C527D0099199D /* New Interface */ = {
@@ -171,6 +187,7 @@
 				DB77D7582E8C2E670001FDED /* BusController.swift */,
 				DB3F33A82E8CB4290036C2B9 /* CAN Document Views */,
 				DB5B758A2E8C750D0099199D /* Startup */,
+				DB3F33A92E8D782C0036C2B9 /* Transmit */,
 			);
 			path = "New Interface";
 			sourceTree = "<group>";
@@ -448,10 +465,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBEC027C2E8D81530060AB17 /* Tools.swift in Sources */,
 				DBE4F9762AA654670000F98B /* ReceivingTableView.swift in Sources */,
 				DB9A2BE32AA8120D00F543B4 /* FilterType.swift in Sources */,
 				DB366F8A2AA7A3CA00329014 /* CanChannelMonitor.swift in Sources */,
 				DBD727CC2AAAEC4D009150B2 /* SplitView.swift in Sources */,
+				DB3F33AB2E8D78370036C2B9 /* TransmitView2.swift in Sources */,
 				DBABF41A2AABB4B200003E76 /* CANTransmitMessage.swift in Sources */,
 				DB5B758C2E8C75120099199D /* StartupButton.swift in Sources */,
 				DBA387452E8B3BC60006B7AF /* StartupView.swift in Sources */,
@@ -464,7 +483,7 @@
 				DBE6E4CF2AA794320064FF15 /* NavigableView.swift in Sources */,
 				DB366F8C2AA7CA5200329014 /* USBBus.swift in Sources */,
 				DBE6E4D92AA799E90064FF15 /* AKTextField.swift in Sources */,
-				DB77D7572E8B6F690001FDED /* DocumentView.swift in Sources */,
+				DB77D7572E8B6F690001FDED /* DocumentControllerView.swift in Sources */,
 				DB5E46582AAB78D200825F21 /* Clamped.swift in Sources */,
 				DB5E465E2AAB8FC700825F21 /* ErrorWrapper.swift in Sources */,
 				DB366F8E2AA7CD4400329014 /* CANStatus.swift in Sources */,
@@ -480,6 +499,7 @@
 				DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */,
 				DB77D7532E8B61150001FDED /* CANBus.swift in Sources */,
 				DBE6E4DB2AA79FBC0064FF15 /* FilterMessagesPopover.swift in Sources */,
+				DBEC027A2E8D809C0060AB17 /* BusView.swift in Sources */,
 				DBE6E4D42AA795750064FF15 /* SendMessagePopover.swift in Sources */,
 				DBA387472E8B48100006B7AF /* CANDocument.swift in Sources */,
 				DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */,
@@ -743,7 +763,7 @@
 			repositoryURL = "https://github.com/ActuallyTaylor/SFSymbols";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

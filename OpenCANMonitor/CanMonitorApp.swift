@@ -7,10 +7,19 @@
 
 import SwiftUI
 
+enum WindowID: String {
+    case startup = "Startup"
+}
+
 @main
 struct OpenCANMonitorApp: App {
     var body: some Scene {
-        WindowGroup("Startup") {
+        DocumentGroup(newDocument: CANDocumentJSON()) { configuration in
+            DocumentControllerView(documentURL: configuration.fileURL, document: configuration.document)
+                .rounded()
+        }
+
+        WindowGroup(WindowID.startup.rawValue) {
             StartupView()
                 .rounded()
                 .containerBackground(.thickMaterial, for: .window)
@@ -28,17 +37,30 @@ struct OpenCANMonitorApp: App {
             return WindowPlacement(.center)
         }
         .defaultLaunchBehavior(.presented)
-        DocumentGroup(newDocument: CANDocumentJSON()) { configuration in
-            DocumentView(documentURL: configuration.fileURL, document: configuration.document)
-                .rounded()
-        }
-//        WindowGroup {
-//            ControllerView()
-//                .rounded()
-//        }
+                
         Settings {
             SettingsView()
                 .rounded()
         }
     }
 }
+//
+//public struct ToolCommands: Commands {
+//    @Environment(\.openWindow) private var openWindow
+//
+//    public var body: some Commands {
+//        CommandMenu("Tools") {
+//            Button("Transmit Messages") {
+//                openWindow(id: WindowID.transmit.rawValue)
+//            }
+//            
+//            Button("Startup Menu") {
+//                openWindow(id: WindowID.transmit.rawValue)
+//            }
+//        }
+//    }
+//}
+//
+//
+//
+//

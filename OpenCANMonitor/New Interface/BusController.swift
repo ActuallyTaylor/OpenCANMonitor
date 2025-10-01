@@ -10,7 +10,7 @@ import SwiftUI
 import HydrogenReporter
 
 @Observable
-class BusController {
+class BusController: CustomStringConvertible {
     private(set) var canBus: CANBus
     
     private var messages: Binding<[CANMessage]>
@@ -23,6 +23,10 @@ class BusController {
     var receiveError: CANStatus? = nil
     
     private var runningMessageID: Int = 0
+    
+    var description: String {
+        return "\(canBus.usbBus.displayName) at \(canBus.baudRate.displayName)"
+    }
     
     init(with interface: USBBus, baudRate: BaudRate, messages: Binding<[CANMessage]>) throws(CANStatus) {
         self.canBus = try CANBus(usbBus: interface, baudRate: baudRate)

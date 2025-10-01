@@ -1,4 +1,5 @@
 {
+  "originHash" : "8524208f15b99ae34254eedbd5d5a4991fbc400074b37e5c8d715f58e1e13f03",
   "pins" : [
     {
       "identity" : "hydrogenreporter",
@@ -14,10 +15,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ActuallyTaylor/SFSymbols",
       "state" : {
-        "revision" : "c41d0df8ab288074c0e2c10513ec714e9044a61e",
-        "version" : "1.1.0"
+        "revision" : "b52a96089cae21a7174ad723d03fa7427392e6c7",
+        "version" : "7.0.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

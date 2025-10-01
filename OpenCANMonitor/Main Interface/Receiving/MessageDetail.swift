@@ -11,19 +11,20 @@ struct MessageDetail: View {
     var message: CANMessage
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("Can Message #\(message.id)")
-                .font(.title)
-                .bold()
-            Text("**Device:** 0x\(message.deviceID.hex(length: 3))")
-            Text("**Time:** \(message.timestamp)")
-            Text("**Type:** \(message.type.displayName)")
-            Divider()
-            Text("**Hex:** \(message.data.description)")
-            Text("**Decimal:** \(message.data.decimal)")
-            Text("**ASCII:** \(message.data.ascii)")
+        Form {
+            Section {
+                LabeledContent("ID", value: message.id.description)
+                LabeledContent("Device", value: message.deviceID.hex(length: 3))
+                LabeledContent("Time", value: message.timestamp)
+                LabeledContent("Type", value: message.type.displayName)
+            }
+            
+            Section("Data") {
+                LabeledContent("Hex", value: message.data.description)
+                LabeledContent("Decimal", value: message.data.decimal)
+                LabeledContent("ASCII", value: message.data.ascii)
+            }
         }
-        .padding()
     }
 }
 
