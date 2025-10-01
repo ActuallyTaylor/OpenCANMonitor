@@ -21,7 +21,7 @@
 		DB5E46632AAB956700825F21 /* TransmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E46622AAB956700825F21 /* TransmitView.swift */; };
 		DB77D7532E8B61150001FDED /* CANBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7522E8B61150001FDED /* CANBus.swift */; };
 		DB77D7572E8B6F690001FDED /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7562E8B6F620001FDED /* DocumentView.swift */; };
-		DB77D7592E8C2E670001FDED /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7582E8C2E670001FDED /* Controller.swift */; };
+		DB77D7592E8C2E670001FDED /* BusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB77D7582E8C2E670001FDED /* BusController.swift */; };
 		DB81A4612AB25EDB008F83C2 /* UInt+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4602AB25EDB008F83C2 /* UInt+Hex.swift */; };
 		DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81A4622AB262D9008F83C2 /* MessageData.swift */; };
 		DB82FDAF2AA7F08200AA9933 /* CANMessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82FDAE2AA7F08200AA9933 /* CANMessageType.swift */; };
@@ -81,7 +81,7 @@
 		DB5E46622AAB956700825F21 /* TransmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmitView.swift; sourceTree = "<group>"; };
 		DB77D7522E8B61150001FDED /* CANBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANBus.swift; sourceTree = "<group>"; };
 		DB77D7562E8B6F620001FDED /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
-		DB77D7582E8C2E670001FDED /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		DB77D7582E8C2E670001FDED /* BusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusController.swift; sourceTree = "<group>"; };
 		DB81A4602AB25EDB008F83C2 /* UInt+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+Hex.swift"; sourceTree = "<group>"; };
 		DB81A4622AB262D9008F83C2 /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
 		DB82FDAE2AA7F08200AA9933 /* CANMessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANMessageType.swift; sourceTree = "<group>"; };
@@ -157,12 +157,20 @@
 			path = "CAN Library";
 			sourceTree = "<group>";
 		};
+		DB3F33A82E8CB4290036C2B9 /* CAN Document Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB77D7562E8B6F620001FDED /* DocumentView.swift */,
+			);
+			path = "CAN Document Views";
+			sourceTree = "<group>";
+		};
 		DB5B75862E8C527D0099199D /* New Interface */ = {
 			isa = PBXGroup;
 			children = (
-				DB77D7582E8C2E670001FDED /* Controller.swift */,
+				DB77D7582E8C2E670001FDED /* BusController.swift */,
+				DB3F33A82E8CB4290036C2B9 /* CAN Document Views */,
 				DB5B758A2E8C750D0099199D /* Startup */,
-				DB77D7562E8B6F620001FDED /* DocumentView.swift */,
 			);
 			path = "New Interface";
 			sourceTree = "<group>";
@@ -311,7 +319,6 @@
 		DBE6E4B92AA78B290064FF15 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */,
 				DB81A4652AB26307008F83C2 /* Enumerations */,
 				DB81A4642AB262FE008F83C2 /* Models */,
 			);
@@ -331,6 +338,7 @@
 		DBE6E4CD2AA7941C0064FF15 /* Main Interface */ = {
 			isa = PBXGroup;
 			children = (
+				DB366F892AA7A3CA00329014 /* CanChannelMonitor.swift */,
 				DBD727C62AAADAFA009150B2 /* ControllerView.swift */,
 				DBD727CA2AAAEC3E009150B2 /* Layout */,
 				DBE6E4D72AA799DC0064FF15 /* Representable */,
@@ -461,7 +469,7 @@
 				DB5E465E2AAB8FC700825F21 /* ErrorWrapper.swift in Sources */,
 				DB366F8E2AA7CD4400329014 /* CANStatus.swift in Sources */,
 				DB8FC1002AAA866B00422427 /* GeneralSettingsView.swift in Sources */,
-				DB77D7592E8C2E670001FDED /* Controller.swift in Sources */,
+				DB77D7592E8C2E670001FDED /* BusController.swift in Sources */,
 				DB5E46632AAB956700825F21 /* TransmitView.swift in Sources */,
 				DB82FDAF2AA7F08200AA9933 /* CANMessageType.swift in Sources */,
 				DBD727C92AAAE437009150B2 /* MessageDetail.swift in Sources */,

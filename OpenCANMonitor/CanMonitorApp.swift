@@ -13,9 +13,13 @@ struct OpenCANMonitorApp: App {
         WindowGroup("Startup") {
             StartupView()
                 .rounded()
+                .containerBackground(.thickMaterial, for: .window)
+                .windowFullScreenBehavior(.disabled)
+                .windowMinimizeBehavior(.disabled)
         }
         .windowIdealSize(.fitToContent)
         .windowStyle(.hiddenTitleBar)
+        .restorationBehavior(.disabled)
         .windowResizability(.contentSize)
         .windowIdealPlacement  { content, context in
             return WindowPlacement(.center)
@@ -24,7 +28,6 @@ struct OpenCANMonitorApp: App {
             return WindowPlacement(.center)
         }
         .defaultLaunchBehavior(.presented)
-        
         DocumentGroup(newDocument: CANDocumentJSON()) { configuration in
             DocumentView(documentURL: configuration.fileURL, document: configuration.document)
                 .rounded()

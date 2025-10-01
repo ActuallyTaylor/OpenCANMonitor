@@ -108,25 +108,39 @@ struct StartupView: View {
             .frame(width: 450)
             List(selection: $selected) {
                 ForEach(recentProjects, id: \.absoluteString) { url in
-                    ZStack(alignment: .leading) {
+                    Button {
+                        // Prevent the button from activating if it is not selected
+                        openDocument(at: url)
+                    } label: {
                         VStack(alignment: .leading) {
                             Text(url.deletingPathExtension().lastPathComponent)
                                 .font(.headline)
+                            // Change a path from /Users/taylor/EVT/can.json to ~/EVT/can.json
                             Text(url.path().replacing(/\/Users\/[^\/]+\//, with: "~/"))
                                 .font(.subheadline)
                         }
                         .padding(.vertical, 2)
                     }
+                    .buttonStyle(.plain)
                     .id(url)
                 }
             }
             .listStyle(.sidebar)
         }
+        .ignoresSafeArea()
         .rounded()
         .onAppear {
             if selected == nil {
                 selected = recentProjects.first
             }
+        }
+        .onKeyPress(.return) {
+            if let selected {
+                openDocument(at: selected)
+                return .handled
+            }
+            
+            return .ignored
         }
         .fileImporter(isPresented: $presentFileImporter, allowedContentTypes: [.json]) { completion in
             do {
@@ -136,14 +150,7 @@ struct StartupView: View {
                     return
                 }
                 
-                Task {
-                    do {
-                        try await openDocument(at: result)
-                        dismissWindow()
-                    } catch {
-                        LOG(error.localizedDescription, level: .error)
-                    }
-                }
+                openDocument(at: result)
             } catch  {
                 LOG(error.localizedDescription, level: .error)
             }
@@ -154,6 +161,19 @@ struct StartupView: View {
                 presentConnectSheet = false
                 newDocument(CANDocumentJSON(interface: interface, baudRate: baudRate))
                 dismissWindow()
+            }
+        }
+    }
+}
+
+extension StartupView {
+    private func openDocument(at url: URL) {
+        Task {
+            do {
+                try await openDocument(at: url)
+                dismissWindow()
+            } catch {
+                LOG(error.localizedDescription, level: .error)
             }
         }
     }

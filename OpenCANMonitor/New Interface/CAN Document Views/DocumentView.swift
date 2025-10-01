@@ -12,7 +12,7 @@ struct DocumentView: View {
     var documentURL: URL?
     @State var document: CANDocumentJSON
     
-    @State var controller: DocumentController = DocumentController()
+    @State var controller: BusController? = nil
     
     // Select Messages
     @State var selectedMessages: Set<CANMessage.ID> = .init()
@@ -97,7 +97,7 @@ struct DocumentView: View {
     
             if let interface = document.openInterface, let baudRate = document.openBaudRate {
                 do {
-                    try self.controller.connect(to: interface, baudRate: baudRate)
+//                    try self.controller.connect(to: interface, baudRate: baudRate)
                     document.openInterface = nil
                     document.openBaudRate = nil
                 } catch let error as CANStatus {
@@ -111,8 +111,8 @@ struct DocumentView: View {
         .animation(.default, value: inspectorCollapsed)
         .toolbar {
             ToolbarItem(id: "connect") {
-                if let bus = controller.bus {
-                    Text("Connected to \(bus.bus.displayName)")
+                if let controller {
+                    Text("Connected to \(controller)")
                 } else {
                     Button {
                         presentConnectionSheet.toggle()
@@ -139,7 +139,7 @@ struct DocumentView: View {
         .sheet(isPresented: $presentConnectionSheet) {
             ConnectSheet { interface, baudRate in
                 do {
-                    try controller.connect(to: interface, baudRate: baudRate)
+                    controller = try BusController(with: interface, baudRate: baudRate, messages: $document.messages)
                 } catch let error as CANStatus {
                     canError = error
                     showCanError = true

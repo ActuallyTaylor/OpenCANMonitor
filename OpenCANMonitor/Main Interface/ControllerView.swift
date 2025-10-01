@@ -34,7 +34,7 @@ struct ControllerView: View {
             }
         }
         .environmentObject(channelMonitor)
-        .onChange(of: scenePhase) { newValue in
+        .onChange(of: scenePhase) { oldValue, newValue in
             print(newValue, scenePhase)
             do {
                 if newValue == .active {
