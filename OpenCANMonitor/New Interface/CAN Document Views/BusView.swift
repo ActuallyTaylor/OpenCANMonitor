@@ -82,9 +82,7 @@ struct BusView: View {
             }
         }
         .alert("Clear all messages?", isPresented: $presentClearMessagesAlert) {
-            Button("Cancel", role: .cancel) {
-                
-            }
+            Button("Cancel", role: .cancel) { }
             Button("Yes", role: .destructive) {
                 document.messages.removeAll()
             }

@@ -87,7 +87,7 @@ struct StartupView: View {
                 Button {
                     presentConnectSheet.toggle()
                 } label: {
-                    Label("Create a new project...", symbol: .doc)
+                    Label("Connect to CAN dongle...", symbol: .doc)
                 }
                 .buttonStyle(StartupButton())
                 Button {

@@ -9,6 +9,13 @@ import SwiftUI
 
 enum WindowID: String {
     case startup = "Startup"
+    
+    var name: String {
+        switch self {
+        case .startup:
+            return "Startup"
+        }
+    }
 }
 
 @main
@@ -19,13 +26,14 @@ struct OpenCANMonitorApp: App {
                 .rounded()
         }
 
-        WindowGroup(WindowID.startup.rawValue) {
+        Window(WindowID.startup.name, id: WindowID.startup.rawValue) {
             StartupView()
                 .rounded()
                 .containerBackground(.thickMaterial, for: .window)
                 .windowFullScreenBehavior(.disabled)
                 .windowMinimizeBehavior(.disabled)
         }
+        .defaultLaunchBehavior(.presented)
         .windowIdealSize(.fitToContent)
         .windowStyle(.hiddenTitleBar)
         .restorationBehavior(.disabled)
@@ -36,7 +44,6 @@ struct OpenCANMonitorApp: App {
         .defaultWindowPlacement { _, _ in
             return WindowPlacement(.center)
         }
-        .defaultLaunchBehavior(.presented)
                 
         Settings {
             SettingsView()
