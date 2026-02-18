@@ -131,6 +131,15 @@ enum CANStatus: CaseIterable, LocalizedError {
             return "Invalid operation"
         }
     }
+    
+    var isFatal: Bool {
+        switch self {
+        case .xmtfull, .nodriver, .illhw, .illnet, .illclient, .illhandle, .resource, .illparamtype, .illparamval, .unknown, .illdata, .illmode, .illoperation:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 extension CANStatus: RawRepresentable {

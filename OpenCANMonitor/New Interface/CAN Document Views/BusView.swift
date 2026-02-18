@@ -9,7 +9,8 @@ import SwiftUI
 import HydrogenReporter
 
 struct BusView: View {
-    var documentURL: URL?
+    @Environment(\.scenePhase) var scenePhase: ScenePhase
+
     @Binding var document: CANDocumentJSON
     @Binding var controller: BusController?
 
@@ -90,5 +91,6 @@ struct BusView: View {
         } message: {
             Text("This will clear all messages from the document, and is not reversible.")
         }
+
     }
 }

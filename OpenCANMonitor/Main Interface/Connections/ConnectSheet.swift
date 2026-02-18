@@ -44,6 +44,7 @@ struct ConnectSheet: View {
                 .tint(.red)
                 Button("Connect") {
                     connect(usbBus, baudRate)
+                    dismiss()
                 }
             }
             .padding(.horizontal)

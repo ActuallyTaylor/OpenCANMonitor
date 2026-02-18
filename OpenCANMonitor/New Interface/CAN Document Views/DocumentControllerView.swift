@@ -33,7 +33,7 @@ struct DocumentControllerView: View {
             Group {
                 switch selectedTool {
                 case .bus:
-                    BusView(documentURL: documentURL, document: $document, controller: $controller)
+                    BusView(document: $document, controller: $controller)
                 case .transmit:
                     TransmitView2()
                 }
@@ -62,6 +62,8 @@ struct DocumentControllerView: View {
                     controller = try BusController(with: interface, baudRate: baudRate, messages: $document.messages)
                     document.openInterface = nil
                     document.openBaudRate = nil
+                    
+                    controller?.initTimers()
                 } catch let error as CANStatus {
                     canError = error
                     showCanError = true
@@ -77,6 +79,7 @@ struct DocumentControllerView: View {
             ConnectSheet { interface, baudRate in
                 do {
                     controller = try BusController(with: interface, baudRate: baudRate, messages: $document.messages)
+                    controller?.initTimers()
                 } catch let error as CANStatus {
                     canError = error
                     showCanError = true

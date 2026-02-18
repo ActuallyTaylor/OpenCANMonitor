@@ -13,7 +13,7 @@ import HydrogenReporter
 class BusController: CustomStringConvertible {
     private(set) var canBus: CANBus
     
-    private var messages: Binding<[CANMessage]>
+    private var messages: Binding<[CANMessage]>  
 
     /// This timer fires the `receiveTimerTick` function, which checks the can bus for messages.
     private var receivingTimer: Timer? = nil
@@ -54,6 +54,7 @@ class BusController: CustomStringConvertible {
 
         let startingPoint: Date = .now
         
+        LOG("Received message...", level: .working)
         while (startingPoint.timeIntervalSinceNow > -0.01) {
             let rawStatus = CAN_Read(UInt16(canBus.usbBus.rawValue), &message, &timestamp)
             
@@ -68,12 +69,18 @@ class BusController: CustomStringConvertible {
                 return
             }
             
+            guard !status.isFatal else {
+                invalidateTimers()
+                receiveError = status
+                return
+            }
+
             guard status == .ok else {
                 LOG("PCAN Status Code: \(status)", level: .error)
                 receiveError = status
                 continue
             }
-
+            
             let canMessage = CANMessage(id: runningMessageID, message: message, timestamp: timestamp)
             messages.wrappedValue.append(canMessage)
 
