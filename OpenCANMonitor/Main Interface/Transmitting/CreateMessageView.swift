@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateMessageView: View {
-    @Environment (\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss
     @State var bytes: [String] = Array(repeating: "", count: 8)
     
     @State var dataLength: Int = 8

@@ -50,9 +50,7 @@ struct ReceivingTableView: View {
                     TableColumn("Decimal Data", value: \.data.decimal)
                 }
                 .tableStyle(.inset)
-                .onChange(of: channelMonitor.messages) { newValue in
-                    reader.scrollTo(newValue.last?.id)
-                }
+                .defaultScrollAnchor(.bottom)
             }
             
             if !inspectorCollapsed {

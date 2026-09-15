@@ -35,28 +35,25 @@ struct DocumentControllerView: View {
                 case .bus:
                     BusView(document: $document, controller: $controller)
                 case .transmit:
-                    TransmitView2()
+                    TransmitView()
                 }
             }
             .toolbar {
                 ToolbarItem(id: "connect") {
-                    if let controller {
-                        Text("Connected to \(controller.description)")
-                    } else {
-                        Button {
-                            presentConnectionSheet.toggle()
-                        } label: {
+                    Button {
+                        presentConnectionSheet.toggle()
+                    } label: {
+                        if let controller {
+                            Text("Connected to \(controller.description)")
+                        } else {
                             Text("Connect to CAN Dongle")
                         }
                     }
+
                 }
             }
         }
-        .onAppear {
-            if let documentURL {
-                RecentController.addRecent(url: documentURL)
-            }
-    
+        .onAppear {    
             if let interface = document.openInterface, let baudRate = document.openBaudRate {
                 do {
                     controller = try BusController(with: interface, baudRate: baudRate, messages: $document.messages)
@@ -78,6 +75,11 @@ struct DocumentControllerView: View {
         .sheet(isPresented: $presentConnectionSheet) {
             ConnectSheet { interface, baudRate in
                 do {
+                    // Disable any existing controllers
+                    if let controller {
+                        controller.invalidateTimers()
+                    }
+                    
                     controller = try BusController(with: interface, baudRate: baudRate, messages: $document.messages)
                     controller?.initTimers()
                 } catch let error as CANStatus {

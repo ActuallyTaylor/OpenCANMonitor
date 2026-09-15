@@ -8,51 +8,6 @@
 import SwiftUI
 import HydrogenReporter
 
-struct RecentController {
-    
-    static var key: String = "recents"
-        
-    static func addRecent(url: URL) {
-        if var paths = UserDefaults.standard.array(forKey: key) as? [String] {
-            let path = url.path()
-            
-            // Remove existing path from the paths array
-            if paths.contains(path) {
-                paths.removeAll(where: {$0 == path})
-            }
-            
-            // Insert the path into the top of the list
-            paths.insert(path, at: 0)
-            
-            // If the URLs are already saved, retrieve them, and append a url.
-            // Save it back into user defaults
-            UserDefaults.standard.set(paths, forKey: key)
-        } else {
-            // If no URLs have been saved, create a new array and save it
-            let paths: [String] = [url.path()]
-            UserDefaults.standard.set(paths, forKey: key)
-        }
-    }
-    
-    static func getRecents() -> [URL] {
-        // Get the array of paths from user defaults
-        guard let paths = UserDefaults.standard.array(forKey: key) as? [String] else { return [] }
-        // Map the paths into URLs using the filePath initializer
-        var urls: [URL] = paths.map({URL(filePath: $0)})
-        
-        // Filter out any paths that no longer exist on the file system.
-        urls = urls.filter { url in
-            FileManager.default.fileExists(atPath: url.path())
-        }
-        
-        // Save filtered paths back into user defaults
-        UserDefaults.standard.set(urls.map({$0.path}), forKey: key)
-        
-        return urls
-    }
-}
-
-
 struct StartupView: View {
     @Environment(\.openDocument) var openDocument
     @Environment(\.newDocument) var newDocument
@@ -63,7 +18,7 @@ struct StartupView: View {
     
     @State var selected: URL? = nil
     
-    var recentProjects: [URL] = RecentController.getRecents()
+    @State var recentProjects: [URL] = []
     
     var body: some View {
         HStack {
@@ -87,7 +42,7 @@ struct StartupView: View {
                 Button {
                     presentConnectSheet.toggle()
                 } label: {
-                    Label("Connect to CAN dongle...", symbol: .doc)
+                    Label("Connect to CAN dongle...", symbol: .cable_connector)
                 }
                 .buttonStyle(StartupButton())
                 Button {
@@ -116,7 +71,7 @@ struct StartupView: View {
                             Text(url.deletingPathExtension().lastPathComponent)
                                 .font(.headline)
                             // Change a path from /Users/taylor/EVT/can.json to ~/EVT/can.json
-                            Text(url.path().replacing(/\/Users\/[^\/]+\//, with: "~/"))
+                            Text(url.path(percentEncoded: false).replacing(/\/Users\/[^\/]+\//, with: "~/"))
                                 .font(.subheadline)
                         }
                         .padding(.vertical, 2)
@@ -129,7 +84,8 @@ struct StartupView: View {
         }
         .ignoresSafeArea()
         .rounded()
-        .onAppear {
+        .task {
+            recentProjects = NSDocumentController.shared.recentDocumentURLs
             if selected == nil {
                 selected = recentProjects.first
             }
@@ -159,8 +115,8 @@ struct StartupView: View {
         .sheet(isPresented: $presentConnectSheet) {
             ConnectSheet { interface, baudRate in
                 presentConnectSheet = false
-                newDocument(CANDocumentJSON(interface: interface, baudRate: baudRate))
                 dismissWindow()
+                newDocument(CANDocumentJSON(interface: interface, baudRate: baudRate))
             }
         }
     }

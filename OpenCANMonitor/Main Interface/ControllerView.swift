@@ -10,7 +10,7 @@ import HydrogenReporter
 
 struct ControllerView: View {
     @Environment(\.scenePhase) var scenePhase: ScenePhase
-    @StateObject var channelMonitor: CanChannelMonitor = .init()
+    @StateObject var channelMonitor: CanChannelMonitor = CanChannelMonitor()
     @State var visibility: NavigationSplitViewVisibility = .doubleColumn
     
     @State var selectedView: NavigableView = .connections

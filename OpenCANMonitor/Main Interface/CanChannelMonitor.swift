@@ -123,9 +123,13 @@ class CanChannelMonitor: ObservableObject {
     }
     
     func invalidateTimers() {
+        guard receivingTimer != nil && transmittingTimer != nil else { return }
         LOG("Invalidating Timers...", level: .working)
         receivingTimer?.invalidate()
+        receivingTimer = nil
+        
         transmittingTimer?.invalidate()
+        transmittingTimer = nil
         LOG("Timers Invalidated", level: .success)
     }
     

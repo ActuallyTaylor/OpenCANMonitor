@@ -44,7 +44,7 @@ struct OpenCANMonitorApp: App {
         .defaultWindowPlacement { _, _ in
             return WindowPlacement(.center)
         }
-                
+        
         Settings {
             SettingsView()
                 .rounded()

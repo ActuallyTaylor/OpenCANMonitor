@@ -33,14 +33,11 @@ struct CANDocumentJSON: FileDocument {
             throw CocoaError(.fileReadCorruptFile)
         }
                 
-        let decoder = JSONDecoder()
-        messages = try decoder.decode([CANMessage].self, from: data)
+        messages = try JSONDecoder().decode([CANMessage].self, from: data)
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let encoder = JSONEncoder()
-        
-        let jsonData = try encoder.encode(messages)
+        let jsonData = try JSONEncoder().encode(messages)
         return FileWrapper(regularFileWithContents: jsonData)
     }
 }

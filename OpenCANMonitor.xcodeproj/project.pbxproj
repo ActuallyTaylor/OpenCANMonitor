@@ -11,7 +11,6 @@
 		DB366F8C2AA7CA5200329014 /* USBBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8B2AA7CA5200329014 /* USBBus.swift */; };
 		DB366F8E2AA7CD4400329014 /* CANStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8D2AA7CD4400329014 /* CANStatus.swift */; };
 		DB366F902AA7D4CF00329014 /* BaudRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8F2AA7D4CF00329014 /* BaudRate.swift */; };
-		DB3F33AB2E8D78370036C2B9 /* TransmitView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F33AA2E8D78350036C2B9 /* TransmitView2.swift */; };
 		DB45696A2AA7DF6D0006ADEC /* HydrogenReporter in Frameworks */ = {isa = PBXBuildFile; productRef = DB4569692AA7DF6D0006ADEC /* HydrogenReporter */; };
 		DB45696E2AA7E26A0006ADEC /* ConnectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */; };
 		DB5B758C2E8C75120099199D /* StartupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B758B2E8C75120099199D /* StartupButton.swift */; };
@@ -74,7 +73,6 @@
 		DB366F8B2AA7CA5200329014 /* USBBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBBus.swift; sourceTree = "<group>"; };
 		DB366F8D2AA7CD4400329014 /* CANStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANStatus.swift; sourceTree = "<group>"; };
 		DB366F8F2AA7D4CF00329014 /* BaudRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudRate.swift; sourceTree = "<group>"; };
-		DB3F33AA2E8D78350036C2B9 /* TransmitView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmitView2.swift; sourceTree = "<group>"; };
 		DB45696D2AA7E26A0006ADEC /* ConnectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSheet.swift; sourceTree = "<group>"; };
 		DB5B75872E8C53370099199D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DB5B758B2E8C75120099199D /* StartupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupButton.swift; sourceTree = "<group>"; };
@@ -173,21 +171,12 @@
 			path = "CAN Document Views";
 			sourceTree = "<group>";
 		};
-		DB3F33A92E8D782C0036C2B9 /* Transmit */ = {
-			isa = PBXGroup;
-			children = (
-				DB3F33AA2E8D78350036C2B9 /* TransmitView2.swift */,
-			);
-			path = Transmit;
-			sourceTree = "<group>";
-		};
 		DB5B75862E8C527D0099199D /* New Interface */ = {
 			isa = PBXGroup;
 			children = (
 				DB77D7582E8C2E670001FDED /* BusController.swift */,
 				DB3F33A82E8CB4290036C2B9 /* CAN Document Views */,
 				DB5B758A2E8C750D0099199D /* Startup */,
-				DB3F33A92E8D782C0036C2B9 /* Transmit */,
 			);
 			path = "New Interface";
 			sourceTree = "<group>";
@@ -470,7 +459,6 @@
 				DB9A2BE32AA8120D00F543B4 /* FilterType.swift in Sources */,
 				DB366F8A2AA7A3CA00329014 /* CanChannelMonitor.swift in Sources */,
 				DBD727CC2AAAEC4D009150B2 /* SplitView.swift in Sources */,
-				DB3F33AB2E8D78370036C2B9 /* TransmitView2.swift in Sources */,
 				DBABF41A2AABB4B200003E76 /* CANTransmitMessage.swift in Sources */,
 				DB5B758C2E8C75120099199D /* StartupButton.swift in Sources */,
 				DBA387452E8B3BC60006B7AF /* StartupView.swift in Sources */,
@@ -636,7 +624,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
-				DEVELOPMENT_TEAM = 825FPALDZ5;
+				DEVELOPMENT_TEAM = D56WBLPX68;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
@@ -688,7 +676,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
-				DEVELOPMENT_TEAM = 825FPALDZ5;
+				DEVELOPMENT_TEAM = D56WBLPX68;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;

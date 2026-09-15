@@ -45,6 +45,7 @@ struct BusView: View {
                 reader.scrollTo(newValue.last?.id)
             }
         }
+        .navigationTitle("Bus Traffic")
         .inspector(isPresented: $inspectorVisible) {
             VStack {
                 if let selectedMessageID = selectedMessages.first,
