@@ -35,7 +35,8 @@ struct DocumentControllerView: View {
                 case .bus:
                     BusView(document: $document, controller: $controller)
                 case .transmit:
-                    TransmitView()
+                    Text("")
+//                    TransmitView()
                 }
             }
             .toolbar {
@@ -72,6 +73,12 @@ struct DocumentControllerView: View {
         .alert(isPresented: $showCanError, error: canError) {
             Button("Close") { }
         }
+        .alert(error: Binding(
+            get: { controller?.receiveError },
+            set: { newValue in controller?.receiveError = newValue }
+        )) {
+            Button("Close") { }
+        }
         .sheet(isPresented: $presentConnectionSheet) {
             ConnectSheet { interface, baudRate in
                 do {
@@ -87,6 +94,13 @@ struct DocumentControllerView: View {
                     showCanError = true
                 } catch {
                     LOG("An Unexpected Error Occurred: \(error)", level: .error)
+                }
+            }
+        }
+        .onChange(of: controller?.receiveError) { _, newValue in
+            if let newValue {
+                if newValue.isFatal {
+                    controller = nil
                 }
             }
         }

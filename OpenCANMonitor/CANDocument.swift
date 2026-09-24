@@ -11,7 +11,14 @@ import HydrogenReporter
 
 struct CANDocumentJSON: FileDocument {
     static var readableContentTypes: [UTType] = [.json]
+    
+    struct Format: Codable {
+        var messages: [CANMessage]
+        var transmittingMessages: [CANTransmitMessage]
+    }
+    
     var messages: [CANMessage]
+    var transmittingMessages: [CANTransmitMessage]
     
     /// Store information about the interface that should be connected to when the document is opened.
     var openInterface: USBBus? = nil
@@ -20,6 +27,7 @@ struct CANDocumentJSON: FileDocument {
     
     init() {
         self.messages = []
+        self.transmittingMessages = []
     }
     
     init(interface: USBBus, baudRate: BaudRate) {
@@ -32,8 +40,10 @@ struct CANDocumentJSON: FileDocument {
         guard let data = configuration.file.regularFileContents else {
             throw CocoaError(.fileReadCorruptFile)
         }
-                
-        messages = try JSONDecoder().decode([CANMessage].self, from: data)
+        
+        let format = try JSONDecoder().decode(Format.self, from: data)
+        self.messages = format.messages
+        self.transmittingMessages = format.transmittingMessages
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {

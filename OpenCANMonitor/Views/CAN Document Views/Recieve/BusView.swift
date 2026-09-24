@@ -90,6 +90,6 @@ struct BusView: View {
         } message: {
             Text("This will clear all messages from the document, and is not reversible.")
         }
-
+        
     }
 }

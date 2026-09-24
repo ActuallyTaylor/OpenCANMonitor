@@ -21,6 +21,7 @@ class BusController: CustomStringConvertible {
     private var transmittingTimer: Timer? = nil
     
     var receiveError: CANStatus? = nil
+    var receivingQueueEmptyMessages: Bool = true
     
     private var runningMessageID: Int = 0
     
@@ -54,7 +55,6 @@ class BusController: CustomStringConvertible {
 
         let startingPoint: Date = .now
         
-        LOG("Received message...", level: .working)
         while (startingPoint.timeIntervalSinceNow > -0.01) {
             let rawStatus = CAN_Read(UInt16(canBus.usbBus.rawValue), &message, &timestamp)
             
@@ -65,19 +65,18 @@ class BusController: CustomStringConvertible {
             }
 
             // Only proceed if the receive queue is not empty.
+            // tThis is not an error, it just means there is nothing to actually receive.
             guard status != .qrcvempty else {
                 return
             }
             
             guard !status.isFatal else {
-                invalidateTimers()
-                receiveError = status
+                handleCANError(error: status)
                 return
             }
 
             guard status == .ok else {
-                LOG("PCAN Status Code: \(status)", level: .error)
-                receiveError = status
+                handleCANError(error: status)
                 continue
             }
             
@@ -86,6 +85,15 @@ class BusController: CustomStringConvertible {
 
             runningMessageID += 1
         }
+    }
+    
+    private func handleCANError(error: CANStatus) {
+        LOG("PCAN Status Code: \(error)", level: .error)
+        if error.isFatal {
+            invalidateTimers()
+        }
+        
+        receiveError = error
     }
         
     private func transmitTimerTick(_ timer: Timer) {
