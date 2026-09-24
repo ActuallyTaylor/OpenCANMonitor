@@ -40,6 +40,25 @@ struct MessageData: Codable, CustomStringConvertible, Equatable {
         self.byte7 = byte7
     }
     
+    init (bytes: [UInt8]) {
+        // The PEAK CAN library only supportsd up to 8 bytes.
+        var modifiedBytes = bytes.prefix(8)
+
+        // If we are missing any bytes, append up the missing ones with 0.
+        if modifiedBytes.count < 8 {
+            modifiedBytes.append(contentsOf: Array(repeating: 0, count: 8 - modifiedBytes.count))
+        }
+        
+        self.byte0 = modifiedBytes[0]
+        self.byte1 = modifiedBytes[1]
+        self.byte2 = modifiedBytes[2]
+        self.byte3 = modifiedBytes[3]
+        self.byte4 = modifiedBytes[4]
+        self.byte5 = modifiedBytes[5]
+        self.byte6 = modifiedBytes[6]
+        self.byte7 = modifiedBytes[7]
+    }
+    
     /// An initializer that takes a Tuple of 8 bytes and converts them into the individually stored bytes in this struct.
     /// - Parameter data: A tuple of 8 data bytes.
     init(data: CAN_DATA) {

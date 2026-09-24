@@ -19,14 +19,12 @@ struct CreateMessageSheet: View {
     
     @FocusState var focusedField: Field?
     
-    @State var bytes: [String] = Array(repeating: "", count: 8)
+    @State var displayBytes: [String] = Array(repeating: "", count: 8)
     
     @State var dataLength: Int = 8
     @State var deviceID: String = ""
     @State var cycleTime: Int = 1000
     @State var presentValidationError: Bool = false
-    
-//    @FocusState
 
     var create: (MessageData, Int, UInt32, Int) -> ()
 
@@ -44,10 +42,10 @@ struct CreateMessageSheet: View {
             }
             .focused($focusedField, equals: .length)
             .onChange(of: dataLength) { oldValue, newValue in
-                if newValue > bytes.count {
-                    bytes.append(contentsOf: Array(repeating: "", count: newValue - bytes.count))
-                } else if newValue < bytes.count {
-                    bytes.removeLast(bytes.count - newValue)
+                if newValue > displayBytes.count {
+                    displayBytes.append(contentsOf: Array(repeating: "", count: newValue - displayBytes.count))
+                } else if newValue < displayBytes.count {
+                    displayBytes.removeLast(displayBytes.count - newValue)
                 }
             }
             
@@ -72,25 +70,22 @@ struct CreateMessageSheet: View {
                         return
                     }
                     
-                    guard let b0 = UInt8(bytes[0], radix: 16),
-                          let b1 = UInt8(bytes[1], radix: 16),
-                          let b2 = UInt8(bytes[2], radix: 16),
-                          let b3 = UInt8(bytes[3], radix: 16),
-                          let b4 = UInt8(bytes[4], radix: 16),
-                          let b5 = UInt8(bytes[5], radix: 16),
-                          let b6 = UInt8(bytes[6], radix: 16),
-                          let b7 = UInt8(bytes[7], radix: 16) else {
-                        presentValidationError.toggle()
-                        return
+                    
+                    var bytes: [UInt8] = []
+                    for displayByte in displayBytes {
+                        guard let byte = UInt8(displayByte, radix: 16) else {
+                            presentValidationError.toggle()
+                            return
+                        }
+                        bytes.append(byte)
                     }
+                    
                     guard let hexDeviceID = UInt32(deviceID, radix: 16) else {
                         presentValidationError.toggle()
                         return
                     }
-                    create(.init(byte0: b0, byte1: b1, byte2: b2, byte3: b3, byte4: b4, byte5: b5, byte6: b6, byte7: b7),
-                           dataLength,
-                           hexDeviceID,
-                           cycleTime)
+                    
+                    create(MessageData(bytes: bytes), dataLength, hexDeviceID, cycleTime)
                     
                     dismiss()
                 }
@@ -112,14 +107,14 @@ struct CreateMessageSheet: View {
     
     var dataFields: some View {
         HStack(spacing: 3) {
-            ForEach(Array(bytes.enumerated()), id: \.offset) { offset, _ in
-                HexField(index: offset, hexString: $bytes[offset])
+            ForEach(Array(displayBytes.enumerated()), id: \.offset) { offset, _ in
+                HexField(index: offset, hexString: $displayBytes[offset])
                     .focused($focusedField, equals: .hex(index: offset))
-                    .onChange(of: bytes[offset]) { _, newValue in
+                    .onChange(of: displayBytes[offset]) { _, newValue in
                         // This allows the user to keep typing without having to tab through the individual data text boxes.
                         // Once the text reaches 2 characters (hex byte size) and there is another byte after this one, move the focused field forward.
                         // If the text reaches 0 characters and was greater than 0 characters we are deleting and should move back a text box.
-                        if newValue.count == 2, offset < bytes.count - 1 {
+                        if newValue.count == 2, offset < displayBytes.count - 1 {
                             focusedField = .hex(index: offset + 1)
                         }
                         
@@ -135,7 +130,7 @@ struct CreateMessageSheet: View {
     }
     
     private func validate() -> Bool {
-        for (offset, byte) in bytes.enumerated() {
+        for (offset, byte) in displayBytes.enumerated() {
             if offset >= dataLength { break }
             if byte == "" {
                 print("Empty Byte \(offset)")
