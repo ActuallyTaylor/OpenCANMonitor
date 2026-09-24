@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 /// A struct for containing CAN message data.
 struct MessageData: Codable, CustomStringConvertible, Equatable {

@@ -22,37 +22,9 @@ struct DocumentControllerView: View {
 
     var body: some View {
         NavigationSplitView {
-            List(selection: $selectedTool) {
-                ForEach(Tool.allCases) { tool in
-                    NavigationLink(value: tool) {
-                        Label(tool.displayName, symbol: tool.image)
-                    }
-                }
-            }
+            sidebar
         } detail: {
-            Group {
-                switch selectedTool {
-                case .bus:
-                    BusView(document: $document, controller: $controller)
-                case .transmit:
-                    Text("")
-//                    TransmitView()
-                }
-            }
-            .toolbar {
-                ToolbarItem(id: "connect") {
-                    Button {
-                        presentConnectionSheet.toggle()
-                    } label: {
-                        if let controller {
-                            Text("Connected to \(controller.description)")
-                        } else {
-                            Text("Connect to CAN Dongle")
-                        }
-                    }
-
-                }
-            }
+            detailViews
         }
         .onAppear {    
             if let interface = document.openInterface, let baudRate = document.openBaudRate {
@@ -102,6 +74,41 @@ struct DocumentControllerView: View {
                 if newValue.isFatal {
                     controller = nil
                 }
+            }
+        }
+    }
+    
+    var sidebar: some View {
+        List(selection: $selectedTool) {
+            ForEach(Tool.allCases) { tool in
+                NavigationLink(value: tool) {
+                    Label(tool.displayName, symbol: tool.image)
+                }
+            }
+        }
+    }
+    
+    var detailViews: some View {
+        Group {
+            switch selectedTool {
+            case .bus:
+                BusView(document: $document, controller: $controller)
+            case .transmit:
+                TransmitView(document: $document, controller: $controller)
+            }
+        }
+        .toolbar {
+            ToolbarItem(id: "connect") {
+                Button {
+                    presentConnectionSheet.toggle()
+                } label: {
+                    if let controller {
+                        Text("Connected to \(controller.description)")
+                    } else {
+                        Text("Connect to CAN Dongle")
+                    }
+                }
+
             }
         }
     }

@@ -34,7 +34,7 @@
 		DBA387872E8B5BCF0006B7AF /* libPCBUSB.0.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3877D2E8B59CB0006B7AF /* libPCBUSB.0.13.dylib */; };
 		DBA387882E8B5BCF0006B7AF /* libPCBUSB.0.13.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = DBA3877D2E8B59CB0006B7AF /* libPCBUSB.0.13.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DBABF41A2AABB4B200003E76 /* CANTransmitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABF4192AABB4B200003E76 /* CANTransmitMessage.swift */; };
-		DBABF41E2AABB64900003E76 /* CreateMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABF41D2AABB64900003E76 /* CreateMessageView.swift */; };
+		DBABF41E2AABB64900003E76 /* CreateMessageSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABF41D2AABB64900003E76 /* CreateMessageSheet.swift */; };
 		DBE4F9742AA654670000F98B /* CanMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9732AA654670000F98B /* CanMonitorApp.swift */; };
 		DBE4F9782AA654680000F98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE4F9772AA654680000F98B /* Assets.xcassets */; };
 		DBE4F97B2AA654680000F98B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE4F97A2AA654680000F98B /* Preview Assets.xcassets */; };
@@ -92,7 +92,7 @@
 		DBA387842E8B59F50006B7AF /* PCBUSB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCBUSB.h; sourceTree = "<group>"; };
 		DBA387852E8B59F50006B7AF /* PCBUSB.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = PCBUSB.c; sourceTree = "<group>"; };
 		DBABF4192AABB4B200003E76 /* CANTransmitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANTransmitMessage.swift; sourceTree = "<group>"; };
-		DBABF41D2AABB64900003E76 /* CreateMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageView.swift; sourceTree = "<group>"; };
+		DBABF41D2AABB64900003E76 /* CreateMessageSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageSheet.swift; sourceTree = "<group>"; };
 		DBE4F9702AA654670000F98B /* OpenCANMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCANMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE4F9732AA654670000F98B /* CanMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorApp.swift; sourceTree = "<group>"; };
 		DBE4F9772AA654680000F98B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +156,8 @@
 				DB77D7562E8B6F620001FDED /* DocumentControllerView.swift */,
 				DB492F2E305CB45700E0F1AF /* Transmit */,
 				DB492F2D305CB40600E0F1AF /* Recieve */,
+				DB492F2A305CB2FC00E0F1AF /* AppKit */,
+				DB787C393064B90D003FCAA6 /* Sheets */,
 			);
 			path = "CAN Document Views";
 			sourceTree = "<group>";
@@ -188,8 +190,6 @@
 		DB5B75862E8C527D0099199D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB492F28305CB2DC00E0F1AF /* ConnectSheet.swift */,
-				DB492F2A305CB2FC00E0F1AF /* AppKit */,
 				DB3F33A82E8CB4290036C2B9 /* CAN Document Views */,
 				DB5B758A2E8C750D0099199D /* Startup */,
 			);
@@ -220,9 +220,17 @@
 			isa = PBXGroup;
 			children = (
 				DBE6E4D32AA795750064FF15 /* SendMessagePopover.swift */,
-				DBABF41D2AABB64900003E76 /* CreateMessageView.swift */,
 			);
 			path = Transmitting;
+			sourceTree = "<group>";
+		};
+		DB787C393064B90D003FCAA6 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				DBABF41D2AABB64900003E76 /* CreateMessageSheet.swift */,
+				DB492F28305CB2DC00E0F1AF /* ConnectSheet.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 		DB81A4642AB262FE008F83C2 /* Models */ = {
@@ -281,7 +289,7 @@
 				DBE4F9732AA654670000F98B /* CanMonitorApp.swift */,
 				DB77D7582E8C2E670001FDED /* BusController.swift */,
 				DBA387462E8B48080006B7AF /* CANDocument.swift */,
-				DBE6E4D02AA794390064FF15 /* Models */,
+				DBE6E4D02AA794390064FF15 /* Helpers */,
 				DB1BB1492AA6595B00256CD3 /* CAN Library */,
 				DB5B75862E8C527D0099199D /* Views */,
 				DBE6E4CD2AA7941C0064FF15 /* Old Interface */,
@@ -337,14 +345,14 @@
 			path = "Old Interface";
 			sourceTree = "<group>";
 		};
-		DBE6E4D02AA794390064FF15 /* Models */ = {
+		DBE6E4D02AA794390064FF15 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				DBE6E4CE2AA794320064FF15 /* NavigableView.swift */,
 				DBE6E4D52AA796710064FF15 /* HexFormatter.swift */,
 				DB9A2BE22AA8120D00F543B4 /* FilterType.swift */,
 			);
-			path = Models;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,7 +443,7 @@
 				DBA387452E8B3BC60006B7AF /* StartupView.swift in Sources */,
 				DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */,
 				DB492F2C305CB32800E0F1AF /* MessageDetail.swift in Sources */,
-				DBABF41E2AABB64900003E76 /* CreateMessageView.swift in Sources */,
+				DBABF41E2AABB64900003E76 /* CreateMessageSheet.swift in Sources */,
 				DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */,
 				DB492F29305CB2DC00E0F1AF /* ConnectSheet.swift in Sources */,
 				DBE4F9742AA654670000F98B /* CanMonitorApp.swift in Sources */,

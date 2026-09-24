@@ -62,10 +62,8 @@ struct ConnectSheet: View {
     }
 }
 
-struct ConnectSheet_Previews: PreviewProvider {
-    static var previews: some View {
-        ConnectSheet { interface, baudRate in
-            
-        }
+#Preview {
+    ConnectSheet { interface, baudRate in
+        
     }
 }

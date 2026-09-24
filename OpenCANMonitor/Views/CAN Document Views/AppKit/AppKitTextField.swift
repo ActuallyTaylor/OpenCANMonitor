@@ -50,6 +50,5 @@ struct AKTextField: NSViewRepresentable {
             guard let textView = obj.object as? NSTextField else { return }
             self.parent.text = textView.stringValue
         }
-        
     }
 }
