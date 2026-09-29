@@ -23,5 +23,5 @@ brew install --cask open-can-monitor
 https://github.com/ActuallyTaylor/OpenCANMonitor/releases/latest/download/OpenCANMonitor.dmg
 
 ## Credits
-- The PCBUSB library was created and maintained by [UV Software, Berlin](https://www.mac-can.com/). This app packages the version 0.12.1 so the user does not have to go through an install process.
+- The PCBUSB library was created and maintained by [UV Software, Berlin](https://www.mac-can.com/). This app packages the version 0.13.0 so the user does not have to go through an install process.
 - [MacCAN Monitor App](https://github.com/mac-can/PCBUSB-Monitor) was used for reference for how to use the PCBUSB library in a macOS app.
