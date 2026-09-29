@@ -95,6 +95,7 @@ class BusController: CustomStringConvertible {
 // MARK: Transmitting
 extension BusController {
     public func setTransmitMessages(messages: [CANTransmitMessage]) {
+        transmitTimes.removeAll()
         self.transmitMessages = messages
     }
     

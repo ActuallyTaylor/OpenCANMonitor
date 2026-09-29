@@ -45,7 +45,6 @@
 		DBE6E4C52AA78D660064FF15 /* CANMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4C42AA78D660064FF15 /* CANMessage.swift */; };
 		DBE6E4C82AA7910A0064FF15 /* SFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = DBE6E4C72AA7910A0064FF15 /* SFSymbols */; };
 		DBE6E4CF2AA794320064FF15 /* NavigableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4CE2AA794320064FF15 /* NavigableView.swift */; };
-		DBE6E4D42AA795750064FF15 /* SendMessagePopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D32AA795750064FF15 /* SendMessagePopover.swift */; };
 		DBE6E4D62AA796710064FF15 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D52AA796710064FF15 /* HexFormatter.swift */; };
 		DBE6E4D92AA799E90064FF15 /* AppKitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6E4D82AA799E90064FF15 /* AppKitTextField.swift */; };
 		DBEC027A2E8D809C0060AB17 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC02792E8D80950060AB17 /* BusView.swift */; };
@@ -109,7 +108,6 @@
 		DBE6E4BF2AA78C220064FF15 /* OpenCANMonitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCANMonitor-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBE6E4C42AA78D660064FF15 /* CANMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANMessage.swift; sourceTree = "<group>"; };
 		DBE6E4CE2AA794320064FF15 /* NavigableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigableView.swift; sourceTree = "<group>"; };
-		DBE6E4D32AA795750064FF15 /* SendMessagePopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessagePopover.swift; sourceTree = "<group>"; };
 		DBE6E4D52AA796710064FF15 /* HexFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
 		DBE6E4D82AA799E90064FF15 /* AppKitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitTextField.swift; sourceTree = "<group>"; };
 		DBEC02792E8D80950060AB17 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
@@ -244,14 +242,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DB5E46612AAB955600825F21 /* Transmitting */ = {
-			isa = PBXGroup;
-			children = (
-				DBE6E4D32AA795750064FF15 /* SendMessagePopover.swift */,
-			);
-			path = Transmitting;
-			sourceTree = "<group>";
-		};
 		DB787C393064B90D003FCAA6 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,7 +310,6 @@
 				DBE6E4D02AA794390064FF15 /* Helpers */,
 				DB1BB1492AA6595B00256CD3 /* Peak CAN Library */,
 				DB5B75862E8C527D0099199D /* Views */,
-				DBE6E4CD2AA7941C0064FF15 /* Old Interface */,
 				DB8FC0FA2AAA860E00422427 /* Settings */,
 				DB5E46562AAB78C600825F21 /* Extensions */,
 				DBE4F9772AA654680000F98B /* Assets.xcassets */,
@@ -363,14 +352,6 @@
 				DBE6E4BF2AA78C220064FF15 /* OpenCANMonitor-Bridging-Header.h */,
 			);
 			path = "C Wrapper";
-			sourceTree = "<group>";
-		};
-		DBE6E4CD2AA7941C0064FF15 /* Old Interface */ = {
-			isa = PBXGroup;
-			children = (
-				DB5E46612AAB955600825F21 /* Transmitting */,
-			);
-			path = "Old Interface";
 			sourceTree = "<group>";
 		};
 		DBE6E4D02AA794390064FF15 /* Helpers */ = {
@@ -497,7 +478,6 @@
 				DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */,
 				DB77D7532E8B61150001FDED /* CANBus.swift in Sources */,
 				DBEC027A2E8D809C0060AB17 /* BusView.swift in Sources */,
-				DBE6E4D42AA795750064FF15 /* SendMessagePopover.swift in Sources */,
 				DBA387472E8B48100006B7AF /* CANDocument.swift in Sources */,
 				DB81A4612AB25EDB008F83C2 /* UInt+Hex.swift in Sources */,
 			);
@@ -656,7 +636,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
 				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
@@ -708,7 +688,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lineman.OpenCanMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lineman.OpenCanMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
 				RUNTIME_EXCEPTION_ALLOW_JIT = NO;

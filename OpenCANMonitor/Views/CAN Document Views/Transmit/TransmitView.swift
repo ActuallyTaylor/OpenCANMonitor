@@ -31,9 +31,10 @@ struct TransmitView: View {
                         message.currentlyTransmitting = newValue
                     }))
                     .labelsHidden()
+                    .disabled(controller == nil)
+                    .help(controller == nil ? "You can only send messages when connected to a CAN Dongle" : "Whether or not the transmit message is sent over the CAN bus.")
                 }
                 .width(50)
-                .disabled(controller == nil)
                 TableColumn("Device ID") { message in
                     Text(message.deviceID.hex(length: 3))
                 }
