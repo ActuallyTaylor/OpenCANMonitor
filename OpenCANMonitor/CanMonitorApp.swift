@@ -6,17 +6,72 @@
 //
 
 import SwiftUI
+import ModernSettingsWindow
+
+enum WindowID: String {
+    case startup = "Startup"
+    
+    var name: String {
+        switch self {
+        case .startup:
+            return "Startup"
+        }
+    }
+}
 
 @main
 struct OpenCANMonitorApp: App {
+    @State var database: UserDataDatabase = UserDataDatabase()
+
     var body: some Scene {
-        WindowGroup {
-            ControllerView()
+        DocumentGroup(newDocument: JSONCANDocument()) { configuration in
+            DocumentControllerView(documentURL: configuration.fileURL, document: configuration.document)
                 .rounded()
+                .modelContainer(database.modelContainer)
         }
+
+        Window(WindowID.startup.name, id: WindowID.startup.rawValue) {
+            StartupView()
+                .rounded()
+                .containerBackground(.thickMaterial, for: .window)
+                .windowFullScreenBehavior(.disabled)
+                .windowMinimizeBehavior(.disabled)
+        }
+        .defaultLaunchBehavior(.presented)
+        .windowIdealSize(.fitToContent)
+        .windowStyle(.hiddenTitleBar)
+        .restorationBehavior(.disabled)
+        .windowResizability(.contentSize)
+        .windowIdealPlacement  { content, context in
+            return WindowPlacement(.center)
+        }
+        .defaultWindowPlacement { _, _ in
+            return WindowPlacement(.center)
+        }
+        
         Settings {
             SettingsView()
                 .rounded()
         }
     }
 }
+//
+//public struct ToolCommands: Commands {
+//    @Environment(\.openWindow) private var openWindow
+//
+//    public var body: some Commands {
+//        CommandMenu("Tools") {
+//            Button("Transmit Messages") {
+//                openWindow(id: WindowID.transmit.rawValue)
+//            }
+//            
+//            Button("Startup Menu") {
+//                openWindow(id: WindowID.transmit.rawValue)
+//            }
+//        }
+//    }
+//}
+//
+//
+//
+//

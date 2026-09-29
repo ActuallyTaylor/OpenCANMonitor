@@ -1,4 +1,5 @@
 {
+  "originHash" : "1832bd5028f35b59b9109035fb5b2b44e34f7654da56de21073d612eee85fe18",
   "pins" : [
     {
       "identity" : "hydrogenreporter",
@@ -10,14 +11,23 @@
       }
     },
     {
+      "identity" : "modernsettings",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ActuallyTaylor/ModernSettings",
+      "state" : {
+        "revision" : "378ec6851193416e51c4c2d8f7012e55fdc7d2df",
+        "version" : "1.2.0"
+      }
+    },
+    {
       "identity" : "sfsymbols",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ActuallyTaylor/SFSymbols",
       "state" : {
-        "revision" : "c41d0df8ab288074c0e2c10513ec714e9044a61e",
-        "version" : "1.1.0"
+        "revision" : "b52a96089cae21a7174ad723d03fa7427392e6c7",
+        "version" : "7.0.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
