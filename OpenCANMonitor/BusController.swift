@@ -13,15 +13,18 @@ import HydrogenReporter
 class BusController: CustomStringConvertible {
     private(set) var canBus: CANBus
     
-    private var messages: Binding<[CANMessage]>  
+    private var messages: Binding<[CANMessage]>
+    private var transmitMessages: [CANTransmitMessage] = []
+    private var transmitTimes: [CANTransmitMessage.ID: TimeInterval] = [:]
 
     /// This timer fires the `receiveTimerTick` function, which checks the can bus for messages.
     private var receivingTimer: Timer? = nil
+    var receiveError: CANStatus? = nil
+
     /// This timer fires the `transmitTimerTick` function, which sends any messages that need to be transmitted.
     private var transmittingTimer: Timer? = nil
-    
-    var receiveError: CANStatus? = nil
-    var receivingQueueEmptyMessages: Bool = true
+    var transmitError: CANStatus? = nil
+
     
     private var runningMessageID: Int = 0
     
@@ -37,8 +40,9 @@ class BusController: CustomStringConvertible {
     func initTimers() {
         LOG("Initializing Timers...", level: .working)
         invalidateTimers()
-        receivingTimer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { self.receiveTimerTick($0) })
-        transmittingTimer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: {  self.transmitTimerTick($0) })
+        receivingTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { self.receiveTimerTick($0) })
+        // Send every millisecond
+        transmittingTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: {  self.transmitTimerTick($0) })
         LOG("Timers Initialized", level: .success)
     }
 
@@ -86,7 +90,42 @@ class BusController: CustomStringConvertible {
             runningMessageID += 1
         }
     }
+}
+
+// MARK: Transmitting
+extension BusController {
+    public func setTransmitMessages(messages: [CANTransmitMessage]) {
+        self.transmitMessages = messages
+    }
     
+    private func transmitTimerTick(_ timer: Timer) {
+        for message in transmitMessages {
+            do {
+                let transmitTime = transmitTimes[message.id, default: 0]
+                let currentTimeInterval = Date.now.timeIntervalSince1970
+                
+                guard message.currentlyTransmitting else { continue }
+                guard ((currentTimeInterval - transmitTime) * 1000) > Double(message.cycleTime) else { continue }
+                
+                try self.canBus.transmit(message: message)
+                
+                transmitTimes[message.id] = currentTimeInterval
+            } catch {
+                LOG("Transmitting Error", error, level: .error)
+                
+                if let error = error as? CANStatus {
+                    transmitError = error
+                }
+                
+                continue
+            }
+        }
+    }
+
+}
+
+// MARK: Error handling
+extension BusController {
     private func handleCANError(error: CANStatus) {
         LOG("PCAN Status Code: \(error)", level: .error)
         if error.isFatal {
@@ -94,19 +133,5 @@ class BusController: CustomStringConvertible {
         }
         
         receiveError = error
-    }
-        
-    private func transmitTimerTick(_ timer: Timer) {
-//        for index in 0..<transmittingMessages.count {
-//            do {
-//                try transmittingMessages[index].transmit(bus: bus)
-//            } catch {
-//                LOG("Transmitting Error", error, level: .error)
-//                if let error = error as? CANStatus {
-//                    receivedError = error
-//                }
-//                continue
-//            }
-//        }
     }
 }

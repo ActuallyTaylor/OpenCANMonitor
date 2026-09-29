@@ -7,9 +7,13 @@
 
 import SwiftUI
 import SFSymbols
+import SwiftData
 
 struct TransmitView: View {
-    @Binding var document: CANDocumentJSON
+    @Environment(\.modelContext) var modelContext
+    @Query var transmitMessages: [CANTransmitMessage]
+    
+    @Binding var document: JSONCANDocument
     @Binding var controller: BusController?
 
     @State var selectedMessages: Set<CANTransmitMessage.ID> = .init()
@@ -19,46 +23,46 @@ struct TransmitView: View {
 
     var body: some View {
         HStack(spacing: 0) {
-//            ScrollViewReader { reader in
-//                Table(of: CANTransmitMessage.self, selection: $selectedMessages) {
-//                    TableColumn("Active") { message in
-////                        Toggle("Active", isOn: $channelMonitor[message.id].currentlyTransmitting)
-////                            .labelsHidden()
-//                    }
-//                    .width(50)
-//                    TableColumn("Device ID") { message in
-//                        Text(message.deviceID.hex(length: 3))
-//                    }
-//                    .width(min: 5, ideal: 25)
-//                    TableColumn("Type", value: \.type.displayName)
-//                        .width(min: 5, ideal: 50)
-//                    TableColumn("Hex Data", value: \.data.description)
-//                    TableColumn("ASCII Data", value: \.data.ascii)
-//                    TableColumn("Decimal Data", value: \.data.decimal)
-//                    TableColumn("Cycle Time", value: \.cycleTime.description)
-//                } rows: {
-//                    ForEach(channelMonitor.transmittingMessages) { message in
-//                        TableRow(message)
-//                            .contextMenu {
-//                                Button {
-//                                    editMessage = message
-//                                } label: {
-//                                    Label("Edit", symbol: .wrench_and_screwdriver)
-//                                }
-//                                Button(role: .destructive) {
-//                                    channelMonitor.transmittingMessages.removeAll { msg in
-//                                        return msg.id == message.id
-//                                    }
-//                                    try? channelMonitor.saveTransmittingMessages()
-//                                } label: {
-//                                    Text("Delete")
-//                                        .foregroundColor(.red)
-//                                }
-//                            }
-//                    }
-//                }
-//                .tableStyle(.inset)
-//            }
+            Table(of: CANTransmitMessage.self, selection: $selectedMessages) {
+                TableColumn("Active") { message in
+                    Toggle("Active", isOn: Binding<Bool>(get: {
+                        message.currentlyTransmitting
+                    }, set: { newValue in
+                        message.currentlyTransmitting = newValue
+                    }))
+                    .labelsHidden()
+                }
+                .width(50)
+                .disabled(controller == nil)
+                TableColumn("Device ID") { message in
+                    Text(message.deviceID.hex(length: 3))
+                }
+                .width(min: 5, ideal: 25)
+                TableColumn("Type", value: \.type.displayName)
+                    .width(min: 5, ideal: 50)
+                TableColumn("Hex Data", value: \.data.description)
+                TableColumn("ASCII Data", value: \.data.ascii)
+                TableColumn("Decimal Data", value: \.data.decimal)
+                TableColumn("Cycle Time", value: \.cycleTime.description)
+            } rows: {
+                ForEach(transmitMessages) { message in
+                    TableRow(message)
+                        .contextMenu {
+                            Button {
+                                editingMessage = message
+                            } label: {
+                                Label("Edit", symbol: .wrench_and_screwdriver)
+                            }
+                            Button(role: .destructive) {
+                                modelContext.delete(message)
+                            } label: {
+                                Text("Delete")
+                                    .foregroundColor(.red)
+                            }
+                        }
+                }
+            }
+            .tableStyle(.inset)
         }
         .navigationTitle("Transmitting Messages")
         .toolbar {
@@ -72,21 +76,31 @@ struct TransmitView: View {
         }
         .sheet(isPresented: $presentCreateMessageSheet) {
             CreateMessageSheet { data, dataLength, deviceID, cycleTime in
-//                let transmitMessage = CANTransmitMessage(deviceID: deviceID, type: .standard, data: data, length: dataLength, cycleTime: cycleTime, currentlyTransmitting: true)
-//                
-//                channelMonitor.transmittingMessages.append(transmitMessage)
-//                presentCreateMessageView = false
-//                try? channelMonitor.saveTransmittingMessages()
+                let message = CANTransmitMessage(
+                    deviceID: deviceID,
+                    type: .standard,
+                    data: MessageData(bytes: data),
+                    length: dataLength,
+                    cycleTime: cycleTime,
+                    currentlyTransmitting: false
+                )
+                modelContext.insert(message)
             }
         }
-//        .sheet(item: $editMessage) { message in
-//            CreateMessageSheet(bytes: message.data.array.map({$0.hex(length: 2)}), dataLength: message.length, deviceID: message.deviceID.hex(length: 3)) { data, dataLength, deviceID, cycleTime in
-//                let transmitMessage = CANTransmitMessage(id: message.id,deviceID: deviceID, type: .standard, data: data, length: dataLength, cycleTime: cycleTime, currentlyTransmitting: true)
-//                channelMonitor[message.id] = transmitMessage
-//                editMessage = nil
-//                try? channelMonitor.saveTransmittingMessages()
-//            }
-//        }
+        .sheet(item: $editingMessage) { message in
+            let displayBytes = message.data.array.map({$0.hex(length: 2)})
+            let deviceID = message.deviceID.hex(length: 3)
+            
+            CreateMessageSheet(displayBytes: displayBytes, dataLength: message.length, deviceID: deviceID, cycleTime: message.cycleTime) { data, dataLength, deviceID, cycleTime in
+                editingMessage?.data = MessageData(bytes: data)
+                editingMessage?.length = dataLength
+                editingMessage?.deviceID = deviceID
+                editingMessage?.cycleTime = cycleTime
+            }
+        }
+        .onChange(of: transmitMessages, initial: true) { _, newValue in
+            controller?.setTransmitMessages(messages: newValue)
+        }
     }
 }
 

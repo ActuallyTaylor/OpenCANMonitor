@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB0BE18B306B1E400003E546 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BE18A306B1E3F0003E546 /* Schema.swift */; };
+		DB0BE2BF306B1ED70003E546 /* FrontendDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BE2BE306B1ED70003E546 /* FrontendDatabase.swift */; };
+		DB0BE2C0306B1ED70003E546 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BE2BD306B1ED70003E546 /* Database.swift */; };
+		DB0BE2C4306B215B0003E546 /* StoredTransmitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BE2C3306B215A0003E546 /* StoredTransmitMessage.swift */; };
 		DB366F8C2AA7CA5200329014 /* USBBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8B2AA7CA5200329014 /* USBBus.swift */; };
 		DB366F8E2AA7CD4400329014 /* CANStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8D2AA7CD4400329014 /* CANStatus.swift */; };
 		DB366F902AA7D4CF00329014 /* BaudRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB366F8F2AA7D4CF00329014 /* BaudRate.swift */; };
@@ -33,7 +37,7 @@
 		DBA387862E8B59F50006B7AF /* PCBUSB.c in Sources */ = {isa = PBXBuildFile; fileRef = DBA387852E8B59F50006B7AF /* PCBUSB.c */; };
 		DBA387872E8B5BCF0006B7AF /* libPCBUSB.0.13.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA3877D2E8B59CB0006B7AF /* libPCBUSB.0.13.dylib */; };
 		DBA387882E8B5BCF0006B7AF /* libPCBUSB.0.13.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = DBA3877D2E8B59CB0006B7AF /* libPCBUSB.0.13.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DBABF41A2AABB4B200003E76 /* CANTransmitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABF4192AABB4B200003E76 /* CANTransmitMessage.swift */; };
+		DBABF41A2AABB4B200003E76 /* v1CANTransmitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABF4192AABB4B200003E76 /* v1CANTransmitMessage.swift */; };
 		DBABF41E2AABB64900003E76 /* CreateMessageSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBABF41D2AABB64900003E76 /* CreateMessageSheet.swift */; };
 		DBE4F9742AA654670000F98B /* CanMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9732AA654670000F98B /* CanMonitorApp.swift */; };
 		DBE4F9782AA654680000F98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE4F9772AA654680000F98B /* Assets.xcassets */; };
@@ -63,6 +67,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DB0BE18A306B1E3F0003E546 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		DB0BE2BD306B1ED70003E546 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		DB0BE2BE306B1ED70003E546 /* FrontendDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontendDatabase.swift; sourceTree = "<group>"; };
+		DB0BE2C3306B215A0003E546 /* StoredTransmitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredTransmitMessage.swift; sourceTree = "<group>"; };
 		DB366F8B2AA7CA5200329014 /* USBBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBBus.swift; sourceTree = "<group>"; };
 		DB366F8D2AA7CD4400329014 /* CANStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANStatus.swift; sourceTree = "<group>"; };
 		DB366F8F2AA7D4CF00329014 /* BaudRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudRate.swift; sourceTree = "<group>"; };
@@ -91,7 +99,7 @@
 		DBA3877E2E8B59CB0006B7AF /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		DBA387842E8B59F50006B7AF /* PCBUSB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCBUSB.h; sourceTree = "<group>"; };
 		DBA387852E8B59F50006B7AF /* PCBUSB.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = PCBUSB.c; sourceTree = "<group>"; };
-		DBABF4192AABB4B200003E76 /* CANTransmitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CANTransmitMessage.swift; sourceTree = "<group>"; };
+		DBABF4192AABB4B200003E76 /* v1CANTransmitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v1CANTransmitMessage.swift; sourceTree = "<group>"; };
 		DBABF41D2AABB64900003E76 /* CreateMessageSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageSheet.swift; sourceTree = "<group>"; };
 		DBE4F9702AA654670000F98B /* OpenCANMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCANMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE4F9732AA654670000F98B /* CanMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanMonitorApp.swift; sourceTree = "<group>"; };
@@ -122,6 +130,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB0BE189306B1E3A0003E546 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				DB0BE2C7306B26A10003E546 /* SchemaV1 */,
+				DB0BE2C3306B215A0003E546 /* StoredTransmitMessage.swift */,
+				DB0BE2BD306B1ED70003E546 /* Database.swift */,
+				DB0BE2BE306B1ED70003E546 /* FrontendDatabase.swift */,
+				DB0BE18A306B1E3F0003E546 /* Schema.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		DB0BE2C7306B26A10003E546 /* SchemaV1 */ = {
+			isa = PBXGroup;
+			children = (
+				DBABF4192AABB4B200003E76 /* v1CANTransmitMessage.swift */,
+			);
+			path = SchemaV1;
+			sourceTree = "<group>";
+		};
 		DB1BB1192AA6594E00256CD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,13 +168,13 @@
 			path = PCBUSB;
 			sourceTree = "<group>";
 		};
-		DB1BB1492AA6595B00256CD3 /* CAN Library */ = {
+		DB1BB1492AA6595B00256CD3 /* Peak CAN Library */ = {
 			isa = PBXGroup;
 			children = (
 				DBE6E4BA2AA78B310064FF15 /* C Wrapper */,
 				DBE6E4B92AA78B290064FF15 /* Swift */,
 			);
-			path = "CAN Library";
+			path = "Peak CAN Library";
 			sourceTree = "<group>";
 		};
 		DB3F33A82E8CB4290036C2B9 /* CAN Document Views */ = {
@@ -239,7 +267,6 @@
 				DB77D7522E8B61150001FDED /* CANBus.swift */,
 				DBE6E4C42AA78D660064FF15 /* CANMessage.swift */,
 				DB81A4622AB262D9008F83C2 /* MessageData.swift */,
-				DBABF4192AABB4B200003E76 /* CANTransmitMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,8 +316,9 @@
 				DBE4F9732AA654670000F98B /* CanMonitorApp.swift */,
 				DB77D7582E8C2E670001FDED /* BusController.swift */,
 				DBA387462E8B48080006B7AF /* CANDocument.swift */,
+				DB0BE189306B1E3A0003E546 /* Database */,
 				DBE6E4D02AA794390064FF15 /* Helpers */,
-				DB1BB1492AA6595B00256CD3 /* CAN Library */,
+				DB1BB1492AA6595B00256CD3 /* Peak CAN Library */,
 				DB5B75862E8C527D0099199D /* Views */,
 				DBE6E4CD2AA7941C0064FF15 /* Old Interface */,
 				DB8FC0FA2AAA860E00422427 /* Settings */,
@@ -438,10 +466,11 @@
 			files = (
 				DBEC027C2E8D81530060AB17 /* Tools.swift in Sources */,
 				DB9A2BE32AA8120D00F543B4 /* FilterType.swift in Sources */,
-				DBABF41A2AABB4B200003E76 /* CANTransmitMessage.swift in Sources */,
+				DBABF41A2AABB4B200003E76 /* v1CANTransmitMessage.swift in Sources */,
 				DB5B758C2E8C75120099199D /* StartupButton.swift in Sources */,
 				DBA387452E8B3BC60006B7AF /* StartupView.swift in Sources */,
 				DB8FC0FE2AAA862900422427 /* SettingsView.swift in Sources */,
+				DB0BE2C4306B215B0003E546 /* StoredTransmitMessage.swift in Sources */,
 				DB492F2C305CB32800E0F1AF /* MessageDetail.swift in Sources */,
 				DBABF41E2AABB64900003E76 /* CreateMessageSheet.swift in Sources */,
 				DB5E46602AAB93E700825F21 /* CompatibilityWrappers.swift in Sources */,
@@ -451,6 +480,7 @@
 				DBE6E4CF2AA794320064FF15 /* NavigableView.swift in Sources */,
 				DB366F8C2AA7CA5200329014 /* USBBus.swift in Sources */,
 				DBE6E4D92AA799E90064FF15 /* AppKitTextField.swift in Sources */,
+				DB0BE18B306B1E400003E546 /* Schema.swift in Sources */,
 				DB77D7572E8B6F690001FDED /* DocumentControllerView.swift in Sources */,
 				DB5E46582AAB78D200825F21 /* Clamped.swift in Sources */,
 				DB5E465E2AAB8FC700825F21 /* ErrorWrapper.swift in Sources */,
@@ -461,6 +491,8 @@
 				DB82FDAF2AA7F08200AA9933 /* CANMessageType.swift in Sources */,
 				DBE6E4C52AA78D660064FF15 /* CANMessage.swift in Sources */,
 				DBA387862E8B59F50006B7AF /* PCBUSB.c in Sources */,
+				DB0BE2BF306B1ED70003E546 /* FrontendDatabase.swift in Sources */,
+				DB0BE2C0306B1ED70003E546 /* Database.swift in Sources */,
 				DBE6E4D62AA796710064FF15 /* HexFormatter.swift in Sources */,
 				DB81A4632AB262D9008F83C2 /* MessageData.swift in Sources */,
 				DB77D7532E8B61150001FDED /* CANBus.swift in Sources */,
@@ -600,7 +632,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
-				DEVELOPMENT_TEAM = D56WBLPX68;
+				DEVELOPMENT_TEAM = TK7Y3X86W7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
@@ -633,7 +665,7 @@
 				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
 				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/CAN Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/Peak CAN Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -652,7 +684,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OpenCANMonitor/Preview Content\"";
-				DEVELOPMENT_TEAM = D56WBLPX68;
+				DEVELOPMENT_TEAM = TK7Y3X86W7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
@@ -685,7 +717,7 @@
 				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
 				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/CAN Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCANMonitor/Peak CAN Library/C Wrapper/OpenCANMonitor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

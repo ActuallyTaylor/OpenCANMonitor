@@ -11,7 +11,7 @@ import HydrogenReporter
 struct BusView: View {
     @Environment(\.scenePhase) var scenePhase: ScenePhase
 
-    @Binding var document: CANDocumentJSON
+    @Binding var document: JSONCANDocument
     @Binding var controller: BusController?
 
     // Select Messages

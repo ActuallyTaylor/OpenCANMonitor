@@ -18,7 +18,7 @@ struct CreateMessageSheet: View {
     @Environment(\.dismiss) var dismiss
     
     @FocusState var focusedField: Field?
-    
+        
     @State var displayBytes: [String] = Array(repeating: "", count: 8)
     
     @State var dataLength: Int = 8
@@ -26,7 +26,7 @@ struct CreateMessageSheet: View {
     @State var cycleTime: Int = 1000
     @State var presentValidationError: Bool = false
 
-    var create: (MessageData, Int, UInt32, Int) -> ()
+    var create: ([UInt8], Int, UInt32, Int) -> ()
 
     var body: some View {
         Form {
@@ -85,8 +85,7 @@ struct CreateMessageSheet: View {
                         return
                     }
                     
-                    create(MessageData(bytes: bytes), dataLength, hexDeviceID, cycleTime)
-                    
+                    create(bytes, dataLength, hexDeviceID, cycleTime)
                     dismiss()
                 }
             }

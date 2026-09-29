@@ -20,10 +20,13 @@ enum WindowID: String {
 
 @main
 struct OpenCANMonitorApp: App {
+    @State var database: UserDataDatabase = UserDataDatabase()
+
     var body: some Scene {
-        DocumentGroup(newDocument: CANDocumentJSON()) { configuration in
+        DocumentGroup(newDocument: JSONCANDocument()) { configuration in
             DocumentControllerView(documentURL: configuration.fileURL, document: configuration.document)
                 .rounded()
+                .modelContainer(database.modelContainer)
         }
 
         Window(WindowID.startup.name, id: WindowID.startup.rawValue) {

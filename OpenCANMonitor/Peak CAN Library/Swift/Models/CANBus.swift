@@ -39,6 +39,7 @@ final class CANBus {
     }
 }
 
+// MARK: Error Handling
 extension CANBus {
     @discardableResult
     private func validateCANStatus(rawStatus: UInt32) throws (CANStatus) -> CANStatus {
@@ -55,5 +56,26 @@ extension CANBus {
         }
         
         return status
+    }
+}
+
+// MARK: Transmitting
+extension CANBus {
+    /// A function that transmits this message over a given ``PCANUSBBus``.
+    /// This function does not contain many log statements because we do not want to flood the logger bus.
+    /// - Parameter bus: The ``PCANUSBBus`` to transmit over.
+    func transmit(message: CANTransmitMessage) throws {
+        var rawMessage: TPCANMsg = .init(ID: message.deviceID, MSGTYPE: UInt8(message.type.rawValue), LEN: UInt8(message.length), DATA: message.data.tuple)
+        
+        let rawStatus = CAN_Write(UInt16(usbBus.rawValue), &rawMessage)
+        guard let status = CANStatus(rawValue: rawStatus) else {
+            LOG("Unable to convert PCAN Status Code: 0x\(rawStatus)", level: .error)
+            throw CANStatus.unknown
+        }
+
+        guard status == .ok else {
+            LOG("PCAN Status Code: \(status)", level: .error)
+            throw status
+        }
     }
 }

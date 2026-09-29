@@ -7,10 +7,13 @@
 
 import HydrogenReporter
 import SwiftUI
+import SwiftData
 
 struct DocumentControllerView: View {
+    @Query var transmitMessages: [CANTransmitMessage]
+
     var documentURL: URL?
-    @State var document: CANDocumentJSON
+    @State var document: JSONCANDocument
     @State var controller: BusController? = nil
     
     @State var selectedTool: Tool = .bus
@@ -57,6 +60,7 @@ struct DocumentControllerView: View {
                     // Disable any existing controllers
                     if let controller {
                         controller.invalidateTimers()
+                        self.controller = nil
                     }
                     
                     controller = try BusController(with: interface, baudRate: baudRate, messages: $document.messages)
@@ -83,6 +87,7 @@ struct DocumentControllerView: View {
             ForEach(Tool.allCases) { tool in
                 NavigationLink(value: tool) {
                     Label(tool.displayName, symbol: tool.image)
+                        .badge(tool == .transmit ? transmitMessages.filter(\.currentlyTransmitting).count : 0)
                 }
             }
         }

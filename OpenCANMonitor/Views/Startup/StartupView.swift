@@ -116,7 +116,7 @@ struct StartupView: View {
             ConnectSheet { interface, baudRate in
                 presentConnectSheet = false
                 dismissWindow()
-                newDocument(CANDocumentJSON(interface: interface, baudRate: baudRate))
+                newDocument(JSONCANDocument(interface: interface, baudRate: baudRate))
             }
         }
     }
