@@ -1,5 +1,5 @@
 {
-  "originHash" : "8524208f15b99ae34254eedbd5d5a4991fbc400074b37e5c8d715f58e1e13f03",
+  "originHash" : "1832bd5028f35b59b9109035fb5b2b44e34f7654da56de21073d612eee85fe18",
   "pins" : [
     {
       "identity" : "hydrogenreporter",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "pull-out-ui",
         "revision" : "5f9b126e720061c45e7f56a3163fd01bb550719c"
+      }
+    },
+    {
+      "identity" : "modernsettings",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ActuallyTaylor/ModernSettings",
+      "state" : {
+        "revision" : "378ec6851193416e51c4c2d8f7012e55fdc7d2df",
+        "version" : "1.2.0"
       }
     },
     {

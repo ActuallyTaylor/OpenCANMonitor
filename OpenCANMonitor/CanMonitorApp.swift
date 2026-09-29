@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ModernSettingsWindow
 
 enum WindowID: String {
     case startup = "Startup"

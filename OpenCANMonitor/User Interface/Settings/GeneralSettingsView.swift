@@ -26,7 +26,7 @@ struct GeneralSettingsView: View {
                         .tag(interface)
                 }
             }
-            .onChange(of: usbBus) { newValue in
+            .onChange(of: usbBus) { _, newValue in
                 defaultBus = USBBus.allCases.firstIndex(of: newValue)!
             }
             
@@ -36,7 +36,7 @@ struct GeneralSettingsView: View {
                         .tag(rate)
                 }
             }
-            .onChange(of: baudRate) { newValue in
+            .onChange(of: baudRate) { _, newValue in
                 defaultBaud = BaudRate.allCases.firstIndex(of: newValue)!
             }
         }
